@@ -1,0 +1,7 @@
+{"time":"2025-05-10T18:44:59.458162875+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/wandb/run-20250510_184459-lx67rgt0/logs/debug-core.log"}
+{"time":"2025-05-10T18:44:59.562946727+05:30","level":"INFO","msg":"created new stream","id":"lx67rgt0"}
+{"time":"2025-05-10T18:44:59.562981713+05:30","level":"INFO","msg":"stream: started","id":"lx67rgt0"}
+{"time":"2025-05-10T18:44:59.563009893+05:30","level":"INFO","msg":"sender: started","stream_id":"lx67rgt0"}
+{"time":"2025-05-10T18:44:59.563002562+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"lx67rgt0"}
+{"time":"2025-05-10T18:44:59.563023435+05:30","level":"INFO","msg":"handler: started","stream_id":"lx67rgt0"}
+{"time":"2025-05-10T18:45:00.024266683+05:30","level":"INFO","msg":"Starting system monitor"}

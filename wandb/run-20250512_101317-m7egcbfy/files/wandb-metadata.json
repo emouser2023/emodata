@@ -1,0 +1,38 @@
+{
+  "os":  "Linux-4.18.0-348.el8.0.2.x86_64-x86_64-with-glibc2.17",
+  "python":  "CPython 3.8.20",
+  "startedAt":  "2025-05-12T04:43:17.677024Z",
+  "program":  "train_new.py",
+  "codePath":  "train_new.py",
+  "email":  "sania.22eez0012@iitrpr.ac.in",
+  "root":  "/home/cvpr_phd_1/1_split_Emotion_multi_model_CLIP-main",
+  "host":  "master",
+  "executable":  "/home/cvpr_phd_1/.conda/envs/action_clip/bin/python",
+  "codePathLocal":  "train_new.py",
+  "cpu_count":  28,
+  "cpu_count_logical":  56,
+  "gpu":  "NVIDIA RTX A6000",
+  "gpu_count":  1,
+  "disk":  {
+    "/":  {
+      "total":  "983067262976",
+      "used":  "181280292864"
+    }
+  },
+  "memory":  {
+    "total":  "269787987968"
+  },
+  "cpu":  {
+    "count":  28,
+    "countLogical":  56
+  },
+  "gpu_nvidia":  [
+    {
+      "name":  "NVIDIA RTX A6000",
+      "memoryTotal":  "51527024640",
+      "cudaCores":  10752,
+      "architecture":  "Ampere"
+    }
+  ],
+  "cudaVersion":  "12.4"
+}

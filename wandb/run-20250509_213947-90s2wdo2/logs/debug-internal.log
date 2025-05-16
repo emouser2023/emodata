@@ -1,0 +1,7 @@
+{"time":"2025-05-09T21:39:47.142954723+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/wandb/run-20250509_213947-90s2wdo2/logs/debug-core.log"}
+{"time":"2025-05-09T21:39:47.249022415+05:30","level":"INFO","msg":"created new stream","id":"90s2wdo2"}
+{"time":"2025-05-09T21:39:47.249060261+05:30","level":"INFO","msg":"stream: started","id":"90s2wdo2"}
+{"time":"2025-05-09T21:39:47.249105504+05:30","level":"INFO","msg":"handler: started","stream_id":"90s2wdo2"}
+{"time":"2025-05-09T21:39:47.249091889+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"90s2wdo2"}
+{"time":"2025-05-09T21:39:47.249360937+05:30","level":"INFO","msg":"sender: started","stream_id":"90s2wdo2"}
+{"time":"2025-05-09T21:39:47.845169856+05:30","level":"INFO","msg":"Starting system monitor"}

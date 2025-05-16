@@ -1,0 +1,131 @@
+{
+    "os": "Linux-5.15.0-58-generic-x86_64-with-glibc2.35",
+    "python": "3.9.18",
+    "heartbeatAt": "2025-05-07T21:14:34.213669",
+    "startedAt": "2025-05-07T21:14:33.304415",
+    "docker": null,
+    "cuda": null,
+    "args": [
+        "--config",
+        "/media/sdb_access/Emotion_multi_model_CLIP/configs/emotion_clip.yaml"
+    ],
+    "state": "running",
+    "program": "/media/sdb_access/Emotion_multi_model_CLIP/train_new.py",
+    "codePathLocal": null,
+    "codePath": "train_new.py",
+    "git": {
+        "remote": "https://github.com/Shahzadnit/ActionCLIP_new.git",
+        "commit": "9cea4f3395e69bbf06bc757429226cd2b2c1725b"
+    },
+    "email": "shahzadnit@gmail.com.com",
+    "root": "/media/sdb_access/Emotion_multi_model_CLIP",
+    "host": "shahzaa-MS-7885",
+    "username": "shahzaa",
+    "executable": "/home/shahzaa/anaconda3/envs/Eva_clip_1/bin/python",
+    "cpu_count": 8,
+    "cpu_count_logical": 16,
+    "cpu_freq": {
+        "current": 1.7561874999999998,
+        "min": 1200.0,
+        "max": 3000.0
+    },
+    "cpu_freq_per_core": [
+        {
+            "current": 3.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 3.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.9,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.9,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2.1,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 2.0,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.9,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.199,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.9,
+            "min": 1200.0,
+            "max": 3000.0
+        },
+        {
+            "current": 1.2,
+            "min": 1200.0,
+            "max": 3000.0
+        }
+    ],
+    "disk": {
+        "/": {
+            "total": 456.8854446411133,
+            "used": 193.43360900878906
+        }
+    },
+    "gpu": "Quadro RTX 8000",
+    "gpu_count": 1,
+    "gpu_devices": [
+        {
+            "name": "Quadro RTX 8000",
+            "memory_total": 51539607552
+        }
+    ],
+    "memory": {
+        "total": 31.251495361328125
+    }
+}

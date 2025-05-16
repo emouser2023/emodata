@@ -1,0 +1,41 @@
+2025-02-18 18:48:13,827 INFO    MainThread:3174030 [internal.py:wandb_internal():86] W&B internal server running at pid: 3174030, started at: 2025-02-18 18:48:13.826796
+2025-02-18 18:48:13,834 INFO    WriterThread:3174030 [datastore.py:open_for_write():77] open: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/run-3mwn6pde.wandb
+2025-02-18 18:48:13,836 DEBUG   HandlerThread:3174030 [handler.py:handle_request():128] handle_request: check_version
+2025-02-18 18:48:13,839 DEBUG   SenderThread:3174030 [sender.py:send():182] send: header
+2025-02-18 18:48:13,840 DEBUG   SenderThread:3174030 [sender.py:send_request():196] send_request: check_version
+2025-02-18 18:48:13,932 DEBUG   SenderThread:3174030 [sender.py:send():182] send: run
+2025-02-18 18:48:14,417 DEBUG   HandlerThread:3174030 [handler.py:handle_request():128] handle_request: run_start
+2025-02-18 18:48:14,421 INFO    SenderThread:3174030 [dir_watcher.py:__init__():168] watching files in: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files
+2025-02-18 18:48:14,421 INFO    SenderThread:3174030 [sender.py:_start_run_threads():740] run started: 3mwn6pde with start time 1739900891
+2025-02-18 18:48:14,422 DEBUG   SenderThread:3174030 [sender.py:send():182] send: summary
+2025-02-18 18:48:14,423 INFO    SenderThread:3174030 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2025-02-18 18:48:14,436 DEBUG   HandlerThread:3174030 [meta.py:__init__():39] meta init
+2025-02-18 18:48:14,437 DEBUG   HandlerThread:3174030 [meta.py:__init__():53] meta init done
+2025-02-18 18:48:14,437 DEBUG   HandlerThread:3174030 [meta.py:probe():210] probe
+2025-02-18 18:48:14,447 DEBUG   HandlerThread:3174030 [meta.py:_setup_git():200] setup git
+2025-02-18 18:48:14,473 DEBUG   HandlerThread:3174030 [meta.py:_setup_git():207] setup git done
+2025-02-18 18:48:14,474 DEBUG   HandlerThread:3174030 [meta.py:_save_pip():57] save pip
+2025-02-18 18:48:14,478 DEBUG   HandlerThread:3174030 [meta.py:_save_pip():71] save pip done
+2025-02-18 18:48:14,479 DEBUG   HandlerThread:3174030 [meta.py:_save_conda():78] save conda
+2025-02-18 18:48:15,437 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/requirements.txt
+2025-02-18 18:48:15,438 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/wandb-summary.json
+2025-02-18 18:48:15,439 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/conda-environment.yaml
+2025-02-18 18:48:20,426 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/output.log
+2025-02-18 18:48:22,428 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/output.log
+2025-02-18 18:48:24,429 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/output.log
+2025-02-18 18:48:25,175 DEBUG   HandlerThread:3174030 [meta.py:_save_conda():86] save conda done
+2025-02-18 18:48:25,175 DEBUG   HandlerThread:3174030 [meta.py:probe():252] probe done
+2025-02-18 18:48:25,334 DEBUG   HandlerThread:3174030 [handler.py:handle_request():128] handle_request: stop_status
+2025-02-18 18:48:25,336 DEBUG   SenderThread:3174030 [sender.py:send_request():196] send_request: stop_status
+2025-02-18 18:48:25,430 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/conda-environment.yaml
+2025-02-18 18:48:25,431 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/wandb-metadata.json
+2025-02-18 18:48:25,626 DEBUG   SenderThread:3174030 [sender.py:send():182] send: files
+2025-02-18 18:48:25,627 INFO    SenderThread:3174030 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2025-02-18 18:48:26,243 INFO    Thread-16 :3174030 [upload_job.py:push():137] Uploaded file /tmp/tmpl6le54tbwandb/1c2pqkve-wandb-metadata.json
+2025-02-18 18:48:26,431 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/output.log
+2025-02-18 18:48:28,433 INFO    Thread-13 :3174030 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/.vscode/wandb/run-20250218_184811-3mwn6pde/files/output.log
+2025-02-18 18:48:40,632 DEBUG   HandlerThread:3174030 [handler.py:handle_request():128] handle_request: stop_status
+2025-02-18 18:48:40,633 DEBUG   SenderThread:3174030 [sender.py:send_request():196] send_request: stop_status
+2025-02-18 18:48:42,995 DEBUG   SenderThread:3174030 [sender.py:send():182] send: stats
+2025-02-18 18:48:55,950 DEBUG   HandlerThread:3174030 [handler.py:handle_request():128] handle_request: stop_status
+2025-02-18 18:48:55,951 DEBUG   SenderThread:3174030 [sender.py:send_request():196] send_request: stop_status

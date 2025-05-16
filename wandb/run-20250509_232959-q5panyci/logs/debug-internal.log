@@ -1,0 +1,7 @@
+{"time":"2025-05-09T23:29:59.481723433+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/wandb/run-20250509_232959-q5panyci/logs/debug-core.log"}
+{"time":"2025-05-09T23:29:59.587324964+05:30","level":"INFO","msg":"created new stream","id":"q5panyci"}
+{"time":"2025-05-09T23:29:59.587360962+05:30","level":"INFO","msg":"stream: started","id":"q5panyci"}
+{"time":"2025-05-09T23:29:59.587380098+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"q5panyci"}
+{"time":"2025-05-09T23:29:59.587386898+05:30","level":"INFO","msg":"handler: started","stream_id":"q5panyci"}
+{"time":"2025-05-09T23:29:59.587655855+05:30","level":"INFO","msg":"sender: started","stream_id":"q5panyci"}
+{"time":"2025-05-09T23:30:00.068050422+05:30","level":"INFO","msg":"Starting system monitor"}

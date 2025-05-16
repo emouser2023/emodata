@@ -1,0 +1,90 @@
+2025-04-08 06:31:18,522 INFO    StreamThr :2676258 [internal.py:wandb_internal():86] W&B internal server running at pid: 2676258, started at: 2025-04-08 06:31:18.520092
+2025-04-08 06:31:18,528 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status
+2025-04-08 06:31:18,537 INFO    WriterThread:2676258 [datastore.py:open_for_write():85] open: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/run-9b0glo0n.wandb
+2025-04-08 06:31:18,538 DEBUG   SenderThread:2676258 [sender.py:send():380] send: header
+2025-04-08 06:31:18,566 DEBUG   SenderThread:2676258 [sender.py:send():380] send: run
+2025-04-08 06:31:19,174 INFO    SenderThread:2676258 [dir_watcher.py:__init__():211] watching files in: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files
+2025-04-08 06:31:19,175 INFO    SenderThread:2676258 [sender.py:_start_run_threads():1124] run started: 9b0glo0n with start time 1744086678.520778
+2025-04-08 06:31:19,226 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: check_version
+2025-04-08 06:31:19,227 DEBUG   SenderThread:2676258 [sender.py:send_request():407] send_request: check_version
+2025-04-08 06:31:19,380 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: run_start
+2025-04-08 06:31:19,399 DEBUG   HandlerThread:2676258 [system_info.py:__init__():32] System info init
+2025-04-08 06:31:19,399 DEBUG   HandlerThread:2676258 [system_info.py:__init__():47] System info init done
+2025-04-08 06:31:19,400 INFO    HandlerThread:2676258 [system_monitor.py:start():194] Starting system monitor
+2025-04-08 06:31:19,401 INFO    HandlerThread:2676258 [system_monitor.py:probe():214] Collecting system info
+2025-04-08 06:31:19,402 INFO    SystemMonitor:2676258 [system_monitor.py:_start():158] Starting system asset monitoring threads
+2025-04-08 06:31:19,405 INFO    SystemMonitor:2676258 [interfaces.py:start():190] Started cpu monitoring
+2025-04-08 06:31:19,411 INFO    SystemMonitor:2676258 [interfaces.py:start():190] Started disk monitoring
+2025-04-08 06:31:19,415 INFO    SystemMonitor:2676258 [interfaces.py:start():190] Started gpu monitoring
+2025-04-08 06:31:19,418 INFO    SystemMonitor:2676258 [interfaces.py:start():190] Started memory monitoring
+2025-04-08 06:31:19,421 INFO    SystemMonitor:2676258 [interfaces.py:start():190] Started network monitoring
+2025-04-08 06:31:19,455 DEBUG   HandlerThread:2676258 [system_info.py:probe():196] Probing system
+2025-04-08 06:31:19,466 DEBUG   HandlerThread:2676258 [system_info.py:_probe_git():181] Probing git
+2025-04-08 06:31:19,489 DEBUG   HandlerThread:2676258 [system_info.py:_probe_git():189] Probing git done
+2025-04-08 06:31:19,490 DEBUG   HandlerThread:2676258 [system_info.py:probe():244] Probing system done
+2025-04-08 06:31:19,490 DEBUG   HandlerThread:2676258 [system_monitor.py:probe():223] {'os': 'Linux-5.15.0-58-generic-x86_64-with-glibc2.35', 'python': '3.9.18', 'heartbeatAt': '2025-04-08T04:31:19.456048', 'startedAt': '2025-04-08T04:31:18.499916', 'docker': None, 'cuda': None, 'args': ('--config', '/media/sdb_access/Emotion_multi_model_CLIP/configs/emotion_clip.yaml'), 'state': 'running', 'program': '/media/sdb_access/Emotion_multi_model_CLIP/train_new.py', 'codePathLocal': None, 'codePath': 'train_new.py', 'git': {'remote': 'https://github.com/Shahzadnit/ActionCLIP_new.git', 'commit': '9cea4f3395e69bbf06bc757429226cd2b2c1725b'}, 'email': 'shahzadnit@gmail.com.com', 'root': '/media/sdb_access/Emotion_multi_model_CLIP', 'host': 'shahzaa-MS-7885', 'username': 'shahzaa', 'executable': '/home/shahzaa/anaconda3/envs/Eva_clip_1/bin/python', 'cpu_count': 8, 'cpu_count_logical': 16, 'cpu_freq': {'current': 1.8059374999999998, 'min': 1200.0, 'max': 3000.0}, 'cpu_freq_per_core': [{'current': 3.0, 'min': 1200.0, 'max': 3000.0}, {'current': 2.0, 'min': 1200.0, 'max': 3000.0}, {'current': 1.2, 'min': 1200.0, 'max': 3000.0}, {'current': 1.2, 'min': 1200.0, 'max': 3000.0}, {'current': 1.9, 'min': 1200.0, 'max': 3000.0}, {'current': 1.2, 'min': 1200.0, 'max': 3000.0}, {'current': 3.0, 'min': 1200.0, 'max': 3000.0}, {'current': 1.9, 'min': 1200.0, 'max': 3000.0}, {'current': 1.9, 'min': 1200.0, 'max': 3000.0}, {'current': 1.9, 'min': 1200.0, 'max': 3000.0}, {'current': 2.0, 'min': 1200.0, 'max': 3000.0}, {'current': 1.795, 'min': 1200.0, 'max': 3000.0}, {'current': 1.2, 'min': 1200.0, 'max': 3000.0}, {'current': 2.3, 'min': 1200.0, 'max': 3000.0}, {'current': 1.2, 'min': 1200.0, 'max': 3000.0}, {'current': 1.2, 'min': 1200.0, 'max': 3000.0}], 'disk': {'/': {'total': 456.8854446411133, 'used': 196.66870498657227}}, 'gpu': 'Quadro RTX 8000', 'gpu_count': 1, 'gpu_devices': [{'name': 'Quadro RTX 8000', 'memory_total': 51539607552}], 'memory': {'total': 31.251495361328125}}
+2025-04-08 06:31:19,490 INFO    HandlerThread:2676258 [system_monitor.py:probe():224] Finished collecting system info
+2025-04-08 06:31:19,490 INFO    HandlerThread:2676258 [system_monitor.py:probe():227] Publishing system info
+2025-04-08 06:31:19,490 DEBUG   HandlerThread:2676258 [system_info.py:_save_pip():52] Saving list of pip packages installed into the current environment
+2025-04-08 06:31:19,492 DEBUG   HandlerThread:2676258 [system_info.py:_save_pip():68] Saving pip packages done
+2025-04-08 06:31:19,492 DEBUG   HandlerThread:2676258 [system_info.py:_save_conda():75] Saving list of conda packages installed into the current environment
+2025-04-08 06:31:20,185 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_created():271] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/requirements.txt
+2025-04-08 06:31:20,186 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_created():271] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/conda-environment.yaml
+2025-04-08 06:31:30,139 DEBUG   HandlerThread:2676258 [system_info.py:_save_conda():87] Saving conda packages done
+2025-04-08 06:31:30,143 INFO    HandlerThread:2676258 [system_monitor.py:probe():229] Finished publishing system info
+2025-04-08 06:31:30,157 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:31:30,157 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: keepalive
+2025-04-08 06:31:30,158 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:31:30,159 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: keepalive
+2025-04-08 06:31:30,160 DEBUG   SenderThread:2676258 [sender.py:send():380] send: files
+2025-04-08 06:31:30,161 INFO    SenderThread:2676258 [sender.py:_save_file():1380] saving file wandb-metadata.json with policy now
+2025-04-08 06:31:30,182 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/conda-environment.yaml
+2025-04-08 06:31:30,183 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_created():271] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/wandb-metadata.json
+2025-04-08 06:31:30,185 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: stop_status
+2025-04-08 06:31:30,186 DEBUG   SenderThread:2676258 [sender.py:send_request():407] send_request: stop_status
+2025-04-08 06:31:30,194 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: internal_messages
+2025-04-08 06:31:30,531 DEBUG   SenderThread:2676258 [sender.py:send():380] send: telemetry
+2025-04-08 06:31:30,827 INFO    wandb-upload_0:2676258 [upload_job.py:push():131] Uploaded file /tmp/tmpf27hqzn5wandb/rwc4ja5u-wandb-metadata.json
+2025-04-08 06:31:31,183 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_created():271] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/output.log
+2025-04-08 06:31:33,184 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/output.log
+2025-04-08 06:31:34,754 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:31:35,186 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/output.log
+2025-04-08 06:31:35,903 DEBUG   SenderThread:2676258 [sender.py:send():380] send: telemetry
+2025-04-08 06:31:37,187 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/output.log
+2025-04-08 06:31:38,188 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/output.log
+2025-04-08 06:31:39,189 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/output.log
+2025-04-08 06:31:40,189 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/output.log
+2025-04-08 06:31:40,551 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:31:45,185 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: stop_status
+2025-04-08 06:31:45,186 DEBUG   SenderThread:2676258 [sender.py:send_request():407] send_request: stop_status
+2025-04-08 06:31:45,195 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: internal_messages
+2025-04-08 06:31:46,475 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:31:51,481 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:31:52,202 INFO    Thread-17 :2676258 [dir_watcher.py:_on_file_modified():288] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250408_063118-9b0glo0n/files/config.yaml
+2025-04-08 06:31:56,749 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:00,186 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: stop_status
+2025-04-08 06:32:00,187 DEBUG   SenderThread:2676258 [sender.py:send_request():407] send_request: stop_status
+2025-04-08 06:32:00,227 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: internal_messages
+2025-04-08 06:32:02,407 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:07,408 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:12,409 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:15,186 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: stop_status
+2025-04-08 06:32:15,187 DEBUG   SenderThread:2676258 [sender.py:send_request():407] send_request: stop_status
+2025-04-08 06:32:15,227 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: internal_messages
+2025-04-08 06:32:17,420 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:19,421 DEBUG   SystemMonitor:2676258 [system_monitor.py:_start():172] Starting system metrics aggregation loop
+2025-04-08 06:32:19,427 DEBUG   SenderThread:2676258 [sender.py:send():380] send: stats
+2025-04-08 06:32:22,429 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:27,430 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:30,186 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: stop_status
+2025-04-08 06:32:30,187 DEBUG   SenderThread:2676258 [sender.py:send_request():407] send_request: stop_status
+2025-04-08 06:32:30,227 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: internal_messages
+2025-04-08 06:32:33,421 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:38,422 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:43,423 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:45,186 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: stop_status
+2025-04-08 06:32:45,187 DEBUG   SenderThread:2676258 [sender.py:send_request():407] send_request: stop_status
+2025-04-08 06:32:45,227 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: internal_messages
+2025-04-08 06:32:49,417 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report
+2025-04-08 06:32:49,430 DEBUG   SenderThread:2676258 [sender.py:send():380] send: stats
+2025-04-08 06:32:54,433 DEBUG   HandlerThread:2676258 [handler.py:handle_request():146] handle_request: status_report

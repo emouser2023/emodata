@@ -1,0 +1,1053 @@
+--------------------------------------------------------------------------------
+                     working dir: /media/sdb_access/Emotion_multi_model_CLIP/EXP/clip_hmdb_32_frame/ViT-B/32/hmdb51/HMDB_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/clip_json_test/',
+                'base_video_path': '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/test_videos_clips/',
+                'batch_size': 10,
+                'dataset': 'hmdb51',
+                'gpus': 2,
+                'image_tmpl': 'img_{:05d}.jpg',
+                'index_bias': 1,
+                'input_size': 224,
+                'label_list': '/media/sdb_access/Emotion_multi_model_CLIP/lists/hmdb51_labels.csv',
+                'modality': 'RGB',
+                'num_classes': 51,
+                'num_segments': 8,
+                'randaug': {'M': 0, 'N': 0},
+                'root_path': '/media/sdb_access/HMDB_51/all_video',
+                'seg_length': 1,
+                'split': 1,
+                'train_list': '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/clip_json_test_list.txt',
+                'val_list': '/media/sdb_access/Emotion_multi_model_CLIP/dataset_splits/HMDB/Zero_shot/test.txt',
+                'workers': 8},
+    'logging': {'eval_freq': 1, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/32',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_hmdb_32_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'HMDB_training',
+    'weight_save_dir': '/media/sdb_access/Emotion_multi_model_CLIP/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0]
+loading clip pretrained model!
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7efc7bbdfa90>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7efc7bbdfee0>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7efc7bbdffd0>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7efc7bbdff70>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7efc7bbdfeb0>
+    <datasets.transforms_ss.GroupSolarization object at 0x7efc7bbdfe50>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7efc7bbdfd60>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7efc7bbdfc40>
+    <datasets.transforms_ss.GroupNormalize object at 0x7efc7bbdfbe0>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7efc7bbdfb20>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7efc7bbdfa30>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7efc7bbdf8e0>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7efc7bbdf880>
+    <datasets.transforms_ss.GroupNormalize object at 0x7efc7bbdf2e0>
+)]
+layer=6
+CLIP_model Trainable Parameters: 174.777M
+Fusion model Trainable Parameters: 18.954M
+=========using KL Loss=and has temperature and * bz==========
+=========using KL Loss=and has temperature and * bz==========
+5e-06
+5e-06
+5e-05
+AdamW
+positional_embedding: True
+text_projection: True
+logit_scale: True
+visual.class_embedding: True
+visual.positional_embedding: True
+visual.proj: True
+visual.conv1.weight: True
+visual.ln_pre.weight: True
+visual.ln_pre.bias: True
+visual.transformer.resblocks.0.attn.in_proj_weight: True
+visual.transformer.resblocks.0.attn.in_proj_bias: True
+visual.transformer.resblocks.0.attn.out_proj.weight: True
+visual.transformer.resblocks.0.attn.out_proj.bias: True
+visual.transformer.resblocks.0.ln_1.weight: True
+visual.transformer.resblocks.0.ln_1.bias: True
+visual.transformer.resblocks.0.mlp.c_fc.weight: True
+visual.transformer.resblocks.0.mlp.c_fc.bias: True
+visual.transformer.resblocks.0.mlp.c_proj.weight: True
+visual.transformer.resblocks.0.mlp.c_proj.bias: True
+visual.transformer.resblocks.0.ln_2.weight: True
+visual.transformer.resblocks.0.ln_2.bias: True
+visual.transformer.resblocks.1.attn.in_proj_weight: True
+visual.transformer.resblocks.1.attn.in_proj_bias: True
+visual.transformer.resblocks.1.attn.out_proj.weight: True
+visual.transformer.resblocks.1.attn.out_proj.bias: True
+visual.transformer.resblocks.1.ln_1.weight: True
+visual.transformer.resblocks.1.ln_1.bias: True
+visual.transformer.resblocks.1.mlp.c_fc.weight: True
+visual.transformer.resblocks.1.mlp.c_fc.bias: True
+visual.transformer.resblocks.1.mlp.c_proj.weight: True
+visual.transformer.resblocks.1.mlp.c_proj.bias: True
+visual.transformer.resblocks.1.ln_2.weight: True
+visual.transformer.resblocks.1.ln_2.bias: True
+visual.transformer.resblocks.2.attn.in_proj_weight: True
+visual.transformer.resblocks.2.attn.in_proj_bias: True
+visual.transformer.resblocks.2.attn.out_proj.weight: True
+visual.transformer.resblocks.2.attn.out_proj.bias: True
+visual.transformer.resblocks.2.ln_1.weight: True
+visual.transformer.resblocks.2.ln_1.bias: True
+visual.transformer.resblocks.2.mlp.c_fc.weight: True
+visual.transformer.resblocks.2.mlp.c_fc.bias: True
+visual.transformer.resblocks.2.mlp.c_proj.weight: True
+visual.transformer.resblocks.2.mlp.c_proj.bias: True
+visual.transformer.resblocks.2.ln_2.weight: True
+visual.transformer.resblocks.2.ln_2.bias: True
+visual.transformer.resblocks.3.attn.in_proj_weight: True
+visual.transformer.resblocks.3.attn.in_proj_bias: True
+visual.transformer.resblocks.3.attn.out_proj.weight: True
+visual.transformer.resblocks.3.attn.out_proj.bias: True
+visual.transformer.resblocks.3.ln_1.weight: True
+visual.transformer.resblocks.3.ln_1.bias: True
+visual.transformer.resblocks.3.mlp.c_fc.weight: True
+visual.transformer.resblocks.3.mlp.c_fc.bias: True
+visual.transformer.resblocks.3.mlp.c_proj.weight: True
+visual.transformer.resblocks.3.mlp.c_proj.bias: True
+visual.transformer.resblocks.3.ln_2.weight: True
+visual.transformer.resblocks.3.ln_2.bias: True
+visual.transformer.resblocks.4.attn.in_proj_weight: True
+visual.transformer.resblocks.4.attn.in_proj_bias: True
+visual.transformer.resblocks.4.attn.out_proj.weight: True
+visual.transformer.resblocks.4.attn.out_proj.bias: True
+visual.transformer.resblocks.4.ln_1.weight: True
+visual.transformer.resblocks.4.ln_1.bias: True
+visual.transformer.resblocks.4.mlp.c_fc.weight: True
+visual.transformer.resblocks.4.mlp.c_fc.bias: True
+visual.transformer.resblocks.4.mlp.c_proj.weight: True
+visual.transformer.resblocks.4.mlp.c_proj.bias: True
+visual.transformer.resblocks.4.ln_2.weight: True
+visual.transformer.resblocks.4.ln_2.bias: True
+visual.transformer.resblocks.5.attn.in_proj_weight: True
+visual.transformer.resblocks.5.attn.in_proj_bias: True
+visual.transformer.resblocks.5.attn.out_proj.weight: True
+visual.transformer.resblocks.5.attn.out_proj.bias: True
+visual.transformer.resblocks.5.ln_1.weight: True
+visual.transformer.resblocks.5.ln_1.bias: True
+visual.transformer.resblocks.5.mlp.c_fc.weight: True
+visual.transformer.resblocks.5.mlp.c_fc.bias: True
+visual.transformer.resblocks.5.mlp.c_proj.weight: True
+visual.transformer.resblocks.5.mlp.c_proj.bias: True
+visual.transformer.resblocks.5.ln_2.weight: True
+visual.transformer.resblocks.5.ln_2.bias: True
+visual.transformer.resblocks.6.attn.in_proj_weight: True
+visual.transformer.resblocks.6.attn.in_proj_bias: True
+visual.transformer.resblocks.6.attn.out_proj.weight: True
+visual.transformer.resblocks.6.attn.out_proj.bias: True
+visual.transformer.resblocks.6.ln_1.weight: True
+visual.transformer.resblocks.6.ln_1.bias: True
+visual.transformer.resblocks.6.mlp.c_fc.weight: True
+visual.transformer.resblocks.6.mlp.c_fc.bias: True
+visual.transformer.resblocks.6.mlp.c_proj.weight: True
+visual.transformer.resblocks.6.mlp.c_proj.bias: True
+visual.transformer.resblocks.6.ln_2.weight: True
+visual.transformer.resblocks.6.ln_2.bias: True
+visual.transformer.resblocks.7.attn.in_proj_weight: True
+visual.transformer.resblocks.7.attn.in_proj_bias: True
+visual.transformer.resblocks.7.attn.out_proj.weight: True
+visual.transformer.resblocks.7.attn.out_proj.bias: True
+visual.transformer.resblocks.7.ln_1.weight: True
+visual.transformer.resblocks.7.ln_1.bias: True
+visual.transformer.resblocks.7.mlp.c_fc.weight: True
+visual.transformer.resblocks.7.mlp.c_fc.bias: True
+visual.transformer.resblocks.7.mlp.c_proj.weight: True
+visual.transformer.resblocks.7.mlp.c_proj.bias: True
+visual.transformer.resblocks.7.ln_2.weight: True
+visual.transformer.resblocks.7.ln_2.bias: True
+visual.transformer.resblocks.8.attn.in_proj_weight: True
+visual.transformer.resblocks.8.attn.in_proj_bias: True
+visual.transformer.resblocks.8.attn.out_proj.weight: True
+visual.transformer.resblocks.8.attn.out_proj.bias: True
+visual.transformer.resblocks.8.ln_1.weight: True
+visual.transformer.resblocks.8.ln_1.bias: True
+visual.transformer.resblocks.8.mlp.c_fc.weight: True
+visual.transformer.resblocks.8.mlp.c_fc.bias: True
+visual.transformer.resblocks.8.mlp.c_proj.weight: True
+visual.transformer.resblocks.8.mlp.c_proj.bias: True
+visual.transformer.resblocks.8.ln_2.weight: True
+visual.transformer.resblocks.8.ln_2.bias: True
+visual.transformer.resblocks.9.attn.in_proj_weight: True
+visual.transformer.resblocks.9.attn.in_proj_bias: True
+visual.transformer.resblocks.9.attn.out_proj.weight: True
+visual.transformer.resblocks.9.attn.out_proj.bias: True
+visual.transformer.resblocks.9.ln_1.weight: True
+visual.transformer.resblocks.9.ln_1.bias: True
+visual.transformer.resblocks.9.mlp.c_fc.weight: True
+visual.transformer.resblocks.9.mlp.c_fc.bias: True
+visual.transformer.resblocks.9.mlp.c_proj.weight: True
+visual.transformer.resblocks.9.mlp.c_proj.bias: True
+visual.transformer.resblocks.9.ln_2.weight: True
+visual.transformer.resblocks.9.ln_2.bias: True
+visual.transformer.resblocks.10.attn.in_proj_weight: True
+visual.transformer.resblocks.10.attn.in_proj_bias: True
+visual.transformer.resblocks.10.attn.out_proj.weight: True
+visual.transformer.resblocks.10.attn.out_proj.bias: True
+visual.transformer.resblocks.10.ln_1.weight: True
+visual.transformer.resblocks.10.ln_1.bias: True
+visual.transformer.resblocks.10.mlp.c_fc.weight: True
+visual.transformer.resblocks.10.mlp.c_fc.bias: True
+visual.transformer.resblocks.10.mlp.c_proj.weight: True
+visual.transformer.resblocks.10.mlp.c_proj.bias: True
+visual.transformer.resblocks.10.ln_2.weight: True
+visual.transformer.resblocks.10.ln_2.bias: True
+visual.transformer.resblocks.11.attn.in_proj_weight: True
+visual.transformer.resblocks.11.attn.in_proj_bias: True
+visual.transformer.resblocks.11.attn.out_proj.weight: True
+visual.transformer.resblocks.11.attn.out_proj.bias: True
+visual.transformer.resblocks.11.ln_1.weight: True
+visual.transformer.resblocks.11.ln_1.bias: True
+visual.transformer.resblocks.11.mlp.c_fc.weight: True
+visual.transformer.resblocks.11.mlp.c_fc.bias: True
+visual.transformer.resblocks.11.mlp.c_proj.weight: True
+visual.transformer.resblocks.11.mlp.c_proj.bias: True
+visual.transformer.resblocks.11.ln_2.weight: True
+visual.transformer.resblocks.11.ln_2.bias: True
+visual.ln_post.weight: True
+visual.ln_post.bias: True
+transformer.resblocks.0.attn.in_proj_weight: True
+transformer.resblocks.0.attn.in_proj_bias: True
+transformer.resblocks.0.attn.out_proj.weight: True
+transformer.resblocks.0.attn.out_proj.bias: True
+transformer.resblocks.0.ln_1.weight: True
+transformer.resblocks.0.ln_1.bias: True
+transformer.resblocks.0.mlp.c_fc.weight: True
+transformer.resblocks.0.mlp.c_fc.bias: True
+transformer.resblocks.0.mlp.c_proj.weight: True
+transformer.resblocks.0.mlp.c_proj.bias: True
+transformer.resblocks.0.ln_2.weight: True
+transformer.resblocks.0.ln_2.bias: True
+transformer.resblocks.1.attn.in_proj_weight: True
+transformer.resblocks.1.attn.in_proj_bias: True
+transformer.resblocks.1.attn.out_proj.weight: True
+transformer.resblocks.1.attn.out_proj.bias: True
+transformer.resblocks.1.ln_1.weight: True
+transformer.resblocks.1.ln_1.bias: True
+transformer.resblocks.1.mlp.c_fc.weight: True
+transformer.resblocks.1.mlp.c_fc.bias: True
+transformer.resblocks.1.mlp.c_proj.weight: True
+transformer.resblocks.1.mlp.c_proj.bias: True
+transformer.resblocks.1.ln_2.weight: True
+transformer.resblocks.1.ln_2.bias: True
+transformer.resblocks.2.attn.in_proj_weight: True
+transformer.resblocks.2.attn.in_proj_bias: True
+transformer.resblocks.2.attn.out_proj.weight: True
+transformer.resblocks.2.attn.out_proj.bias: True
+transformer.resblocks.2.ln_1.weight: True
+transformer.resblocks.2.ln_1.bias: True
+transformer.resblocks.2.mlp.c_fc.weight: True
+transformer.resblocks.2.mlp.c_fc.bias: True
+transformer.resblocks.2.mlp.c_proj.weight: True
+transformer.resblocks.2.mlp.c_proj.bias: True
+transformer.resblocks.2.ln_2.weight: True
+transformer.resblocks.2.ln_2.bias: True
+transformer.resblocks.3.attn.in_proj_weight: True
+transformer.resblocks.3.attn.in_proj_bias: True
+transformer.resblocks.3.attn.out_proj.weight: True
+transformer.resblocks.3.attn.out_proj.bias: True
+transformer.resblocks.3.ln_1.weight: True
+transformer.resblocks.3.ln_1.bias: True
+transformer.resblocks.3.mlp.c_fc.weight: True
+transformer.resblocks.3.mlp.c_fc.bias: True
+transformer.resblocks.3.mlp.c_proj.weight: True
+transformer.resblocks.3.mlp.c_proj.bias: True
+transformer.resblocks.3.ln_2.weight: True
+transformer.resblocks.3.ln_2.bias: True
+transformer.resblocks.4.attn.in_proj_weight: True
+transformer.resblocks.4.attn.in_proj_bias: True
+transformer.resblocks.4.attn.out_proj.weight: True
+transformer.resblocks.4.attn.out_proj.bias: True
+transformer.resblocks.4.ln_1.weight: True
+transformer.resblocks.4.ln_1.bias: True
+transformer.resblocks.4.mlp.c_fc.weight: True
+transformer.resblocks.4.mlp.c_fc.bias: True
+transformer.resblocks.4.mlp.c_proj.weight: True
+transformer.resblocks.4.mlp.c_proj.bias: True
+transformer.resblocks.4.ln_2.weight: True
+transformer.resblocks.4.ln_2.bias: True
+transformer.resblocks.5.attn.in_proj_weight: True
+transformer.resblocks.5.attn.in_proj_bias: True
+transformer.resblocks.5.attn.out_proj.weight: True
+transformer.resblocks.5.attn.out_proj.bias: True
+transformer.resblocks.5.ln_1.weight: True
+transformer.resblocks.5.ln_1.bias: True
+transformer.resblocks.5.mlp.c_fc.weight: True
+transformer.resblocks.5.mlp.c_fc.bias: True
+transformer.resblocks.5.mlp.c_proj.weight: True
+transformer.resblocks.5.mlp.c_proj.bias: True
+transformer.resblocks.5.ln_2.weight: True
+transformer.resblocks.5.ln_2.bias: True
+transformer.resblocks.6.attn.in_proj_weight: True
+transformer.resblocks.6.attn.in_proj_bias: True
+transformer.resblocks.6.attn.out_proj.weight: True
+transformer.resblocks.6.attn.out_proj.bias: True
+transformer.resblocks.6.ln_1.weight: True
+transformer.resblocks.6.ln_1.bias: True
+transformer.resblocks.6.mlp.c_fc.weight: True
+transformer.resblocks.6.mlp.c_fc.bias: True
+transformer.resblocks.6.mlp.c_proj.weight: True
+transformer.resblocks.6.mlp.c_proj.bias: True
+transformer.resblocks.6.ln_2.weight: True
+transformer.resblocks.6.ln_2.bias: True
+transformer.resblocks.7.attn.in_proj_weight: True
+transformer.resblocks.7.attn.in_proj_bias: True
+transformer.resblocks.7.attn.out_proj.weight: True
+transformer.resblocks.7.attn.out_proj.bias: True
+transformer.resblocks.7.ln_1.weight: True
+transformer.resblocks.7.ln_1.bias: True
+transformer.resblocks.7.mlp.c_fc.weight: True
+transformer.resblocks.7.mlp.c_fc.bias: True
+transformer.resblocks.7.mlp.c_proj.weight: True
+transformer.resblocks.7.mlp.c_proj.bias: True
+transformer.resblocks.7.ln_2.weight: True
+transformer.resblocks.7.ln_2.bias: True
+transformer.resblocks.8.attn.in_proj_weight: True
+transformer.resblocks.8.attn.in_proj_bias: True
+transformer.resblocks.8.attn.out_proj.weight: True
+transformer.resblocks.8.attn.out_proj.bias: True
+transformer.resblocks.8.ln_1.weight: True
+transformer.resblocks.8.ln_1.bias: True
+transformer.resblocks.8.mlp.c_fc.weight: True
+transformer.resblocks.8.mlp.c_fc.bias: True
+transformer.resblocks.8.mlp.c_proj.weight: True
+transformer.resblocks.8.mlp.c_proj.bias: True
+transformer.resblocks.8.ln_2.weight: True
+transformer.resblocks.8.ln_2.bias: True
+transformer.resblocks.9.attn.in_proj_weight: True
+transformer.resblocks.9.attn.in_proj_bias: True
+transformer.resblocks.9.attn.out_proj.weight: True
+transformer.resblocks.9.attn.out_proj.bias: True
+transformer.resblocks.9.ln_1.weight: True
+transformer.resblocks.9.ln_1.bias: True
+transformer.resblocks.9.mlp.c_fc.weight: True
+transformer.resblocks.9.mlp.c_fc.bias: True
+transformer.resblocks.9.mlp.c_proj.weight: True
+transformer.resblocks.9.mlp.c_proj.bias: True
+transformer.resblocks.9.ln_2.weight: True
+transformer.resblocks.9.ln_2.bias: True
+transformer.resblocks.10.attn.in_proj_weight: True
+transformer.resblocks.10.attn.in_proj_bias: True
+transformer.resblocks.10.attn.out_proj.weight: True
+transformer.resblocks.10.attn.out_proj.bias: True
+transformer.resblocks.10.ln_1.weight: True
+transformer.resblocks.10.ln_1.bias: True
+transformer.resblocks.10.mlp.c_fc.weight: True
+transformer.resblocks.10.mlp.c_fc.bias: True
+transformer.resblocks.10.mlp.c_proj.weight: True
+transformer.resblocks.10.mlp.c_proj.bias: True
+transformer.resblocks.10.ln_2.weight: True
+transformer.resblocks.10.ln_2.bias: True
+transformer.resblocks.11.attn.in_proj_weight: True
+transformer.resblocks.11.attn.in_proj_bias: True
+transformer.resblocks.11.attn.out_proj.weight: True
+transformer.resblocks.11.attn.out_proj.bias: True
+transformer.resblocks.11.ln_1.weight: True
+transformer.resblocks.11.ln_1.bias: True
+transformer.resblocks.11.mlp.c_fc.weight: True
+transformer.resblocks.11.mlp.c_fc.bias: True
+transformer.resblocks.11.mlp.c_proj.weight: True
+transformer.resblocks.11.mlp.c_proj.bias: True
+transformer.resblocks.11.ln_2.weight: True
+transformer.resblocks.11.ln_2.bias: True
+token_embedding.weight: True
+ln_final.weight: True
+ln_final.bias: True
+audio_encoder.conv1.weight: True
+audio_encoder.conv1.bias: True
+audio_encoder.conv2.weight: True
+audio_encoder.conv2.bias: True
+audio_encoder.conv3.weight: True
+audio_encoder.conv3.bias: True
+audio_encoder.bn1.weight: True
+audio_encoder.bn1.bias: True
+audio_encoder.bn2.weight: True
+audio_encoder.bn2.bias: True
+audio_encoder.bn3.weight: True
+audio_encoder.bn3.bias: True
+audio_encoder.transformer.resblocks.0.attn.in_proj_weight: True
+audio_encoder.transformer.resblocks.0.attn.in_proj_bias: True
+audio_encoder.transformer.resblocks.0.attn.out_proj.weight: True
+audio_encoder.transformer.resblocks.0.attn.out_proj.bias: True
+audio_encoder.transformer.resblocks.0.ln_1.weight: True
+audio_encoder.transformer.resblocks.0.ln_1.bias: True
+audio_encoder.transformer.resblocks.0.mlp.c_fc.weight: True
+audio_encoder.transformer.resblocks.0.mlp.c_fc.bias: True
+audio_encoder.transformer.resblocks.0.mlp.c_proj.weight: True
+audio_encoder.transformer.resblocks.0.mlp.c_proj.bias: True
+audio_encoder.transformer.resblocks.0.ln_2.weight: True
+audio_encoder.transformer.resblocks.0.ln_2.bias: True
+audio_encoder.transformer.resblocks.1.attn.in_proj_weight: True
+audio_encoder.transformer.resblocks.1.attn.in_proj_bias: True
+audio_encoder.transformer.resblocks.1.attn.out_proj.weight: True
+audio_encoder.transformer.resblocks.1.attn.out_proj.bias: True
+audio_encoder.transformer.resblocks.1.ln_1.weight: True
+audio_encoder.transformer.resblocks.1.ln_1.bias: True
+audio_encoder.transformer.resblocks.1.mlp.c_fc.weight: True
+audio_encoder.transformer.resblocks.1.mlp.c_fc.bias: True
+audio_encoder.transformer.resblocks.1.mlp.c_proj.weight: True
+audio_encoder.transformer.resblocks.1.mlp.c_proj.bias: True
+audio_encoder.transformer.resblocks.1.ln_2.weight: True
+audio_encoder.transformer.resblocks.1.ln_2.bias: True
+audio_encoder.transformer.resblocks.2.attn.in_proj_weight: True
+audio_encoder.transformer.resblocks.2.attn.in_proj_bias: True
+audio_encoder.transformer.resblocks.2.attn.out_proj.weight: True
+audio_encoder.transformer.resblocks.2.attn.out_proj.bias: True
+audio_encoder.transformer.resblocks.2.ln_1.weight: True
+audio_encoder.transformer.resblocks.2.ln_1.bias: True
+audio_encoder.transformer.resblocks.2.mlp.c_fc.weight: True
+audio_encoder.transformer.resblocks.2.mlp.c_fc.bias: True
+audio_encoder.transformer.resblocks.2.mlp.c_proj.weight: True
+audio_encoder.transformer.resblocks.2.mlp.c_proj.bias: True
+audio_encoder.transformer.resblocks.2.ln_2.weight: True
+audio_encoder.transformer.resblocks.2.ln_2.bias: True
+audio_encoder.projection.weight: True
+audio_encoder.projection.bias: True
+------------------------------------------------------------------------
+Epoch 0 start ..
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:136: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:149: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+------------------------------------------------------------------------
+Epoch 1 start ..
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+------------------------------------------------------------------------
+Epoch 2 start ..
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+------------------------------------------------------------------------
+Epoch 3 start ..
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+------------------------------------------------------------------------
+Epoch 4 start ..
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+------------------------------------------------------------------------
+Epoch 5 start ..
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])
+audio embbeding torch.Size([10, 512])
+image_embedding torch.Size([10, 512])
+text embbeding torch.Size([10, 512])

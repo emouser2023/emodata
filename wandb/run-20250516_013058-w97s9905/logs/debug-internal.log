@@ -1,0 +1,7 @@
+{"time":"2025-05-16T01:30:58.529095291+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/home/cvpr_phd_1/1_a_Neurip_dataset_submission/1_model_code/wandb/run-20250516_013058-w97s9905/logs/debug-core.log"}
+{"time":"2025-05-16T01:30:58.633429231+05:30","level":"INFO","msg":"created new stream","id":"w97s9905"}
+{"time":"2025-05-16T01:30:58.633459229+05:30","level":"INFO","msg":"stream: started","id":"w97s9905"}
+{"time":"2025-05-16T01:30:58.633482097+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"w97s9905"}
+{"time":"2025-05-16T01:30:58.633625869+05:30","level":"INFO","msg":"handler: started","stream_id":"w97s9905"}
+{"time":"2025-05-16T01:30:58.633660447+05:30","level":"INFO","msg":"sender: started","stream_id":"w97s9905"}
+{"time":"2025-05-16T01:31:04.086529095+05:30","level":"INFO","msg":"Starting system monitor"}

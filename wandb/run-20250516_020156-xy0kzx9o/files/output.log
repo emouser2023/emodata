@@ -1,0 +1,187 @@
+--------------------------------------------------------------------------------
+                     working dir: EXP/clip_8_frame/ViT-B/16/emotion_recog/Emotion_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '../train_json',
+                'base_video_path': '../train_set_videos',
+                'batch_size': 15,
+                'dataset': 'emotion_recog',
+                'gpus': 2,
+                'index_bias': 1,
+                'input_size': 224,
+                'modality': 'RGB',
+                'num_segments': 8,
+                'number_of_class': 7,
+                'randaug': {'M': 0, 'N': 0},
+                'seg_length': 1,
+                'split': 1,
+                'test_base_json_path': '../test_json/',
+                'test_base_video_path': '../test_set_videos',
+                'test_list': '../txt_files/split_test_final_list.txt',
+                'train_list': '../txt_files/split_train_final_list.txt',
+                'workers': 8},
+    'eval_data': {   'base_json_path_dev': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/dev',
+                     'base_json_path_test': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/test',
+                     'base_json_path_train': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/train',
+                     'base_video_path': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/',
+                     'batch_size': 15,
+                     'dev_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/dev_list.txt',
+                     'test_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/test_list.txt',
+                     'train_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/train_list.txt'},
+    'logging': {'eval_freq': 1, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_8_frame'},
+    'pretrain': 'model_best.pt',
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'Emotion_training',
+    'weight_save_dir': 'EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7fd6cac1a2b0>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7fd6cac1a160>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7fd6ca8cb5e0>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7fd6ca8cbf70>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7fd6ca8cbf40>
+    <datasets.transforms_ss.GroupSolarization object at 0x7fd6ca8cbe20>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7fd6ca8cbd90>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7fd6ca8cbcd0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7fd6ca8cbc70>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7fd6ca8cbbb0>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7fd6ca8cbb50>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7fd6ca8cbaf0>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7fd6ca8cb9d0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7fd6ca8cb970>
+)]
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchaudio/functional/functional.py:571: UserWarning: At least one mel filterbank has all zero values. The value for `n_mels` (64) may be set too high. Or, the value for `n_freqs` (513) may be set too low.
+  warnings.warn(
+CLIP_model Trainable Parameters: 8.681M
+Audio model Trainable Parameters: 0.656M
+=> loading checkpoint 'model_best.pt'
+5e-06
+5e-06
+5e-06
+5e-05
+AdamW
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:138: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:0  iteration:0/1427, total loss:2.572508, lr:0.000000
+Epoch:0  iteration:10/1427, total loss:2.790817, lr:0.000000
+Epoch:0  iteration:20/1427, total loss:2.986634, lr:0.000000
+Epoch:0  iteration:30/1427, total loss:2.967121, lr:0.000000
+Epoch:0  iteration:40/1427, total loss:3.356625, lr:0.000000
+Epoch:0  iteration:50/1427, total loss:2.851215, lr:0.000000
+Epoch:0  iteration:60/1427, total loss:3.052865, lr:0.000000
+Epoch:0  iteration:70/1427, total loss:2.885457, lr:0.000000
+Exception ignored in: <function _MultiProcessingDataLoaderIter.__del__ at 0x7fd64872d160>
+Traceback (most recent call last):
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1466, in __del__
+    self._shutdown_workers()
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/utils/data/dataloader.py", line 1430, in _shutdown_workers
+    w.join(timeout=_utils.MP_STATUS_CHECK_INTERVAL)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/multiprocessing/process.py", line 149, in join
+    res = self._popen.wait(timeout)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/multiprocessing/popen_fork.py", line 44, in wait
+    if not wait([self.sentinel], timeout):
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/multiprocessing/connection.py", line 931, in wait
+    ready = selector.select(timeout)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/selectors.py", line 415, in select
+    fd_event_list = self._selector.poll(timeout)
+KeyboardInterrupt:
+Error in sys.excepthook:
+Traceback (most recent call last):
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/linecache.py", line 47, in getlines
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/linecache.py", line 136, in updatecache
+    with tokenize.open(fullname) as fp:
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/tokenize.py", line 394, in open
+    encoding, lines = detect_encoding(buffer.readline)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/tokenize.py", line 363, in detect_encoding
+    first = read_or_stop()
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/tokenize.py", line 321, in read_or_stop
+    return readline()
+KeyboardInterrupt
+
+Original exception was:
+Traceback (most recent call last):
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 71, in <module>
+    cli.main()
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 501, in main
+    run()
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 351, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 310, in run_path
+    return _run_module_code(code, init_globals, run_name, pkg_name=pkg_name, script_name=fname)
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 127, in _run_module_code
+    _run_code(code, mod_globals, init_globals, mod_name, mod_spec, pkg_name, script_name)
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 118, in _run_code
+    exec(code, run_globals)
+  File "/home/cvpr_phd_1/1_a_Neurip_dataset_submission/1_model_code/train.py", line 364, in <module>
+    main()
+  File "/home/cvpr_phd_1/1_a_Neurip_dataset_submission/1_model_code/train.py", line 294, in main
+    wandb.log({"train_total_loss": total_loss})
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 449, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 401, in wrapper_fn
+    return func(self, *args, **kwargs)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 391, in wrapper
+    return func(self, *args, **kwargs)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 1873, in log
+    self._log(data=data, step=step, commit=commit)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 1587, in _log
+    self._partial_history_callback(data, step, commit)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/sdk/wandb_run.py", line 1417, in _partial_history_callback
+    self._backend.interface.publish_partial_history(
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/sdk/interface/interface.py", line 686, in publish_partial_history
+    item.value_json = json_dumps_safer_history(v)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/util.py", line 816, in json_dumps_safer_history
+    return dumps(obj, cls=WandBHistoryJSONEncoder, **kwargs)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/json/__init__.py", line 234, in dumps
+    return cls(
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/json/encoder.py", line 199, in encode
+    chunks = self.iterencode(o, _one_shot=True)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/json/encoder.py", line 257, in iterencode
+    return _iterencode(o, 0)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/util.py", line 775, in default
+    obj, converted = json_friendly(obj)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/wandb/util.py", line 585, in json_friendly
+    return obj.item(), True
+KeyboardInterrupt

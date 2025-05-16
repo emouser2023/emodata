@@ -1,0 +1,5527 @@
+--------------------------------------------------------------------------------
+                     working dir: /media/sda1_acces/Code/Arxiv_code_change_dataloading/EXP/clip_hmdb_32_frame/ViT-B/16/hmdb51/HMDB_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'batch_size': 15,
+                'dataset': 'hmdb51',
+                'gpus': 2,
+                'image_tmpl': 'img_{:05d}.jpg',
+                'index_bias': 1,
+                'input_size': 224,
+                'label_list': '/media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/lists/hmdb51_labels.csv',
+                'modality': 'RGB',
+                'num_classes': 51,
+                'num_segments': 8,
+                'randaug': {'M': 0, 'N': 0},
+                'root_path': '/media/sdb_access/HMDB_51/all_video',
+                'seg_length': 1,
+                'split': 1,
+                'train_list': '/media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/dataset_splits/HMDB/Zero_shot/train.txt',
+                'val_list': '/media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/dataset_splits/HMDB/Zero_shot/test.txt',
+                'workers': 8},
+    'logging': {'eval_freq': 1, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_hmdb_32_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'HMDB_training',
+    'weight_save_dir': '/media/sda1_acces/Code/Arxiv_code_change_dataloading/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7f094cdbf580>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7f094cdbff10>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7f094cdbffd0>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7f094cdbff40>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7f094cdbfcd0>
+    <datasets.transforms_ss.GroupSolarization object at 0x7f094cdbfdf0>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f094cdbfb80>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f094cdbfca0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f094cdbfc40>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7f094cdbfac0>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7f094cdbfa90>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f094cdbf880>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f094cdbf9a0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f094cdbf940>
+)]
+layer=6
+CLIP_model Trainable Parameters: 149.621M
+Fusion model Trainable Parameters: 18.954M
+=========using KL Loss=and has temperature and * bz==========
+=========using KL Loss=and has temperature and * bz==========
+5e-06
+5e-06
+5e-05
+AdamW
+positional_embedding: True
+text_projection: True
+logit_scale: True
+visual.class_embedding: True
+visual.positional_embedding: True
+visual.proj: True
+visual.conv1.weight: True
+visual.ln_pre.weight: True
+visual.ln_pre.bias: True
+visual.transformer.resblocks.0.attn.in_proj_weight: True
+visual.transformer.resblocks.0.attn.in_proj_bias: True
+visual.transformer.resblocks.0.attn.out_proj.weight: True
+visual.transformer.resblocks.0.attn.out_proj.bias: True
+visual.transformer.resblocks.0.ln_1.weight: True
+visual.transformer.resblocks.0.ln_1.bias: True
+visual.transformer.resblocks.0.mlp.c_fc.weight: True
+visual.transformer.resblocks.0.mlp.c_fc.bias: True
+visual.transformer.resblocks.0.mlp.c_proj.weight: True
+visual.transformer.resblocks.0.mlp.c_proj.bias: True
+visual.transformer.resblocks.0.ln_2.weight: True
+visual.transformer.resblocks.0.ln_2.bias: True
+visual.transformer.resblocks.1.attn.in_proj_weight: True
+visual.transformer.resblocks.1.attn.in_proj_bias: True
+visual.transformer.resblocks.1.attn.out_proj.weight: True
+visual.transformer.resblocks.1.attn.out_proj.bias: True
+visual.transformer.resblocks.1.ln_1.weight: True
+visual.transformer.resblocks.1.ln_1.bias: True
+visual.transformer.resblocks.1.mlp.c_fc.weight: True
+visual.transformer.resblocks.1.mlp.c_fc.bias: True
+visual.transformer.resblocks.1.mlp.c_proj.weight: True
+visual.transformer.resblocks.1.mlp.c_proj.bias: True
+visual.transformer.resblocks.1.ln_2.weight: True
+visual.transformer.resblocks.1.ln_2.bias: True
+visual.transformer.resblocks.2.attn.in_proj_weight: True
+visual.transformer.resblocks.2.attn.in_proj_bias: True
+visual.transformer.resblocks.2.attn.out_proj.weight: True
+visual.transformer.resblocks.2.attn.out_proj.bias: True
+visual.transformer.resblocks.2.ln_1.weight: True
+visual.transformer.resblocks.2.ln_1.bias: True
+visual.transformer.resblocks.2.mlp.c_fc.weight: True
+visual.transformer.resblocks.2.mlp.c_fc.bias: True
+visual.transformer.resblocks.2.mlp.c_proj.weight: True
+visual.transformer.resblocks.2.mlp.c_proj.bias: True
+visual.transformer.resblocks.2.ln_2.weight: True
+visual.transformer.resblocks.2.ln_2.bias: True
+visual.transformer.resblocks.3.attn.in_proj_weight: True
+visual.transformer.resblocks.3.attn.in_proj_bias: True
+visual.transformer.resblocks.3.attn.out_proj.weight: True
+visual.transformer.resblocks.3.attn.out_proj.bias: True
+visual.transformer.resblocks.3.ln_1.weight: True
+visual.transformer.resblocks.3.ln_1.bias: True
+visual.transformer.resblocks.3.mlp.c_fc.weight: True
+visual.transformer.resblocks.3.mlp.c_fc.bias: True
+visual.transformer.resblocks.3.mlp.c_proj.weight: True
+visual.transformer.resblocks.3.mlp.c_proj.bias: True
+visual.transformer.resblocks.3.ln_2.weight: True
+visual.transformer.resblocks.3.ln_2.bias: True
+visual.transformer.resblocks.4.attn.in_proj_weight: True
+visual.transformer.resblocks.4.attn.in_proj_bias: True
+visual.transformer.resblocks.4.attn.out_proj.weight: True
+visual.transformer.resblocks.4.attn.out_proj.bias: True
+visual.transformer.resblocks.4.ln_1.weight: True
+visual.transformer.resblocks.4.ln_1.bias: True
+visual.transformer.resblocks.4.mlp.c_fc.weight: True
+visual.transformer.resblocks.4.mlp.c_fc.bias: True
+visual.transformer.resblocks.4.mlp.c_proj.weight: True
+visual.transformer.resblocks.4.mlp.c_proj.bias: True
+visual.transformer.resblocks.4.ln_2.weight: True
+visual.transformer.resblocks.4.ln_2.bias: True
+visual.transformer.resblocks.5.attn.in_proj_weight: True
+visual.transformer.resblocks.5.attn.in_proj_bias: True
+visual.transformer.resblocks.5.attn.out_proj.weight: True
+visual.transformer.resblocks.5.attn.out_proj.bias: True
+visual.transformer.resblocks.5.ln_1.weight: True
+visual.transformer.resblocks.5.ln_1.bias: True
+visual.transformer.resblocks.5.mlp.c_fc.weight: True
+visual.transformer.resblocks.5.mlp.c_fc.bias: True
+visual.transformer.resblocks.5.mlp.c_proj.weight: True
+visual.transformer.resblocks.5.mlp.c_proj.bias: True
+visual.transformer.resblocks.5.ln_2.weight: True
+visual.transformer.resblocks.5.ln_2.bias: True
+visual.transformer.resblocks.6.attn.in_proj_weight: True
+visual.transformer.resblocks.6.attn.in_proj_bias: True
+visual.transformer.resblocks.6.attn.out_proj.weight: True
+visual.transformer.resblocks.6.attn.out_proj.bias: True
+visual.transformer.resblocks.6.ln_1.weight: True
+visual.transformer.resblocks.6.ln_1.bias: True
+visual.transformer.resblocks.6.mlp.c_fc.weight: True
+visual.transformer.resblocks.6.mlp.c_fc.bias: True
+visual.transformer.resblocks.6.mlp.c_proj.weight: True
+visual.transformer.resblocks.6.mlp.c_proj.bias: True
+visual.transformer.resblocks.6.ln_2.weight: True
+visual.transformer.resblocks.6.ln_2.bias: True
+visual.transformer.resblocks.7.attn.in_proj_weight: True
+visual.transformer.resblocks.7.attn.in_proj_bias: True
+visual.transformer.resblocks.7.attn.out_proj.weight: True
+visual.transformer.resblocks.7.attn.out_proj.bias: True
+visual.transformer.resblocks.7.ln_1.weight: True
+visual.transformer.resblocks.7.ln_1.bias: True
+visual.transformer.resblocks.7.mlp.c_fc.weight: True
+visual.transformer.resblocks.7.mlp.c_fc.bias: True
+visual.transformer.resblocks.7.mlp.c_proj.weight: True
+visual.transformer.resblocks.7.mlp.c_proj.bias: True
+visual.transformer.resblocks.7.ln_2.weight: True
+visual.transformer.resblocks.7.ln_2.bias: True
+visual.transformer.resblocks.8.attn.in_proj_weight: True
+visual.transformer.resblocks.8.attn.in_proj_bias: True
+visual.transformer.resblocks.8.attn.out_proj.weight: True
+visual.transformer.resblocks.8.attn.out_proj.bias: True
+visual.transformer.resblocks.8.ln_1.weight: True
+visual.transformer.resblocks.8.ln_1.bias: True
+visual.transformer.resblocks.8.mlp.c_fc.weight: True
+visual.transformer.resblocks.8.mlp.c_fc.bias: True
+visual.transformer.resblocks.8.mlp.c_proj.weight: True
+visual.transformer.resblocks.8.mlp.c_proj.bias: True
+visual.transformer.resblocks.8.ln_2.weight: True
+visual.transformer.resblocks.8.ln_2.bias: True
+visual.transformer.resblocks.9.attn.in_proj_weight: True
+visual.transformer.resblocks.9.attn.in_proj_bias: True
+visual.transformer.resblocks.9.attn.out_proj.weight: True
+visual.transformer.resblocks.9.attn.out_proj.bias: True
+visual.transformer.resblocks.9.ln_1.weight: True
+visual.transformer.resblocks.9.ln_1.bias: True
+visual.transformer.resblocks.9.mlp.c_fc.weight: True
+visual.transformer.resblocks.9.mlp.c_fc.bias: True
+visual.transformer.resblocks.9.mlp.c_proj.weight: True
+visual.transformer.resblocks.9.mlp.c_proj.bias: True
+visual.transformer.resblocks.9.ln_2.weight: True
+visual.transformer.resblocks.9.ln_2.bias: True
+visual.transformer.resblocks.10.attn.in_proj_weight: True
+visual.transformer.resblocks.10.attn.in_proj_bias: True
+visual.transformer.resblocks.10.attn.out_proj.weight: True
+visual.transformer.resblocks.10.attn.out_proj.bias: True
+visual.transformer.resblocks.10.ln_1.weight: True
+visual.transformer.resblocks.10.ln_1.bias: True
+visual.transformer.resblocks.10.mlp.c_fc.weight: True
+visual.transformer.resblocks.10.mlp.c_fc.bias: True
+visual.transformer.resblocks.10.mlp.c_proj.weight: True
+visual.transformer.resblocks.10.mlp.c_proj.bias: True
+visual.transformer.resblocks.10.ln_2.weight: True
+visual.transformer.resblocks.10.ln_2.bias: True
+visual.transformer.resblocks.11.attn.in_proj_weight: True
+visual.transformer.resblocks.11.attn.in_proj_bias: True
+visual.transformer.resblocks.11.attn.out_proj.weight: True
+visual.transformer.resblocks.11.attn.out_proj.bias: True
+visual.transformer.resblocks.11.ln_1.weight: True
+visual.transformer.resblocks.11.ln_1.bias: True
+visual.transformer.resblocks.11.mlp.c_fc.weight: True
+visual.transformer.resblocks.11.mlp.c_fc.bias: True
+visual.transformer.resblocks.11.mlp.c_proj.weight: True
+visual.transformer.resblocks.11.mlp.c_proj.bias: True
+visual.transformer.resblocks.11.ln_2.weight: True
+visual.transformer.resblocks.11.ln_2.bias: True
+visual.ln_post.weight: True
+visual.ln_post.bias: True
+transformer.resblocks.0.attn.in_proj_weight: True
+transformer.resblocks.0.attn.in_proj_bias: True
+transformer.resblocks.0.attn.out_proj.weight: True
+transformer.resblocks.0.attn.out_proj.bias: True
+transformer.resblocks.0.ln_1.weight: True
+transformer.resblocks.0.ln_1.bias: True
+transformer.resblocks.0.mlp.c_fc.weight: True
+transformer.resblocks.0.mlp.c_fc.bias: True
+transformer.resblocks.0.mlp.c_proj.weight: True
+transformer.resblocks.0.mlp.c_proj.bias: True
+transformer.resblocks.0.ln_2.weight: True
+transformer.resblocks.0.ln_2.bias: True
+transformer.resblocks.1.attn.in_proj_weight: True
+transformer.resblocks.1.attn.in_proj_bias: True
+transformer.resblocks.1.attn.out_proj.weight: True
+transformer.resblocks.1.attn.out_proj.bias: True
+transformer.resblocks.1.ln_1.weight: True
+transformer.resblocks.1.ln_1.bias: True
+transformer.resblocks.1.mlp.c_fc.weight: True
+transformer.resblocks.1.mlp.c_fc.bias: True
+transformer.resblocks.1.mlp.c_proj.weight: True
+transformer.resblocks.1.mlp.c_proj.bias: True
+transformer.resblocks.1.ln_2.weight: True
+transformer.resblocks.1.ln_2.bias: True
+transformer.resblocks.2.attn.in_proj_weight: True
+transformer.resblocks.2.attn.in_proj_bias: True
+transformer.resblocks.2.attn.out_proj.weight: True
+transformer.resblocks.2.attn.out_proj.bias: True
+transformer.resblocks.2.ln_1.weight: True
+transformer.resblocks.2.ln_1.bias: True
+transformer.resblocks.2.mlp.c_fc.weight: True
+transformer.resblocks.2.mlp.c_fc.bias: True
+transformer.resblocks.2.mlp.c_proj.weight: True
+transformer.resblocks.2.mlp.c_proj.bias: True
+transformer.resblocks.2.ln_2.weight: True
+transformer.resblocks.2.ln_2.bias: True
+transformer.resblocks.3.attn.in_proj_weight: True
+transformer.resblocks.3.attn.in_proj_bias: True
+transformer.resblocks.3.attn.out_proj.weight: True
+transformer.resblocks.3.attn.out_proj.bias: True
+transformer.resblocks.3.ln_1.weight: True
+transformer.resblocks.3.ln_1.bias: True
+transformer.resblocks.3.mlp.c_fc.weight: True
+transformer.resblocks.3.mlp.c_fc.bias: True
+transformer.resblocks.3.mlp.c_proj.weight: True
+transformer.resblocks.3.mlp.c_proj.bias: True
+transformer.resblocks.3.ln_2.weight: True
+transformer.resblocks.3.ln_2.bias: True
+transformer.resblocks.4.attn.in_proj_weight: True
+transformer.resblocks.4.attn.in_proj_bias: True
+transformer.resblocks.4.attn.out_proj.weight: True
+transformer.resblocks.4.attn.out_proj.bias: True
+transformer.resblocks.4.ln_1.weight: True
+transformer.resblocks.4.ln_1.bias: True
+transformer.resblocks.4.mlp.c_fc.weight: True
+transformer.resblocks.4.mlp.c_fc.bias: True
+transformer.resblocks.4.mlp.c_proj.weight: True
+transformer.resblocks.4.mlp.c_proj.bias: True
+transformer.resblocks.4.ln_2.weight: True
+transformer.resblocks.4.ln_2.bias: True
+transformer.resblocks.5.attn.in_proj_weight: True
+transformer.resblocks.5.attn.in_proj_bias: True
+transformer.resblocks.5.attn.out_proj.weight: True
+transformer.resblocks.5.attn.out_proj.bias: True
+transformer.resblocks.5.ln_1.weight: True
+transformer.resblocks.5.ln_1.bias: True
+transformer.resblocks.5.mlp.c_fc.weight: True
+transformer.resblocks.5.mlp.c_fc.bias: True
+transformer.resblocks.5.mlp.c_proj.weight: True
+transformer.resblocks.5.mlp.c_proj.bias: True
+transformer.resblocks.5.ln_2.weight: True
+transformer.resblocks.5.ln_2.bias: True
+transformer.resblocks.6.attn.in_proj_weight: True
+transformer.resblocks.6.attn.in_proj_bias: True
+transformer.resblocks.6.attn.out_proj.weight: True
+transformer.resblocks.6.attn.out_proj.bias: True
+transformer.resblocks.6.ln_1.weight: True
+transformer.resblocks.6.ln_1.bias: True
+transformer.resblocks.6.mlp.c_fc.weight: True
+transformer.resblocks.6.mlp.c_fc.bias: True
+transformer.resblocks.6.mlp.c_proj.weight: True
+transformer.resblocks.6.mlp.c_proj.bias: True
+transformer.resblocks.6.ln_2.weight: True
+transformer.resblocks.6.ln_2.bias: True
+transformer.resblocks.7.attn.in_proj_weight: True
+transformer.resblocks.7.attn.in_proj_bias: True
+transformer.resblocks.7.attn.out_proj.weight: True
+transformer.resblocks.7.attn.out_proj.bias: True
+transformer.resblocks.7.ln_1.weight: True
+transformer.resblocks.7.ln_1.bias: True
+transformer.resblocks.7.mlp.c_fc.weight: True
+transformer.resblocks.7.mlp.c_fc.bias: True
+transformer.resblocks.7.mlp.c_proj.weight: True
+transformer.resblocks.7.mlp.c_proj.bias: True
+transformer.resblocks.7.ln_2.weight: True
+transformer.resblocks.7.ln_2.bias: True
+transformer.resblocks.8.attn.in_proj_weight: True
+transformer.resblocks.8.attn.in_proj_bias: True
+transformer.resblocks.8.attn.out_proj.weight: True
+transformer.resblocks.8.attn.out_proj.bias: True
+transformer.resblocks.8.ln_1.weight: True
+transformer.resblocks.8.ln_1.bias: True
+transformer.resblocks.8.mlp.c_fc.weight: True
+transformer.resblocks.8.mlp.c_fc.bias: True
+transformer.resblocks.8.mlp.c_proj.weight: True
+transformer.resblocks.8.mlp.c_proj.bias: True
+transformer.resblocks.8.ln_2.weight: True
+transformer.resblocks.8.ln_2.bias: True
+transformer.resblocks.9.attn.in_proj_weight: True
+transformer.resblocks.9.attn.in_proj_bias: True
+transformer.resblocks.9.attn.out_proj.weight: True
+transformer.resblocks.9.attn.out_proj.bias: True
+transformer.resblocks.9.ln_1.weight: True
+transformer.resblocks.9.ln_1.bias: True
+transformer.resblocks.9.mlp.c_fc.weight: True
+transformer.resblocks.9.mlp.c_fc.bias: True
+transformer.resblocks.9.mlp.c_proj.weight: True
+transformer.resblocks.9.mlp.c_proj.bias: True
+transformer.resblocks.9.ln_2.weight: True
+transformer.resblocks.9.ln_2.bias: True
+transformer.resblocks.10.attn.in_proj_weight: True
+transformer.resblocks.10.attn.in_proj_bias: True
+transformer.resblocks.10.attn.out_proj.weight: True
+transformer.resblocks.10.attn.out_proj.bias: True
+transformer.resblocks.10.ln_1.weight: True
+transformer.resblocks.10.ln_1.bias: True
+transformer.resblocks.10.mlp.c_fc.weight: True
+transformer.resblocks.10.mlp.c_fc.bias: True
+transformer.resblocks.10.mlp.c_proj.weight: True
+transformer.resblocks.10.mlp.c_proj.bias: True
+transformer.resblocks.10.ln_2.weight: True
+transformer.resblocks.10.ln_2.bias: True
+transformer.resblocks.11.attn.in_proj_weight: True
+transformer.resblocks.11.attn.in_proj_bias: True
+transformer.resblocks.11.attn.out_proj.weight: True
+transformer.resblocks.11.attn.out_proj.bias: True
+transformer.resblocks.11.ln_1.weight: True
+transformer.resblocks.11.ln_1.bias: True
+transformer.resblocks.11.mlp.c_fc.weight: True
+transformer.resblocks.11.mlp.c_fc.bias: True
+transformer.resblocks.11.mlp.c_proj.weight: True
+transformer.resblocks.11.mlp.c_proj.bias: True
+transformer.resblocks.11.ln_2.weight: True
+transformer.resblocks.11.ln_2.bias: True
+token_embedding.weight: True
+ln_final.weight: True
+ln_final.bias: True
+------------------------------------------------------------------------
+Epoch 0 start ..
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:136: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:149: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/torch/nn/functional.py:2943: UserWarning: reduction: 'mean' divides the total loss by both the batch size and the support size.'batchmean' divides only by the batch size, and aligns with the KL div math definition.'mean' will be changed to behave the same as 'batchmean' in the next major release.
+  warnings.warn(
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:0  iteration:348/349, total loss:0.638184, image loss:0.688965, text loss:0.587402, lr:0.000001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.00it/s]
+Epoch: [0/50]: Top1: 57.05882352941176, Top5: 87.77777777777777
+Testing: 57.05882352941176/57.05882352941176
+Saving:
+Saving best weight based accuracy at epoch 0
+Epoch 0 end ..
+Time taken by epoch 0: 0:03:53
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 1 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:1  iteration:348/349, total loss:0.709961, image loss:0.798828, text loss:0.620605, lr:0.000002
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:24<00:00,  4.09it/s]
+Epoch: [1/50]: Top1: 65.22875816993464, Top5: 91.56862745098039
+Testing: 65.22875816993464/65.22875816993464
+Saving:
+Saving best weight based accuracy at epoch 1
+Epoch 1 end ..
+Time taken by epoch 1: 0:03:56
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 2 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:2  iteration:299/349, total loss:0.573242, image loss:0.645020, text loss:0.500977, lr:0.000003
+/home/shahzaa/anaconda3/envs/Action_CLIP/lib/python3.8/site-packages/wandb/wandb_torch.py:198: UserWarning: The torch.cuda.*DtypeTensor constructors are no longer recommended. It's best to use methods such as torch.tensor(data, dtype=*, device='cuda') to create tensors. (Triggered internally at ../torch/csrc/tensor/python_tensor.cpp:83.)
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:2  iteration:348/349, total loss:0.528809, image loss:0.540527, text loss:0.517090, lr:0.000003Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.06it/s]
+Epoch: [2/50]: Top1: 69.01960784313725, Top5: 92.81045751633987
+Testing: 69.01960784313725/69.01960784313725
+Saving:
+Saving best weight based accuracy at epoch 2
+Epoch 2 end ..
+Time taken by epoch 2: 0:03:54
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 3 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:3  iteration:348/349, total loss:0.545410, image loss:0.513672, text loss:0.577148, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.07it/s]
+Epoch: [3/50]: Top1: 67.25490196078432, Top5: 93.13725490196079
+Testing: 67.25490196078432/69.01960784313725
+Saving:
+Epoch 3 end ..
+Time taken by epoch 3: 0:03:38
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 4 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:4  iteration:345/349, total loss:0.592773, image loss:0.523438, text loss:0.662109, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [29:29<00:00,  5.79it/s]
+Epoch: [4/50]: Top1: 70.3921568627451, Top5: 93.72549019607843
+Testing: 70.3921568627451/70.3921568627451
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [29:30<00:00, 17.36s/it]
+Saving best weight based accuracy at epoch 4
+Epoch 4 end ..
+Time taken by epoch 4: 0:33:00
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 5 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:5  iteration:346/349, total loss:0.937500, image loss:0.871094, text loss:1.003906, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.02it/s]
+Epoch: [5/50]: Top1: 70.0, Top5: 93.20261437908496
+Testing: 70.0/70.3921568627451
+Saving:
+Epoch 5 end ..
+Time taken by epoch 5: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 6 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:6  iteration:346/349, total loss:0.782227, image loss:0.976074, text loss:0.587891, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:24<00:00,  4.08it/s]
+Epoch: [6/50]: Top1: 71.56862745098039, Top5: 94.64052287581698
+Testing: 71.56862745098039/71.56862745098039
+Saving:
+Saving best weight based accuracy at epoch 6
+Epoch 6 end ..
+Time taken by epoch 6: 0:03:57
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 7 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:7  iteration:348/349, total loss:0.401855, image loss:0.314941, text loss:0.488525, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.07it/s]
+Epoch: [7/50]: Top1: 72.22222222222221, Top5: 94.31372549019608
+Testing: 72.22222222222221/72.22222222222221
+Saving:
+Saving best weight based accuracy at epoch 7
+Epoch 7 end ..
+Time taken by epoch 7: 0:03:55
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 8 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:8  iteration:348/349, total loss:0.457031, image loss:0.479736, text loss:0.434326, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.06it/s]
+Epoch: [8/50]: Top1: 69.93464052287581, Top5: 94.18300653594771
+Testing: 69.93464052287581/72.22222222222221
+Saving:
+Epoch 8 end ..
+Time taken by epoch 8: 0:03:39
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 9 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:9  iteration:348/349, total loss:0.103943, image loss:0.014679, text loss:0.193237, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:24<00:00,  6.57it/s]
+Epoch: [9/50]: Top1: 73.59477124183007, Top5: 95.68627450980392
+Testing: 73.59477124183007/73.59477124183007
+Saving:
+Saving best weight based accuracy at epoch 9
+Epoch 9 end ..
+Time taken by epoch 9: 0:03:53
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 10 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:10  iteration:348/349, total loss:0.241211, image loss:0.334229, text loss:0.148315, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.04it/s]
+Epoch: [10/50]: Top1: 74.640522875817, Top5: 95.35947712418302
+Testing: 74.640522875817/74.640522875817
+Saving:
+Saving best weight based accuracy at epoch 10
+Epoch 10 end ..
+Time taken by epoch 10: 0:03:54
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 11 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:11  iteration:348/349, total loss:0.318848, image loss:0.338623, text loss:0.299316, lr:0.000005Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.05it/s]
+Epoch: [11/50]: Top1: 72.22222222222221, Top5: 94.37908496732025
+Testing: 72.22222222222221/74.640522875817
+Saving:
+Epoch 11 end ..
+Time taken by epoch 11: 0:03:44
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 12 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:12  iteration:348/349, total loss:0.305664, image loss:0.257080, text loss:0.354004, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.05it/s]
+Epoch: [12/50]: Top1: 74.83660130718954, Top5: 95.62091503267975
+Testing: 74.83660130718954/74.83660130718954
+Saving:
+Saving best weight based accuracy at epoch 12
+Epoch 12 end ..
+Time taken by epoch 12: 0:03:53
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 13 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:13  iteration:348/349, total loss:0.391602, image loss:0.418701, text loss:0.364258, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:24<00:00,  6.48it/s]
+Epoch: [13/50]: Top1: 75.16339869281046, Top5: 94.90196078431372
+Testing: 75.16339869281046/75.16339869281046
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.04it/s]
+Saving best weight based accuracy at epoch 13
+Epoch 13 end ..
+Time taken by epoch 13: 0:03:56
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 14 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:14  iteration:348/349, total loss:0.175415, image loss:0.249268, text loss:0.101562, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.04it/s]
+Epoch: [14/50]: Top1: 75.22875816993464, Top5: 95.09803921568627
+Testing: 75.22875816993464/75.22875816993464
+Saving:
+Saving best weight based accuracy at epoch 14
+Epoch 14 end ..
+Time taken by epoch 14: 0:03:54
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 15 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:15  iteration:348/349, total loss:0.183594, image loss:0.145752, text loss:0.221313, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  3.96it/s]
+Epoch: [15/50]: Top1: 75.0326797385621, Top5: 95.03267973856208
+Testing: 75.0326797385621/75.22875816993464
+Saving:
+Epoch 15 end ..
+Time taken by epoch 15: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 16 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:16  iteration:348/349, total loss:0.220825, image loss:0.323486, text loss:0.118225, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.03it/s]
+Epoch: [16/50]: Top1: 76.99346405228759, Top5: 95.49019607843138
+Testing: 76.99346405228759/76.99346405228759
+Saving:
+Saving best weight based accuracy at epoch 16
+Epoch 16 end ..
+Time taken by epoch 16: 0:03:52
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 17 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:17  iteration:348/349, total loss:0.197754, image loss:0.209717, text loss:0.185669, lr:0.000004Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.04it/s]
+Epoch: [17/50]: Top1: 73.72549019607844, Top5: 95.16339869281045
+Testing: 73.72549019607844/76.99346405228759
+Saving:
+Epoch 17 end ..
+Time taken by epoch 17: 0:03:43
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 18 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:18  iteration:348/349, total loss:0.077148, image loss:0.025085, text loss:0.129150, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.03it/s]
+Epoch: [18/50]: Top1: 77.97385620915033, Top5: 95.88235294117648
+Testing: 77.97385620915033/77.97385620915033
+Saving:
+Saving best weight based accuracy at epoch 18
+Epoch 18 end ..
+Time taken by epoch 18: 0:03:56
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 19 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:19  iteration:348/349, total loss:0.044617, image loss:0.037109, text loss:0.052155, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:26<00:00,  3.78it/s]
+Epoch: [19/50]: Top1: 75.88235294117646, Top5: 95.35947712418302
+Testing: 75.88235294117646/77.97385620915033
+Saving:
+Epoch 19 end ..
+Time taken by epoch 19: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 20 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:20  iteration:348/349, total loss:0.171143, image loss:0.172729, text loss:0.169556, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.02it/s]
+Epoch: [20/50]: Top1: 76.66666666666667, Top5: 95.35947712418302
+Testing: 76.66666666666667/77.97385620915033
+Saving:
+Epoch 20 end ..
+Time taken by epoch 20: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 21 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:21  iteration:347/349, total loss:0.019287, image loss:0.015671, text loss:0.022919, lr:0.000003
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:26<00:00,  3.90it/s]
+Epoch: [21/50]: Top1: 77.05882352941177, Top5: 96.01307189542484
+Testing: 77.05882352941177/77.97385620915033
+Saving:
+Epoch 21 end ..
+Time taken by epoch 21: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 22 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:22  iteration:348/349, total loss:0.040039, image loss:0.006039, text loss:0.074036, lr:0.000003
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.05it/s]
+Epoch: [22/50]: Top1: 76.53594771241829, Top5: 95.16339869281045
+Testing: 76.53594771241829/77.97385620915033
+Saving:
+Epoch 22 end ..
+Time taken by epoch 22: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 23 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:23  iteration:348/349, total loss:0.016296, image loss:0.011253, text loss:0.021347, lr:0.000003Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.02it/s]
+Epoch: [23/50]: Top1: 74.57516339869281, Top5: 95.22875816993464
+Testing: 74.57516339869281/77.97385620915033
+Saving:
+Epoch 23 end ..
+Time taken by epoch 23: 0:03:43
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 24 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:24  iteration:346/349, total loss:0.404053, image loss:0.454590, text loss:0.353516, lr:0.000003
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.03it/s]
+Epoch: [24/50]: Top1: 76.20915032679738, Top5: 94.83660130718954
+Testing: 76.20915032679738/77.97385620915033
+Saving:
+Epoch 24 end ..
+Time taken by epoch 24: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 25 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:25  iteration:348/349, total loss:0.111206, image loss:0.114990, text loss:0.107422, lr:0.000003
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.04it/s]
+Epoch: [25/50]: Top1: 77.45098039215686, Top5: 95.03267973856208
+Testing: 77.45098039215686/77.97385620915033
+Saving:
+Epoch 25 end ..
+Time taken by epoch 25: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 26 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:26  iteration:348/349, total loss:0.178223, image loss:0.201538, text loss:0.154785, lr:0.000003
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:26<00:00,  3.88it/s]
+Epoch: [26/50]: Top1: 76.9281045751634, Top5: 95.88235294117648
+Testing: 76.9281045751634/77.97385620915033
+Saving:
+Epoch 26 end ..
+Time taken by epoch 26: 0:03:43
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 27 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:27  iteration:348/349, total loss:0.177490, image loss:0.176880, text loss:0.178101, lr:0.000002
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  3.97it/s]
+Epoch: [27/50]: Top1: 76.79738562091504, Top5: 95.35947712418302
+Testing: 76.79738562091504/77.97385620915033
+Saving:
+Epoch 27 end ..
+Time taken by epoch 27: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 28 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:28  iteration:346/349, total loss:0.095215, image loss:0.072571, text loss:0.117859, lr:0.000002
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  3.96it/s]
+Epoch: [28/50]: Top1: 76.6013071895425, Top5: 95.09803921568627
+Testing: 76.6013071895425/77.97385620915033
+Saving:
+Epoch 28 end ..
+Time taken by epoch 28: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 29 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:29  iteration:348/349, total loss:0.012764, image loss:0.010490, text loss:0.015038, lr:0.000002
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.03it/s]
+Epoch: [29/50]: Top1: 77.97385620915033, Top5: 95.55555555555556
+Testing: 77.97385620915033/77.97385620915033
+Saving:
+Epoch 29 end ..
+Time taken by epoch 29: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 30 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:30  iteration:348/349, total loss:0.067749, image loss:0.040894, text loss:0.094543, lr:0.000002Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.05it/s]
+Epoch: [30/50]: Top1: 76.53594771241829, Top5: 95.29411764705881
+Testing: 76.53594771241829/77.97385620915033
+Saving:
+Epoch 30 end ..
+Time taken by epoch 30: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 31 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:31  iteration:346/349, total loss:0.031586, image loss:0.008865, text loss:0.054291, lr:0.000002
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  3.99it/s]
+Epoch: [31/50]: Top1: 78.30065359477125, Top5: 95.49019607843138
+Testing: 78.30065359477125/78.30065359477125
+Saving:
+Saving best weight based accuracy at epoch 31
+Epoch 31 end ..
+Time taken by epoch 31: 0:04:02
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 32 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:32  iteration:347/349, total loss:0.102356, image loss:0.108215, text loss:0.096497, lr:0.000002
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.02it/s]
+Epoch: [32/50]: Top1: 77.51633986928105, Top5: 95.42483660130719
+Testing: 77.51633986928105/78.30065359477125
+Saving:
+Epoch 32 end ..
+Time taken by epoch 32: 0:03:44
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 33 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:33  iteration:348/349, total loss:0.104675, image loss:0.195679, text loss:0.013672, lr:0.000001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:26<00:00,  3.81it/s]
+Epoch: [33/50]: Top1: 77.64705882352942, Top5: 95.49019607843138
+Testing: 77.64705882352942/78.30065359477125
+Saving:
+Epoch 33 end ..
+Time taken by epoch 33: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 34 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:34  iteration:348/349, total loss:0.056335, image loss:0.052338, text loss:0.060364, lr:0.000001
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:24<00:00,  6.54it/s]
+Epoch: [34/50]: Top1: 78.49673202614379, Top5: 94.90196078431372
+Testing: 78.49673202614379/78.49673202614379
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  3.99it/s]
+Saving best weight based accuracy at epoch 34
+Epoch 34 end ..
+Time taken by epoch 34: 0:03:54
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 35 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:35  iteration:348/349, total loss:0.006157, image loss:0.003290, text loss:0.009026, lr:0.000001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  3.95it/s]
+Epoch: [35/50]: Top1: 77.38562091503269, Top5: 94.9673202614379
+Testing: 77.38562091503269/78.49673202614379
+Saving:
+Epoch 35 end ..
+Time taken by epoch 35: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 36 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:36  iteration:348/349, total loss:0.058380, image loss:0.023697, text loss:0.093079, lr:0.000001
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:24<00:00,  6.57it/s]
+Epoch: [36/50]: Top1: 78.62745098039215, Top5: 95.35947712418302
+Testing: 78.62745098039215/78.62745098039215
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.00it/s]
+Saving best weight based accuracy at epoch 36
+Epoch 36 end ..
+Time taken by epoch 36: 0:03:55
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 37 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:37  iteration:348/349, total loss:0.013771, image loss:0.005768, text loss:0.021774, lr:0.000001Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.01it/s]
+Epoch: [37/50]: Top1: 79.28104575163398, Top5: 95.49019607843138
+Testing: 79.28104575163398/79.28104575163398
+Saving:
+Saving best weight based accuracy at epoch 37
+Epoch 37 end ..
+Time taken by epoch 37: 0:03:51
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 38 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:38  iteration:348/349, total loss:0.025833, image loss:0.016357, text loss:0.035309, lr:0.000001Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.07it/s]
+Epoch: [38/50]: Top1: 78.36601307189542, Top5: 95.22875816993464
+Testing: 78.36601307189542/79.28104575163398
+Saving:
+Epoch 38 end ..
+Time taken by epoch 38: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 39 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:39  iteration:348/349, total loss:0.014099, image loss:0.016983, text loss:0.011208, lr:0.000001Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:26<00:00,  3.92it/s]
+Epoch: [39/50]: Top1: 79.01960784313725, Top5: 95.29411764705881
+Testing: 79.01960784313725/79.28104575163398
+Saving:
+Epoch 39 end ..
+Time taken by epoch 39: 0:03:45
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 40 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:40  iteration:347/349, total loss:0.040924, image loss:0.058167, text loss:0.023697, lr:0.000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:26<00:00,  3.91it/s]
+Epoch: [40/50]: Top1: 78.75816993464052, Top5: 95.55555555555556
+Testing: 78.75816993464052/79.28104575163398
+Saving:
+Epoch 40 end ..
+Time taken by epoch 40: 0:03:42
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 41 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:41  iteration:348/349, total loss:0.016281, image loss:0.006283, text loss:0.026291, lr:0.000000
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:26<00:00,  3.92it/s]
+Epoch: [41/50]: Top1: 78.82352941176471, Top5: 95.49019607843138
+Testing: 78.82352941176471/79.28104575163398
+Saving:
+Epoch 41 end ..
+Time taken by epoch 41: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 42 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:42  iteration:348/349, total loss:0.042480, image loss:0.037262, text loss:0.047729, lr:0.000000Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.06it/s]
+Epoch: [42/50]: Top1: 78.88888888888889, Top5: 95.55555555555556
+Testing: 78.88888888888889/79.28104575163398
+Saving:
+Epoch 42 end ..
+Time taken by epoch 42: 0:03:41
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 43 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:43  iteration:348/349, total loss:0.165283, image loss:0.167969, text loss:0.162476, lr:0.000000Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.03it/s]
+Epoch: [43/50]: Top1: 78.49673202614379, Top5: 95.62091503267975
+Testing: 78.49673202614379/79.28104575163398
+Saving:
+Epoch 43 end ..
+Time taken by epoch 43: 0:03:39
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 44 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+Epoch:44  iteration:348/349, total loss:0.020645, image loss:0.015625, text loss:0.025665, lr:0.000000Test accuracy
+
+
+
+
+
+
+
+
+
+
+
+
+100%|█████████████████████████████████████████████████████████████████████████████████████████████████████| 102/102 [00:25<00:00,  4.03it/s]
+Epoch: [44/50]: Top1: 78.62745098039215, Top5: 95.68627450980392
+Testing: 78.62745098039215/79.28104575163398
+Saving:
+Epoch 44 end ..
+Time taken by epoch 44: 0:03:40
+------------------------------------------------------------------------
+------------------------------------------------------------------------
+Epoch 45 start ..
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+

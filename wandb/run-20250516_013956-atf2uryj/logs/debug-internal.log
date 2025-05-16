@@ -1,0 +1,7 @@
+{"time":"2025-05-16T01:39:56.505111928+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/home/cvpr_phd_1/1_a_Neurip_dataset_submission/1_model_code/wandb/run-20250516_013956-atf2uryj/logs/debug-core.log"}
+{"time":"2025-05-16T01:39:56.60949006+05:30","level":"INFO","msg":"created new stream","id":"atf2uryj"}
+{"time":"2025-05-16T01:39:56.609519136+05:30","level":"INFO","msg":"stream: started","id":"atf2uryj"}
+{"time":"2025-05-16T01:39:56.609544047+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"atf2uryj"}
+{"time":"2025-05-16T01:39:56.60954326+05:30","level":"INFO","msg":"sender: started","stream_id":"atf2uryj"}
+{"time":"2025-05-16T01:39:56.609579427+05:30","level":"INFO","msg":"handler: started","stream_id":"atf2uryj"}
+{"time":"2025-05-16T01:40:02.070508451+05:30","level":"INFO","msg":"Starting system monitor"}

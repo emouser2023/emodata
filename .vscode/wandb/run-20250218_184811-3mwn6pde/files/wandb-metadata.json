@@ -1,0 +1,27 @@
+{
+    "os": "Linux-5.15.0-58-generic-x86_64-with-glibc2.10",
+    "python": "3.8.5",
+    "heartbeatAt": "2025-02-18T17:48:14.437766",
+    "startedAt": "2025-02-18T17:48:11.372014",
+    "docker": null,
+    "gpu": "Quadro RTX 8000",
+    "gpu_count": 1,
+    "cpu_count": 16,
+    "cuda": null,
+    "args": [
+        "--config",
+        "/media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/configs/hmdb51/hmdb_train.yaml"
+    ],
+    "state": "running",
+    "program": "/media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new/train_new.py",
+    "codePath": "train_new.py",
+    "git": {
+        "remote": "https://github.com/Shahzadnit/ActionCLIP_new.git",
+        "commit": "9cea4f3395e69bbf06bc757429226cd2b2c1725b"
+    },
+    "email": "shahzadnit@gmail.com.com",
+    "root": "/media/sda1_acces/Code/Arxiv_code_change_dataloading/ActionCLIP_new",
+    "host": "shahzaa-MS-7885",
+    "username": "shahzaa",
+    "executable": "/home/shahzaa/anaconda3/envs/Action_CLIP/bin/python"
+}

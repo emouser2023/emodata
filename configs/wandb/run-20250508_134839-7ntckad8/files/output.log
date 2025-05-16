@@ -1,0 +1,246 @@
+--------------------------------------------------------------------------------
+                     working dir: /media/sdb_access/CLIP_with_audio/EXP/clip_8_frame/ViT-B/16/emotion_recog/Emotion_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_json/',
+                'base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_set_filered/',
+                'batch_size': 10,
+                'dataset': 'emotion_recog',
+                'gpus': 2,
+                'index_bias': 1,
+                'input_size': 224,
+                'modality': 'RGB',
+                'num_segments': 8,
+                'number_of_class': 7,
+                'randaug': {'M': 0, 'N': 0},
+                'seg_length': 1,
+                'split': 1,
+                'test_base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_json/',
+                'test_base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_set_filter/',
+                'test_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_final_list.txt',
+                'train_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_final_list.txt',
+                'workers': 8},
+    'eval_data': {   'base_json_path_dev': '/media/sdb_access/1_emotionCLIP/MELD_dataset/json/dev',
+                     'base_json_path_test': '/media/sdb_access/1_emotionCLIP/MELD_dataset/json/test',
+                     'base_json_path_train': '/media/sdb_access/1_emotionCLIP/MELD_dataset/json/train',
+                     'base_video_path': '/media/sdb_access/1_emotionCLIP/MELD_dataset/Dataset',
+                     'batch_size': 10,
+                     'dev_list': '/media/sdb_access/1_emotionCLIP/MELD_dataset/txt/dev_list.txt',
+                     'test_list': '/media/sdb_access/1_emotionCLIP/MELD_dataset/txt/test_list.txt',
+                     'train_list': '/media/sdb_access/1_emotionCLIP/MELD_dataset/txt/train_list.txt'},
+    'logging': {'eval_freq': 10, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_8_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'Emotion_training',
+    'weight_save_dir': '/media/sdb_access/CLIP_with_audio/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7fd283c7bdc0>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7fd276d0ea60>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7fd276d0ef10>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7fd276d0ef40>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7fd276d0ed60>
+    <datasets.transforms_ss.GroupSolarization object at 0x7fd276d0ee80>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7fd276d0eac0>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7fd276d0ed30>
+    <datasets.transforms_ss.GroupNormalize object at 0x7fd276d0ec10>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7fd276d0eca0>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7fd276d0ea90>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7fd276d0ea00>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7fd276d0e8e0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7fd276d0e880>
+)]
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torchaudio/functional/functional.py:571: UserWarning: At least one mel filterbank has all zero values. The value for `n_mels` (64) may be set too high. Or, the value for `n_freqs` (513) may be set too low.
+  warnings.warn(
+CLIP_model Trainable Parameters: 8.681M
+Audio model Trainable Parameters: 0.656M
+5e-06
+5e-06
+5e-06
+5e-05
+AdamW
+visual.transformer.resblocks.0.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.0.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.0.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.0.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.0.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.0.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.0.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.0.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.1.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.1.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.1.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.1.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.1.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.1.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.1.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.1.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.2.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.2.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.2.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.2.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.2.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.2.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.2.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.2.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.3.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.3.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.3.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.3.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.3.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.3.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.3.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.3.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.4.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.4.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.4.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.4.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.4.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.4.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.4.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.4.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.5.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.5.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.5.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.5.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.5.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.5.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.5.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.5.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.6.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.6.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.6.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.6.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.6.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.6.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.6.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.6.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.7.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.7.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.7.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.7.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.7.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.7.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.7.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.7.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.8.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.8.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.8.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.8.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.8.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.8.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.8.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.8.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.9.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.9.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.9.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.9.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.9.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.9.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.9.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.9.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.10.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.10.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.10.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.10.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.10.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.10.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.10.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.10.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.11.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.11.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.11.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.11.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.11.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.11.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.11.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.11.Adapter.D_fc2.bias: True
+transformer.resblocks.0.Adapter.D_fc1.weight: True
+transformer.resblocks.0.Adapter.D_fc1.bias: True
+transformer.resblocks.0.Adapter.D_fc2.weight: True
+transformer.resblocks.0.Adapter.D_fc2.bias: True
+transformer.resblocks.1.Adapter.D_fc1.weight: True
+transformer.resblocks.1.Adapter.D_fc1.bias: True
+transformer.resblocks.1.Adapter.D_fc2.weight: True
+transformer.resblocks.1.Adapter.D_fc2.bias: True
+transformer.resblocks.2.Adapter.D_fc1.weight: True
+transformer.resblocks.2.Adapter.D_fc1.bias: True
+transformer.resblocks.2.Adapter.D_fc2.weight: True
+transformer.resblocks.2.Adapter.D_fc2.bias: True
+transformer.resblocks.3.Adapter.D_fc1.weight: True
+transformer.resblocks.3.Adapter.D_fc1.bias: True
+transformer.resblocks.3.Adapter.D_fc2.weight: True
+transformer.resblocks.3.Adapter.D_fc2.bias: True
+transformer.resblocks.4.Adapter.D_fc1.weight: True
+transformer.resblocks.4.Adapter.D_fc1.bias: True
+transformer.resblocks.4.Adapter.D_fc2.weight: True
+transformer.resblocks.4.Adapter.D_fc2.bias: True
+transformer.resblocks.5.Adapter.D_fc1.weight: True
+transformer.resblocks.5.Adapter.D_fc1.bias: True
+transformer.resblocks.5.Adapter.D_fc2.weight: True
+transformer.resblocks.5.Adapter.D_fc2.bias: True
+transformer.resblocks.6.Adapter.D_fc1.weight: True
+transformer.resblocks.6.Adapter.D_fc1.bias: True
+transformer.resblocks.6.Adapter.D_fc2.weight: True
+transformer.resblocks.6.Adapter.D_fc2.bias: True
+transformer.resblocks.7.Adapter.D_fc1.weight: True
+transformer.resblocks.7.Adapter.D_fc1.bias: True
+transformer.resblocks.7.Adapter.D_fc2.weight: True
+transformer.resblocks.7.Adapter.D_fc2.bias: True
+transformer.resblocks.8.Adapter.D_fc1.weight: True
+transformer.resblocks.8.Adapter.D_fc1.bias: True
+transformer.resblocks.8.Adapter.D_fc2.weight: True
+transformer.resblocks.8.Adapter.D_fc2.bias: True
+transformer.resblocks.9.Adapter.D_fc1.weight: True
+transformer.resblocks.9.Adapter.D_fc1.bias: True
+transformer.resblocks.9.Adapter.D_fc2.weight: True
+transformer.resblocks.9.Adapter.D_fc2.bias: True
+transformer.resblocks.10.Adapter.D_fc1.weight: True
+transformer.resblocks.10.Adapter.D_fc1.bias: True
+transformer.resblocks.10.Adapter.D_fc2.weight: True
+transformer.resblocks.10.Adapter.D_fc2.bias: True
+transformer.resblocks.11.Adapter.D_fc1.weight: True
+transformer.resblocks.11.Adapter.D_fc1.bias: True
+transformer.resblocks.11.Adapter.D_fc2.weight: True
+transformer.resblocks.11.Adapter.D_fc2.bias: True
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:138: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:0  iteration:0/2629, total loss:4.919130, lr:0.000000

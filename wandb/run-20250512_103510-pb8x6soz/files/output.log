@@ -1,0 +1,533 @@
+--------------------------------------------------------------------------------
+                     working dir: /home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP/clip_8_frame/ViT-B/16/emotion_recog/Emotion_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/json_folder/',
+                'base_video_path': '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/main_dataset_folder',
+                'batch_size': 15,
+                'dataset': 'emotion_recog',
+                'gpus': 2,
+                'index_bias': 1,
+                'input_size': 224,
+                'modality': 'RGB',
+                'num_segments': 8,
+                'number_of_class': 7,
+                'randaug': {'M': 0, 'N': 0},
+                'seg_length': 1,
+                'split': 1,
+                'test_base_json_path': '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/json_folder/',
+                'test_base_video_path': '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/main_dataset_folder',
+                'test_list': '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/all_3_sets/split_test_final_list.txt',
+                'train_list': '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/all_3_sets/split_train_final_list.txt',
+                'workers': 8},
+    'eval_data': {   'base_json_path_dev': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/dev',
+                     'base_json_path_test': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/test',
+                     'base_json_path_train': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/train',
+                     'base_video_path': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/',
+                     'batch_size': 15,
+                     'dev_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/dev_list.txt',
+                     'test_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/test_list.txt',
+                     'train_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/train_list.txt'},
+    'logging': {'eval_freq': 1, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_8_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'Emotion_training',
+    'weight_save_dir': '/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7f8be4cd8310>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7f8d261f1c10>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7f8d261f1fa0>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7f8d261f1fd0>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7f8d261f1ee0>
+    <datasets.transforms_ss.GroupSolarization object at 0x7f8d261f1dc0>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f8d261f1d30>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f8d261f1e80>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f8d261f1e20>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7f8d261f1af0>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7f8d261f1a90>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f8d261f1a30>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f8d261f18b0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f8d261f1850>
+)]
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchaudio/functional/functional.py:571: UserWarning: At least one mel filterbank has all zero values. The value for `n_mels` (64) may be set too high. Or, the value for `n_freqs` (513) may be set too low.
+  warnings.warn(
+CLIP_model Trainable Parameters: 8.681M
+Audio model Trainable Parameters: 0.656M
+5e-06
+5e-06
+5e-06
+5e-05
+AdamW
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:138: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:0  iteration:0/1427, total loss:1.946289, lr:0.000000
+Epoch:0  iteration:10/1427, total loss:1.954102, lr:0.000000
+Epoch:0  iteration:20/1427, total loss:1.958984, lr:0.000000
+Epoch:0  iteration:30/1427, total loss:1.967773, lr:0.000000
+Epoch:0  iteration:40/1427, total loss:1.958984, lr:0.000000
+Epoch:0  iteration:50/1427, total loss:1.938477, lr:0.000000
+Epoch:0  iteration:60/1427, total loss:1.936523, lr:0.000000
+Epoch:0  iteration:70/1427, total loss:1.935547, lr:0.000000
+Epoch:0  iteration:80/1427, total loss:1.947266, lr:0.000000
+Epoch:0  iteration:90/1427, total loss:1.927734, lr:0.000000
+Epoch:0  iteration:100/1427, total loss:1.954102, lr:0.000000
+Epoch:0  iteration:110/1427, total loss:1.947266, lr:0.000000
+Epoch:0  iteration:120/1427, total loss:1.946289, lr:0.000000
+Epoch:0  iteration:130/1427, total loss:1.952148, lr:0.000000
+Epoch:0  iteration:140/1427, total loss:1.933594, lr:0.000000
+Epoch:0  iteration:150/1427, total loss:1.941406, lr:0.000000
+Epoch:0  iteration:160/1427, total loss:1.938477, lr:0.000000
+Epoch:0  iteration:170/1427, total loss:1.927734, lr:0.000000
+Epoch:0  iteration:180/1427, total loss:1.946289, lr:0.000000
+Epoch:0  iteration:190/1427, total loss:1.940430, lr:0.000000
+Epoch:0  iteration:200/1427, total loss:1.944336, lr:0.000000
+Epoch:0  iteration:210/1427, total loss:1.935547, lr:0.000000
+Epoch:0  iteration:220/1427, total loss:1.934570, lr:0.000000
+Epoch:0  iteration:230/1427, total loss:1.931641, lr:0.000000
+Epoch:0  iteration:240/1427, total loss:1.945312, lr:0.000000
+Epoch:0  iteration:250/1427, total loss:1.917969, lr:0.000000
+Epoch:0  iteration:260/1427, total loss:1.940430, lr:0.000000
+Epoch:0  iteration:270/1427, total loss:1.931641, lr:0.000000
+Epoch:0  iteration:280/1427, total loss:1.944336, lr:0.000000
+Epoch:0  iteration:290/1427, total loss:1.913086, lr:0.000000
+Epoch:0  iteration:300/1427, total loss:1.921875, lr:0.000000
+Epoch:0  iteration:310/1427, total loss:1.923828, lr:0.000000
+Epoch:0  iteration:320/1427, total loss:1.904297, lr:0.000000
+Epoch:0  iteration:330/1427, total loss:1.881836, lr:0.000000
+Epoch:0  iteration:340/1427, total loss:1.925781, lr:0.000000
+Epoch:0  iteration:350/1427, total loss:1.892578, lr:0.000000
+Epoch:0  iteration:360/1427, total loss:1.894531, lr:0.000000
+Epoch:0  iteration:370/1427, total loss:1.929688, lr:0.000000
+Epoch:0  iteration:380/1427, total loss:1.915039, lr:0.000000
+Epoch:0  iteration:390/1427, total loss:1.939453, lr:0.000000
+Epoch:0  iteration:400/1427, total loss:1.934570, lr:0.000000
+Epoch:0  iteration:410/1427, total loss:1.865234, lr:0.000000
+Epoch:0  iteration:420/1427, total loss:1.837891, lr:0.000000
+Epoch:0  iteration:430/1427, total loss:1.907227, lr:0.000000
+Epoch:0  iteration:440/1427, total loss:1.876953, lr:0.000000
+Epoch:0  iteration:450/1427, total loss:1.935547, lr:0.000000
+Epoch:0  iteration:460/1427, total loss:1.869141, lr:0.000000
+Epoch:0  iteration:470/1427, total loss:1.884766, lr:0.000000
+Epoch:0  iteration:480/1427, total loss:1.885742, lr:0.000000
+Epoch:0  iteration:490/1427, total loss:1.886719, lr:0.000000
+Epoch:0  iteration:500/1427, total loss:1.918945, lr:0.000000
+Epoch:0  iteration:510/1427, total loss:1.932617, lr:0.000000
+Epoch:0  iteration:520/1427, total loss:1.932617, lr:0.000000
+Epoch:0  iteration:530/1427, total loss:1.958008, lr:0.000000
+Epoch:0  iteration:540/1427, total loss:1.925781, lr:0.000000
+Epoch:0  iteration:550/1427, total loss:1.892578, lr:0.000000
+Epoch:0  iteration:560/1427, total loss:1.816406, lr:0.000000
+Epoch:0  iteration:570/1427, total loss:1.953125, lr:0.000000
+Epoch:0  iteration:580/1427, total loss:1.860352, lr:0.000000
+Epoch:0  iteration:590/1427, total loss:1.879883, lr:0.000000
+Epoch:0  iteration:600/1427, total loss:1.876953, lr:0.000000
+Epoch:0  iteration:610/1427, total loss:1.832031, lr:0.000000
+Epoch:0  iteration:620/1427, total loss:2.027344, lr:0.000000
+Epoch:0  iteration:630/1427, total loss:1.883789, lr:0.000000
+Epoch:0  iteration:640/1427, total loss:1.837891, lr:0.000000
+Epoch:0  iteration:650/1427, total loss:1.788086, lr:0.000000
+Epoch:0  iteration:660/1427, total loss:1.891602, lr:0.000000
+Epoch:0  iteration:670/1427, total loss:1.983398, lr:0.000000
+Epoch:0  iteration:680/1427, total loss:1.839844, lr:0.000000
+Epoch:0  iteration:690/1427, total loss:1.814453, lr:0.000000
+Epoch:0  iteration:700/1427, total loss:1.924805, lr:0.000000
+Epoch:0  iteration:710/1427, total loss:1.930664, lr:0.000000
+Epoch:0  iteration:720/1427, total loss:1.867188, lr:0.000001
+Epoch:0  iteration:730/1427, total loss:1.862305, lr:0.000001
+Epoch:0  iteration:740/1427, total loss:1.951172, lr:0.000001
+Epoch:0  iteration:750/1427, total loss:1.969727, lr:0.000001
+Epoch:0  iteration:760/1427, total loss:1.844727, lr:0.000001
+Epoch:0  iteration:770/1427, total loss:1.874023, lr:0.000001
+Epoch:0  iteration:780/1427, total loss:1.795898, lr:0.000001
+Epoch:0  iteration:790/1427, total loss:1.838867, lr:0.000001
+Epoch:0  iteration:800/1427, total loss:1.827148, lr:0.000001
+Epoch:0  iteration:810/1427, total loss:1.750977, lr:0.000001
+Epoch:0  iteration:820/1427, total loss:1.887695, lr:0.000001
+Epoch:0  iteration:830/1427, total loss:1.847656, lr:0.000001
+Epoch:0  iteration:840/1427, total loss:1.990234, lr:0.000001
+Epoch:0  iteration:850/1427, total loss:1.986328, lr:0.000001
+Epoch:0  iteration:860/1427, total loss:1.880859, lr:0.000001
+Epoch:0  iteration:870/1427, total loss:1.864258, lr:0.000001
+Epoch:0  iteration:880/1427, total loss:2.021484, lr:0.000001
+Epoch:0  iteration:890/1427, total loss:1.775391, lr:0.000001
+Epoch:0  iteration:900/1427, total loss:1.763672, lr:0.000001
+Epoch:0  iteration:910/1427, total loss:1.778320, lr:0.000001
+Epoch:0  iteration:920/1427, total loss:1.835938, lr:0.000001
+Epoch:0  iteration:930/1427, total loss:1.857422, lr:0.000001
+Epoch:0  iteration:940/1427, total loss:2.001953, lr:0.000001
+Epoch:0  iteration:950/1427, total loss:1.981445, lr:0.000001
+Epoch:0  iteration:960/1427, total loss:1.906250, lr:0.000001
+Epoch:0  iteration:970/1427, total loss:1.954102, lr:0.000001
+Epoch:0  iteration:980/1427, total loss:1.852539, lr:0.000001
+Epoch:0  iteration:990/1427, total loss:1.836914, lr:0.000001
+Epoch:0  iteration:1000/1427, total loss:1.814453, lr:0.000001
+Epoch:0  iteration:1010/1427, total loss:1.943359, lr:0.000001
+Epoch:0  iteration:1020/1427, total loss:1.916992, lr:0.000001
+Epoch:0  iteration:1030/1427, total loss:1.925781, lr:0.000001
+Epoch:0  iteration:1040/1427, total loss:1.961914, lr:0.000001
+Epoch:0  iteration:1050/1427, total loss:1.789062, lr:0.000001
+Epoch:0  iteration:1060/1427, total loss:1.777344, lr:0.000001
+Epoch:0  iteration:1070/1427, total loss:1.942383, lr:0.000001
+Epoch:0  iteration:1080/1427, total loss:1.944336, lr:0.000001
+Epoch:0  iteration:1090/1427, total loss:1.842773, lr:0.000001
+Epoch:0  iteration:1100/1427, total loss:1.873047, lr:0.000001
+Epoch:0  iteration:1110/1427, total loss:1.852539, lr:0.000001
+Epoch:0  iteration:1120/1427, total loss:1.958984, lr:0.000001
+Epoch:0  iteration:1130/1427, total loss:1.876953, lr:0.000001
+Epoch:0  iteration:1140/1427, total loss:1.902344, lr:0.000001
+Epoch:0  iteration:1150/1427, total loss:1.805664, lr:0.000001
+Epoch:0  iteration:1160/1427, total loss:1.819336, lr:0.000001
+Epoch:0  iteration:1170/1427, total loss:1.806641, lr:0.000001
+Epoch:0  iteration:1180/1427, total loss:1.851562, lr:0.000001
+Epoch:0  iteration:1190/1427, total loss:1.769531, lr:0.000001
+Epoch:0  iteration:1200/1427, total loss:1.880859, lr:0.000001
+Epoch:0  iteration:1210/1427, total loss:1.863281, lr:0.000001
+Epoch:0  iteration:1220/1427, total loss:1.912109, lr:0.000001
+Epoch:0  iteration:1230/1427, total loss:1.850586, lr:0.000001
+Epoch:0  iteration:1240/1427, total loss:1.984375, lr:0.000001
+Epoch:0  iteration:1250/1427, total loss:1.856445, lr:0.000001
+Epoch:0  iteration:1260/1427, total loss:1.895508, lr:0.000001
+Epoch:0  iteration:1270/1427, total loss:1.963867, lr:0.000001
+Epoch:0  iteration:1280/1427, total loss:1.923828, lr:0.000001
+Epoch:0  iteration:1290/1427, total loss:1.799805, lr:0.000001
+Epoch:0  iteration:1300/1427, total loss:1.923828, lr:0.000001
+Epoch:0  iteration:1310/1427, total loss:1.760742, lr:0.000001
+Epoch:0  iteration:1320/1427, total loss:1.897461, lr:0.000001
+Epoch:0  iteration:1330/1427, total loss:1.922852, lr:0.000001
+Epoch:0  iteration:1340/1427, total loss:1.764648, lr:0.000001
+Epoch:0  iteration:1350/1427, total loss:1.958008, lr:0.000001
+Epoch:0  iteration:1360/1427, total loss:1.912109, lr:0.000001
+Epoch:0  iteration:1370/1427, total loss:1.903320, lr:0.000001
+Epoch:0  iteration:1380/1427, total loss:1.972656, lr:0.000001
+Epoch:0  iteration:1390/1427, total loss:1.865234, lr:0.000001
+Epoch:0  iteration:1400/1427, total loss:1.992188, lr:0.000001
+Epoch:0  iteration:1410/1427, total loss:1.912109, lr:0.000001
+Epoch:0  iteration:1420/1427, total loss:1.806641, lr:0.000001
+Test accuracy
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [06:54<00:00,  1.04s/it]
+Validation accuracy: 21.64%
+Testing: 0.2164054684894965/0.2164054684894965
+Saving:
+Saving best weight based on K-400 accuracy at epoch 0
+Epoch 0 end ..
+Time taken by epoch 0: 0:44:07
+------------------------------------------------------------------------
+Epoch:1  iteration:0/1427, total loss:1.770508, lr:0.000001
+Epoch:1  iteration:10/1427, total loss:1.972656, lr:0.000001
+Epoch:1  iteration:20/1427, total loss:1.760742, lr:0.000001
+Epoch:1  iteration:30/1427, total loss:1.956055, lr:0.000001
+Epoch:1  iteration:40/1427, total loss:1.896484, lr:0.000001
+Epoch:1  iteration:50/1427, total loss:1.699219, lr:0.000001
+Epoch:1  iteration:60/1427, total loss:1.828125, lr:0.000001
+Epoch:1  iteration:70/1427, total loss:1.819336, lr:0.000001
+Epoch:1  iteration:80/1427, total loss:1.695312, lr:0.000001
+Epoch:1  iteration:90/1427, total loss:1.886719, lr:0.000001
+Epoch:1  iteration:100/1427, total loss:1.888672, lr:0.000001
+Epoch:1  iteration:110/1427, total loss:1.823242, lr:0.000001
+Epoch:1  iteration:120/1427, total loss:1.978516, lr:0.000001
+Epoch:1  iteration:130/1427, total loss:1.864258, lr:0.000001
+Epoch:1  iteration:140/1427, total loss:1.840820, lr:0.000001
+Epoch:1  iteration:150/1427, total loss:1.917969, lr:0.000001
+Epoch:1  iteration:160/1427, total loss:1.894531, lr:0.000001
+Epoch:1  iteration:170/1427, total loss:2.007812, lr:0.000001
+Epoch:1  iteration:180/1427, total loss:1.855469, lr:0.000001
+Epoch:1  iteration:190/1427, total loss:1.904297, lr:0.000001
+Epoch:1  iteration:200/1427, total loss:1.812500, lr:0.000001
+Epoch:1  iteration:210/1427, total loss:1.905273, lr:0.000001
+Epoch:1  iteration:220/1427, total loss:1.920898, lr:0.000001
+Epoch:1  iteration:230/1427, total loss:1.702148, lr:0.000001
+Epoch:1  iteration:240/1427, total loss:1.803711, lr:0.000001
+Epoch:1  iteration:250/1427, total loss:1.844727, lr:0.000001
+Epoch:1  iteration:260/1427, total loss:1.951172, lr:0.000001
+Epoch:1  iteration:270/1427, total loss:1.946289, lr:0.000001
+Epoch:1  iteration:280/1427, total loss:1.991211, lr:0.000001
+Epoch:1  iteration:290/1427, total loss:1.865234, lr:0.000001
+Epoch:1  iteration:300/1427, total loss:1.831055, lr:0.000001
+Epoch:1  iteration:310/1427, total loss:1.764648, lr:0.000001
+Epoch:1  iteration:320/1427, total loss:1.886719, lr:0.000001
+Epoch:1  iteration:330/1427, total loss:1.928711, lr:0.000001
+Epoch:1  iteration:340/1427, total loss:1.885742, lr:0.000001
+Epoch:1  iteration:350/1427, total loss:1.932617, lr:0.000001
+Epoch:1  iteration:360/1427, total loss:1.842773, lr:0.000001
+Epoch:1  iteration:370/1427, total loss:1.903320, lr:0.000001
+Epoch:1  iteration:380/1427, total loss:1.847656, lr:0.000001
+Epoch:1  iteration:390/1427, total loss:1.960938, lr:0.000001
+Epoch:1  iteration:400/1427, total loss:1.823242, lr:0.000001
+Epoch:1  iteration:410/1427, total loss:1.772461, lr:0.000001
+Epoch:1  iteration:420/1427, total loss:1.786133, lr:0.000001
+Epoch:1  iteration:430/1427, total loss:1.768555, lr:0.000001
+Epoch:1  iteration:440/1427, total loss:2.052734, lr:0.000001
+Epoch:1  iteration:450/1427, total loss:1.793945, lr:0.000001
+Epoch:1  iteration:460/1427, total loss:1.975586, lr:0.000001
+Epoch:1  iteration:470/1427, total loss:1.827148, lr:0.000001
+Epoch:1  iteration:480/1427, total loss:2.042969, lr:0.000001
+Epoch:1  iteration:490/1427, total loss:1.825195, lr:0.000001
+Epoch:1  iteration:500/1427, total loss:1.841797, lr:0.000001
+Epoch:1  iteration:510/1427, total loss:1.624023, lr:0.000001
+Epoch:1  iteration:520/1427, total loss:1.970703, lr:0.000001
+Epoch:1  iteration:530/1427, total loss:1.776367, lr:0.000001
+Epoch:1  iteration:540/1427, total loss:1.933594, lr:0.000001
+Epoch:1  iteration:550/1427, total loss:1.980469, lr:0.000001
+Epoch:1  iteration:560/1427, total loss:1.866211, lr:0.000001
+Epoch:1  iteration:570/1427, total loss:1.900391, lr:0.000001
+Epoch:1  iteration:580/1427, total loss:1.973633, lr:0.000001
+Epoch:1  iteration:590/1427, total loss:1.912109, lr:0.000001
+Epoch:1  iteration:600/1427, total loss:2.056641, lr:0.000001
+Epoch:1  iteration:610/1427, total loss:1.863281, lr:0.000001
+Epoch:1  iteration:620/1427, total loss:1.860352, lr:0.000001
+Epoch:1  iteration:630/1427, total loss:1.986328, lr:0.000001
+Epoch:1  iteration:640/1427, total loss:1.996094, lr:0.000001
+Epoch:1  iteration:650/1427, total loss:1.873047, lr:0.000001
+Epoch:1  iteration:660/1427, total loss:1.910156, lr:0.000001
+Epoch:1  iteration:670/1427, total loss:1.970703, lr:0.000001
+Epoch:1  iteration:680/1427, total loss:1.810547, lr:0.000001
+Epoch:1  iteration:690/1427, total loss:1.873047, lr:0.000001
+Epoch:1  iteration:700/1427, total loss:1.982422, lr:0.000001
+Epoch:1  iteration:710/1427, total loss:1.754883, lr:0.000001
+Epoch:1  iteration:720/1427, total loss:1.791992, lr:0.000002
+Epoch:1  iteration:730/1427, total loss:1.884766, lr:0.000002
+Epoch:1  iteration:740/1427, total loss:1.764648, lr:0.000002
+Epoch:1  iteration:750/1427, total loss:1.941406, lr:0.000002
+Epoch:1  iteration:760/1427, total loss:1.916016, lr:0.000002
+Epoch:1  iteration:770/1427, total loss:1.913086, lr:0.000002
+Epoch:1  iteration:780/1427, total loss:1.894531, lr:0.000002
+Epoch:1  iteration:790/1427, total loss:1.783203, lr:0.000002
+Epoch:1  iteration:800/1427, total loss:1.944336, lr:0.000002
+Epoch:1  iteration:810/1427, total loss:1.831055, lr:0.000002
+Epoch:1  iteration:820/1427, total loss:1.958984, lr:0.000002
+Epoch:1  iteration:830/1427, total loss:1.910156, lr:0.000002
+Epoch:1  iteration:840/1427, total loss:1.992188, lr:0.000002
+Epoch:1  iteration:850/1427, total loss:1.961914, lr:0.000002
+Epoch:1  iteration:860/1427, total loss:1.822266, lr:0.000002
+Epoch:1  iteration:870/1427, total loss:1.801758, lr:0.000002
+Epoch:1  iteration:880/1427, total loss:1.993164, lr:0.000002
+Epoch:1  iteration:890/1427, total loss:1.934570, lr:0.000002
+Epoch:1  iteration:900/1427, total loss:1.936523, lr:0.000002
+Epoch:1  iteration:910/1427, total loss:1.876953, lr:0.000002
+Epoch:1  iteration:920/1427, total loss:1.768555, lr:0.000002
+Epoch:1  iteration:930/1427, total loss:1.870117, lr:0.000002
+Epoch:1  iteration:940/1427, total loss:1.903320, lr:0.000002
+Epoch:1  iteration:950/1427, total loss:1.866211, lr:0.000002
+Epoch:1  iteration:960/1427, total loss:2.009766, lr:0.000002
+Epoch:1  iteration:970/1427, total loss:1.879883, lr:0.000002
+Epoch:1  iteration:980/1427, total loss:1.700195, lr:0.000002
+Epoch:1  iteration:990/1427, total loss:1.718750, lr:0.000002
+Epoch:1  iteration:1000/1427, total loss:1.897461, lr:0.000002
+Epoch:1  iteration:1010/1427, total loss:1.971680, lr:0.000002
+Epoch:1  iteration:1020/1427, total loss:1.917969, lr:0.000002
+Epoch:1  iteration:1030/1427, total loss:1.762695, lr:0.000002
+Epoch:1  iteration:1040/1427, total loss:1.838867, lr:0.000002
+Epoch:1  iteration:1050/1427, total loss:1.932617, lr:0.000002
+Epoch:1  iteration:1060/1427, total loss:1.901367, lr:0.000002
+Epoch:1  iteration:1070/1427, total loss:1.978516, lr:0.000002
+Epoch:1  iteration:1080/1427, total loss:1.940430, lr:0.000002
+Epoch:1  iteration:1090/1427, total loss:1.833008, lr:0.000002
+Epoch:1  iteration:1100/1427, total loss:1.786133, lr:0.000002
+Epoch:1  iteration:1110/1427, total loss:1.921875, lr:0.000002
+Epoch:1  iteration:1120/1427, total loss:1.756836, lr:0.000002
+Epoch:1  iteration:1130/1427, total loss:1.810547, lr:0.000002
+Epoch:1  iteration:1140/1427, total loss:1.791016, lr:0.000002
+Epoch:1  iteration:1150/1427, total loss:1.852539, lr:0.000002
+Epoch:1  iteration:1160/1427, total loss:1.762695, lr:0.000002
+Epoch:1  iteration:1170/1427, total loss:2.117188, lr:0.000002
+Epoch:1  iteration:1180/1427, total loss:1.920898, lr:0.000002
+Epoch:1  iteration:1190/1427, total loss:1.816406, lr:0.000002
+Epoch:1  iteration:1200/1427, total loss:1.819336, lr:0.000002
+Epoch:1  iteration:1210/1427, total loss:1.976562, lr:0.000002
+Epoch:1  iteration:1220/1427, total loss:1.808594, lr:0.000002
+Epoch:1  iteration:1230/1427, total loss:2.015625, lr:0.000002
+Epoch:1  iteration:1240/1427, total loss:1.932617, lr:0.000002
+Epoch:1  iteration:1250/1427, total loss:1.885742, lr:0.000002
+Epoch:1  iteration:1260/1427, total loss:1.795898, lr:0.000002
+Epoch:1  iteration:1270/1427, total loss:1.858398, lr:0.000002
+Epoch:1  iteration:1280/1427, total loss:1.827148, lr:0.000002
+Epoch:1  iteration:1290/1427, total loss:1.873047, lr:0.000002
+Epoch:1  iteration:1300/1427, total loss:1.947266, lr:0.000002
+Epoch:1  iteration:1310/1427, total loss:1.927734, lr:0.000002
+Epoch:1  iteration:1320/1427, total loss:1.827148, lr:0.000002
+Epoch:1  iteration:1330/1427, total loss:1.853516, lr:0.000002
+Epoch:1  iteration:1340/1427, total loss:1.795898, lr:0.000002
+Epoch:1  iteration:1350/1427, total loss:1.645508, lr:0.000002
+Epoch:1  iteration:1360/1427, total loss:1.737305, lr:0.000002
+Epoch:1  iteration:1370/1427, total loss:1.931641, lr:0.000002
+Epoch:1  iteration:1380/1427, total loss:1.923828, lr:0.000002
+Epoch:1  iteration:1390/1427, total loss:1.909180, lr:0.000002
+Epoch:1  iteration:1400/1427, total loss:1.888672, lr:0.000002
+Epoch:1  iteration:1410/1427, total loss:1.903320, lr:0.000002
+Epoch:1  iteration:1420/1427, total loss:1.856445, lr:0.000002
+Test accuracy
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████████| 400/400 [04:06<00:00,  1.62it/s]
+Validation accuracy: 21.96%
+Testing: 0.2195731910636879/0.2195731910636879
+Saving:
+Saving best weight based on K-400 accuracy at epoch 1
+Epoch 1 end ..
+Time taken by epoch 1: 0:26:38
+------------------------------------------------------------------------
+Epoch:2  iteration:0/1427, total loss:1.746094, lr:0.000002
+Epoch:2  iteration:10/1427, total loss:1.862305, lr:0.000002
+Epoch:2  iteration:20/1427, total loss:1.798828, lr:0.000002
+Epoch:2  iteration:30/1427, total loss:1.810547, lr:0.000002
+Epoch:2  iteration:40/1427, total loss:1.788086, lr:0.000002
+Epoch:2  iteration:50/1427, total loss:1.709961, lr:0.000002
+Epoch:2  iteration:60/1427, total loss:1.942383, lr:0.000002
+Epoch:2  iteration:70/1427, total loss:1.795898, lr:0.000002
+Epoch:2  iteration:80/1427, total loss:1.949219, lr:0.000002
+Epoch:2  iteration:90/1427, total loss:1.757812, lr:0.000002
+Epoch:2  iteration:100/1427, total loss:1.767578, lr:0.000002
+Epoch:2  iteration:110/1427, total loss:1.922852, lr:0.000002
+Epoch:2  iteration:120/1427, total loss:1.889648, lr:0.000002
+Epoch:2  iteration:130/1427, total loss:1.968750, lr:0.000002
+Epoch:2  iteration:140/1427, total loss:1.778320, lr:0.000002
+Epoch:2  iteration:150/1427, total loss:1.714844, lr:0.000002
+Epoch:2  iteration:160/1427, total loss:1.802734, lr:0.000002
+Epoch:2  iteration:170/1427, total loss:1.762695, lr:0.000002
+Epoch:2  iteration:180/1427, total loss:1.750977, lr:0.000002
+Epoch:2  iteration:190/1427, total loss:1.847656, lr:0.000002
+Epoch:2  iteration:200/1427, total loss:1.784180, lr:0.000002
+Epoch:2  iteration:210/1427, total loss:2.050781, lr:0.000002
+Epoch:2  iteration:220/1427, total loss:1.679688, lr:0.000002
+Epoch:2  iteration:230/1427, total loss:1.939453, lr:0.000002
+Epoch:2  iteration:240/1427, total loss:1.974609, lr:0.000002
+Epoch:2  iteration:250/1427, total loss:1.840820, lr:0.000002
+Epoch:2  iteration:260/1427, total loss:1.939453, lr:0.000002
+Epoch:2  iteration:270/1427, total loss:1.891602, lr:0.000002
+Epoch:2  iteration:280/1427, total loss:1.886719, lr:0.000002
+Epoch:2  iteration:290/1427, total loss:1.917969, lr:0.000002
+Epoch:2  iteration:300/1427, total loss:1.865234, lr:0.000002
+Epoch:2  iteration:310/1427, total loss:1.817383, lr:0.000002
+Epoch:2  iteration:320/1427, total loss:1.853516, lr:0.000002
+Epoch:2  iteration:330/1427, total loss:1.855469, lr:0.000002
+Epoch:2  iteration:340/1427, total loss:1.798828, lr:0.000002
+Epoch:2  iteration:350/1427, total loss:1.787109, lr:0.000002
+Epoch:2  iteration:360/1427, total loss:1.679688, lr:0.000002
+Epoch:2  iteration:370/1427, total loss:1.937500, lr:0.000002
+Epoch:2  iteration:380/1427, total loss:1.746094, lr:0.000002
+Epoch:2  iteration:390/1427, total loss:1.769531, lr:0.000002
+Epoch:2  iteration:400/1427, total loss:2.031250, lr:0.000002
+Epoch:2  iteration:410/1427, total loss:1.608398, lr:0.000002
+Epoch:2  iteration:420/1427, total loss:1.626953, lr:0.000002
+Epoch:2  iteration:430/1427, total loss:2.035156, lr:0.000002
+Epoch:2  iteration:440/1427, total loss:1.904297, lr:0.000002
+Epoch:2  iteration:450/1427, total loss:1.812500, lr:0.000002
+Epoch:2  iteration:460/1427, total loss:1.811523, lr:0.000002
+Epoch:2  iteration:470/1427, total loss:1.737305, lr:0.000002
+Epoch:2  iteration:480/1427, total loss:1.886719, lr:0.000002
+Epoch:2  iteration:490/1427, total loss:1.920898, lr:0.000002
+Epoch:2  iteration:500/1427, total loss:1.752930, lr:0.000002
+Epoch:2  iteration:510/1427, total loss:1.937500, lr:0.000002
+Epoch:2  iteration:520/1427, total loss:1.753906, lr:0.000002
+Epoch:2  iteration:530/1427, total loss:1.695312, lr:0.000002
+Epoch:2  iteration:540/1427, total loss:1.754883, lr:0.000002
+Epoch:2  iteration:550/1427, total loss:1.871094, lr:0.000002
+Epoch:2  iteration:560/1427, total loss:1.828125, lr:0.000002
+Epoch:2  iteration:570/1427, total loss:1.835938, lr:0.000002
+Epoch:2  iteration:580/1427, total loss:1.895508, lr:0.000002
+Epoch:2  iteration:590/1427, total loss:1.898438, lr:0.000002
+Epoch:2  iteration:600/1427, total loss:1.795898, lr:0.000002
+Epoch:2  iteration:610/1427, total loss:1.684570, lr:0.000002
+Epoch:2  iteration:620/1427, total loss:1.882812, lr:0.000002
+Epoch:2  iteration:630/1427, total loss:1.671875, lr:0.000002
+Epoch:2  iteration:640/1427, total loss:1.726562, lr:0.000002
+Epoch:2  iteration:650/1427, total loss:1.864258, lr:0.000002
+Epoch:2  iteration:660/1427, total loss:1.799805, lr:0.000002
+Epoch:2  iteration:670/1427, total loss:1.812500, lr:0.000002
+Epoch:2  iteration:680/1427, total loss:1.718750, lr:0.000002
+Epoch:2  iteration:690/1427, total loss:1.812500, lr:0.000002
+Epoch:2  iteration:700/1427, total loss:1.847656, lr:0.000002
+Epoch:2  iteration:710/1427, total loss:1.697266, lr:0.000002
+Epoch:2  iteration:720/1427, total loss:1.872070, lr:0.000003
+Epoch:2  iteration:730/1427, total loss:1.870117, lr:0.000003
+Epoch:2  iteration:740/1427, total loss:1.703125, lr:0.000003
+Epoch:2  iteration:750/1427, total loss:1.834961, lr:0.000003
+Epoch:2  iteration:760/1427, total loss:1.777344, lr:0.000003
+Epoch:2  iteration:770/1427, total loss:1.827148, lr:0.000003
+Epoch:2  iteration:780/1427, total loss:1.811523, lr:0.000003
+Epoch:2  iteration:790/1427, total loss:1.926758, lr:0.000003
+Epoch:2  iteration:800/1427, total loss:1.815430, lr:0.000003
+Epoch:2  iteration:810/1427, total loss:1.786133, lr:0.000003
+Epoch:2  iteration:820/1427, total loss:1.881836, lr:0.000003
+Epoch:2  iteration:830/1427, total loss:1.870117, lr:0.000003
+Epoch:2  iteration:840/1427, total loss:2.001953, lr:0.000003
+Epoch:2  iteration:850/1427, total loss:1.776367, lr:0.000003
+Epoch:2  iteration:860/1427, total loss:1.863281, lr:0.000003
+Epoch:2  iteration:870/1427, total loss:1.666016, lr:0.000003
+Epoch:2  iteration:880/1427, total loss:1.751953, lr:0.000003
+Epoch:2  iteration:890/1427, total loss:1.910156, lr:0.000003
+Epoch:2  iteration:900/1427, total loss:1.928711, lr:0.000003
+Epoch:2  iteration:910/1427, total loss:1.598633, lr:0.000003
+Epoch:2  iteration:920/1427, total loss:1.798828, lr:0.000003
+Epoch:2  iteration:930/1427, total loss:1.768555, lr:0.000003
+Epoch:2  iteration:940/1427, total loss:1.922852, lr:0.000003
+Epoch:2  iteration:950/1427, total loss:1.816406, lr:0.000003
+Epoch:2  iteration:960/1427, total loss:2.025391, lr:0.000003
+Epoch:2  iteration:970/1427, total loss:1.756836, lr:0.000003
+Epoch:2  iteration:980/1427, total loss:1.815430, lr:0.000003
+Epoch:2  iteration:990/1427, total loss:1.958984, lr:0.000003
+Epoch:2  iteration:1000/1427, total loss:1.829102, lr:0.000003
+Epoch:2  iteration:1010/1427, total loss:1.778320, lr:0.000003
+Epoch:2  iteration:1020/1427, total loss:1.837891, lr:0.000003
+Epoch:2  iteration:1030/1427, total loss:1.729492, lr:0.000003
+Epoch:2  iteration:1040/1427, total loss:1.848633, lr:0.000003
+Epoch:2  iteration:1050/1427, total loss:1.832031, lr:0.000003
+Epoch:2  iteration:1060/1427, total loss:1.845703, lr:0.000003
+Epoch:2  iteration:1070/1427, total loss:1.733398, lr:0.000003
+Epoch:2  iteration:1080/1427, total loss:1.817383, lr:0.000003
+Epoch:2  iteration:1090/1427, total loss:1.902344, lr:0.000003
+Traceback (most recent call last):
+  File "train_new.py", line 364, in <module>
+    main()
+  File "train_new.py", line 303, in main
+    optimizer.step()
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py", line 68, in wrapper
+    return wrapped(*args, **kwargs)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/optimizer.py", line 140, in wrapper
+    out = func(*args, **kwargs)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/autograd/grad_mode.py", line 27, in decorate_context
+    return func(*args, **kwargs)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/adamw.py", line 162, in step
+    adamw(params_with_grad,
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/adamw.py", line 219, in adamw
+    func(params,
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/adamw.py", line 274, in _single_tensor_adamw
+    exp_avg_sq.mul_(beta2).addcmul_(grad, grad, value=1 - beta2)
+KeyboardInterrupt

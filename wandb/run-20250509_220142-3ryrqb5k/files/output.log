@@ -1,0 +1,324 @@
+--------------------------------------------------------------------------------
+                     working dir: /home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP/clip_8_frame/ViT-B/16/emotion_recog/Emotion_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_json/',
+                'base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_set_filered/',
+                'batch_size': 15,
+                'dataset': 'emotion_recog',
+                'gpus': 2,
+                'index_bias': 1,
+                'input_size': 224,
+                'modality': 'RGB',
+                'num_segments': 8,
+                'number_of_class': 7,
+                'randaug': {'M': 0, 'N': 0},
+                'seg_length': 1,
+                'split': 1,
+                'test_base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_json/',
+                'test_base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_set_filter/',
+                'test_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_final_list.txt',
+                'train_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_final_list.txt',
+                'workers': 8},
+    'eval_data': {   'base_json_path_dev': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/dev',
+                     'base_json_path_test': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/test',
+                     'base_json_path_train': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/train',
+                     'base_video_path': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/',
+                     'batch_size': 15,
+                     'dev_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/dev_list.txt',
+                     'test_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/test_list.txt',
+                     'train_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/train_list.txt'},
+    'logging': {'eval_freq': 10, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_8_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'Emotion_training',
+    'weight_save_dir': '/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7f4cfdbc5250>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7f4cfce6e5b0>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7f4cfce6efd0>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7f4cfce6ef70>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7f4cfce6ed00>
+    <datasets.transforms_ss.GroupSolarization object at 0x7f4cfce6ee20>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f4cfce6ebb0>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f4cfce6ecd0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f4cfce6ec70>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7f4cfce6eaf0>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7f4cfce6ea90>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f4cfce6ee80>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f4cfce6e9d0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f4cfce6e970>
+)]
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchaudio/functional/functional.py:571: UserWarning: At least one mel filterbank has all zero values. The value for `n_mels` (64) may be set too high. Or, the value for `n_freqs` (513) may be set too low.
+  warnings.warn(
+CLIP_model Trainable Parameters: 8.681M
+Audio model Trainable Parameters: 0.656M
+5e-06
+5e-06
+5e-06
+5e-05
+AdamW
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:138: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:0  iteration:0/665, total loss:1.974609, lr:0.000000
+Epoch:0  iteration:10/665, total loss:1.980469, lr:0.000000
+Epoch:0  iteration:20/665, total loss:1.991211, lr:0.000000
+Epoch:0  iteration:30/665, total loss:1.978516, lr:0.000000
+Epoch:0  iteration:40/665, total loss:1.935547, lr:0.000000
+Epoch:0  iteration:50/665, total loss:1.967773, lr:0.000000
+Epoch:0  iteration:60/665, total loss:1.957031, lr:0.000000
+Epoch:0  iteration:70/665, total loss:1.960938, lr:0.000000
+Epoch:0  iteration:80/665, total loss:1.954102, lr:0.000000
+Epoch:0  iteration:90/665, total loss:1.954102, lr:0.000000
+Epoch:0  iteration:100/665, total loss:1.918945, lr:0.000000
+Epoch:0  iteration:110/665, total loss:1.922852, lr:0.000000
+Epoch:0  iteration:120/665, total loss:1.923828, lr:0.000000
+Epoch:0  iteration:130/665, total loss:1.908203, lr:0.000000
+Epoch:0  iteration:140/665, total loss:1.909180, lr:0.000000
+Epoch:0  iteration:150/665, total loss:1.894531, lr:0.000000
+Epoch:0  iteration:160/665, total loss:1.884766, lr:0.000000
+Epoch:0  iteration:170/665, total loss:1.915039, lr:0.000000
+Epoch:0  iteration:180/665, total loss:1.926758, lr:0.000000
+Epoch:0  iteration:190/665, total loss:1.859375, lr:0.000000
+Epoch:0  iteration:200/665, total loss:1.829102, lr:0.000000
+Epoch:0  iteration:210/665, total loss:1.847656, lr:0.000000
+Epoch:0  iteration:220/665, total loss:1.825195, lr:0.000000
+Epoch:0  iteration:230/665, total loss:1.824219, lr:0.000000
+Epoch:0  iteration:240/665, total loss:1.731445, lr:0.000000
+Epoch:0  iteration:250/665, total loss:1.721680, lr:0.000000
+Epoch:0  iteration:260/665, total loss:1.740234, lr:0.000000
+Epoch:0  iteration:270/665, total loss:1.813477, lr:0.000000
+Epoch:0  iteration:280/665, total loss:1.705078, lr:0.000000
+Epoch:0  iteration:290/665, total loss:1.652344, lr:0.000000
+Epoch:0  iteration:300/665, total loss:1.689453, lr:0.000000
+Epoch:0  iteration:310/665, total loss:1.746094, lr:0.000000
+Epoch:0  iteration:320/665, total loss:1.553711, lr:0.000000
+Epoch:0  iteration:330/665, total loss:1.760742, lr:0.000000
+Epoch:0  iteration:340/665, total loss:1.791992, lr:0.000001
+Epoch:0  iteration:350/665, total loss:1.677734, lr:0.000001
+Epoch:0  iteration:360/665, total loss:1.477539, lr:0.000001
+Epoch:0  iteration:370/665, total loss:1.656250, lr:0.000001
+Epoch:0  iteration:380/665, total loss:1.582031, lr:0.000001
+Epoch:0  iteration:390/665, total loss:1.676758, lr:0.000001
+Epoch:0  iteration:400/665, total loss:1.608398, lr:0.000001
+Epoch:0  iteration:410/665, total loss:1.373047, lr:0.000001
+Epoch:0  iteration:420/665, total loss:1.726562, lr:0.000001
+Epoch:0  iteration:430/665, total loss:1.401367, lr:0.000001
+Epoch:0  iteration:440/665, total loss:1.458008, lr:0.000001
+Epoch:0  iteration:450/665, total loss:1.756836, lr:0.000001
+Epoch:0  iteration:460/665, total loss:1.651367, lr:0.000001
+Epoch:0  iteration:470/665, total loss:1.677734, lr:0.000001
+Epoch:0  iteration:480/665, total loss:1.706055, lr:0.000001
+Epoch:0  iteration:490/665, total loss:1.797852, lr:0.000001
+Epoch:0  iteration:500/665, total loss:1.618164, lr:0.000001
+Epoch:0  iteration:510/665, total loss:1.348633, lr:0.000001
+Epoch:0  iteration:520/665, total loss:1.838867, lr:0.000001
+Epoch:0  iteration:530/665, total loss:1.670898, lr:0.000001
+Epoch:0  iteration:540/665, total loss:1.697266, lr:0.000001
+Epoch:0  iteration:550/665, total loss:1.685547, lr:0.000001
+Epoch:0  iteration:560/665, total loss:1.248047, lr:0.000001
+Epoch:0  iteration:570/665, total loss:1.568359, lr:0.000001
+Epoch:0  iteration:580/665, total loss:1.634766, lr:0.000001
+Epoch:0  iteration:590/665, total loss:1.428711, lr:0.000001
+Epoch:0  iteration:600/665, total loss:1.318359, lr:0.000001
+Epoch:0  iteration:610/665, total loss:1.567383, lr:0.000001
+Epoch:0  iteration:620/665, total loss:1.549805, lr:0.000001
+Epoch:0  iteration:630/665, total loss:1.576172, lr:0.000001
+Epoch:0  iteration:640/665, total loss:1.528320, lr:0.000001
+Epoch:0  iteration:650/665, total loss:1.677734, lr:0.000001
+Epoch:0  iteration:660/665, total loss:1.790039, lr:0.000001
+Test accuracy
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 174/174 [02:26<00:00,  1.19it/s]
+Validation accuracy: 48.16%
+Testing: 48.15526518063029/48.15526518063029
+Saving:
+Saving best weight based on K-400 accuracy at epoch 0
+Epoch 0 end ..
+Time taken by epoch 0: 0:17:43
+------------------------------------------------------------------------
+Epoch:1  iteration:0/665, total loss:1.309570, lr:0.000001
+Epoch:1  iteration:10/665, total loss:1.487305, lr:0.000001
+Epoch:1  iteration:20/665, total loss:1.127930, lr:0.000001
+Epoch:1  iteration:30/665, total loss:1.482422, lr:0.000001
+Epoch:1  iteration:40/665, total loss:1.590820, lr:0.000001
+Epoch:1  iteration:50/665, total loss:1.672852, lr:0.000001
+Epoch:1  iteration:60/665, total loss:1.281250, lr:0.000001
+Epoch:1  iteration:70/665, total loss:1.373047, lr:0.000001
+Epoch:1  iteration:80/665, total loss:1.817383, lr:0.000001
+Epoch:1  iteration:90/665, total loss:1.702148, lr:0.000001
+Epoch:1  iteration:100/665, total loss:1.500000, lr:0.000001
+Epoch:1  iteration:110/665, total loss:1.715820, lr:0.000001
+Epoch:1  iteration:120/665, total loss:1.536133, lr:0.000001
+Epoch:1  iteration:130/665, total loss:1.848633, lr:0.000001
+Epoch:1  iteration:140/665, total loss:1.673828, lr:0.000001
+Epoch:1  iteration:150/665, total loss:1.719727, lr:0.000001
+Epoch:1  iteration:160/665, total loss:1.548828, lr:0.000001
+Epoch:1  iteration:170/665, total loss:1.441406, lr:0.000001
+Epoch:1  iteration:180/665, total loss:1.632812, lr:0.000001
+Epoch:1  iteration:190/665, total loss:1.488281, lr:0.000001
+Epoch:1  iteration:200/665, total loss:1.481445, lr:0.000001
+Epoch:1  iteration:210/665, total loss:1.967773, lr:0.000001
+Epoch:1  iteration:220/665, total loss:1.333008, lr:0.000001
+Epoch:1  iteration:230/665, total loss:1.629883, lr:0.000001
+Epoch:1  iteration:240/665, total loss:1.373047, lr:0.000001
+Epoch:1  iteration:250/665, total loss:1.635742, lr:0.000001
+Epoch:1  iteration:260/665, total loss:1.292969, lr:0.000001
+Epoch:1  iteration:270/665, total loss:1.398438, lr:0.000001
+Epoch:1  iteration:280/665, total loss:1.374023, lr:0.000001
+Epoch:1  iteration:290/665, total loss:1.890625, lr:0.000001
+Epoch:1  iteration:300/665, total loss:1.454102, lr:0.000001
+Epoch:1  iteration:310/665, total loss:1.580078, lr:0.000001
+Epoch:1  iteration:320/665, total loss:1.670898, lr:0.000001
+Epoch:1  iteration:330/665, total loss:1.612305, lr:0.000001
+Epoch:1  iteration:340/665, total loss:1.697266, lr:0.000002
+Epoch:1  iteration:350/665, total loss:1.638672, lr:0.000002
+Epoch:1  iteration:360/665, total loss:1.062500, lr:0.000002
+Epoch:1  iteration:370/665, total loss:1.502930, lr:0.000002
+Epoch:1  iteration:380/665, total loss:1.561523, lr:0.000002
+Epoch:1  iteration:390/665, total loss:1.595703, lr:0.000002
+Epoch:1  iteration:400/665, total loss:1.198242, lr:0.000002
+Epoch:1  iteration:410/665, total loss:1.128906, lr:0.000002
+Epoch:1  iteration:420/665, total loss:1.501953, lr:0.000002
+Epoch:1  iteration:430/665, total loss:1.476562, lr:0.000002
+Epoch:1  iteration:440/665, total loss:1.523438, lr:0.000002
+Epoch:1  iteration:450/665, total loss:1.504883, lr:0.000002
+Epoch:1  iteration:460/665, total loss:1.269531, lr:0.000002
+Epoch:1  iteration:470/665, total loss:1.477539, lr:0.000002
+Epoch:1  iteration:480/665, total loss:1.725586, lr:0.000002
+Epoch:1  iteration:490/665, total loss:1.425781, lr:0.000002
+Epoch:1  iteration:500/665, total loss:1.467773, lr:0.000002
+Epoch:1  iteration:510/665, total loss:1.532227, lr:0.000002
+Epoch:1  iteration:520/665, total loss:1.571289, lr:0.000002
+Epoch:1  iteration:530/665, total loss:1.602539, lr:0.000002
+Epoch:1  iteration:540/665, total loss:1.342773, lr:0.000002
+Epoch:1  iteration:550/665, total loss:1.760742, lr:0.000002
+Epoch:1  iteration:560/665, total loss:1.887695, lr:0.000002
+Epoch:1  iteration:570/665, total loss:1.447266, lr:0.000002
+Epoch:1  iteration:580/665, total loss:1.243164, lr:0.000002
+Epoch:1  iteration:590/665, total loss:1.342773, lr:0.000002
+Epoch:1  iteration:600/665, total loss:1.583984, lr:0.000002
+Epoch:1  iteration:610/665, total loss:1.321289, lr:0.000002
+Epoch:1  iteration:620/665, total loss:1.361328, lr:0.000002
+Epoch:1  iteration:630/665, total loss:1.519531, lr:0.000002
+Epoch:1  iteration:640/665, total loss:1.385742, lr:0.000002
+Epoch:1  iteration:650/665, total loss:1.524414, lr:0.000002
+Epoch:1  iteration:660/665, total loss:1.207031, lr:0.000002
+Testing: 48.15526518063029/48.15526518063029
+Saving:
+Epoch 1 end ..
+Time taken by epoch 1: 0:14:57
+------------------------------------------------------------------------
+Epoch:2  iteration:0/665, total loss:1.630859, lr:0.000002
+Epoch:2  iteration:10/665, total loss:1.263672, lr:0.000002
+Epoch:2  iteration:20/665, total loss:1.560547, lr:0.000002
+Epoch:2  iteration:30/665, total loss:1.062500, lr:0.000002
+Epoch:2  iteration:40/665, total loss:1.710938, lr:0.000002
+Epoch:2  iteration:50/665, total loss:1.694336, lr:0.000002
+Epoch:2  iteration:60/665, total loss:1.731445, lr:0.000002
+Epoch:2  iteration:70/665, total loss:1.416016, lr:0.000002
+Epoch:2  iteration:80/665, total loss:1.527344, lr:0.000002
+Epoch:2  iteration:90/665, total loss:1.598633, lr:0.000002
+Epoch:2  iteration:100/665, total loss:1.749023, lr:0.000002
+Epoch:2  iteration:110/665, total loss:1.343750, lr:0.000002
+Epoch:2  iteration:120/665, total loss:1.618164, lr:0.000002
+Epoch:2  iteration:130/665, total loss:1.519531, lr:0.000002
+Epoch:2  iteration:140/665, total loss:1.454102, lr:0.000002
+Epoch:2  iteration:150/665, total loss:1.534180, lr:0.000002
+Epoch:2  iteration:160/665, total loss:1.645508, lr:0.000002
+Epoch:2  iteration:170/665, total loss:1.656250, lr:0.000002
+Epoch:2  iteration:180/665, total loss:1.359375, lr:0.000002
+Epoch:2  iteration:190/665, total loss:1.486328, lr:0.000002
+Epoch:2  iteration:200/665, total loss:1.736328, lr:0.000002
+Epoch:2  iteration:210/665, total loss:1.476562, lr:0.000002
+Epoch:2  iteration:220/665, total loss:1.586914, lr:0.000002
+Epoch:2  iteration:230/665, total loss:1.661133, lr:0.000002
+Epoch:2  iteration:240/665, total loss:1.826172, lr:0.000002
+Epoch:2  iteration:250/665, total loss:1.799805, lr:0.000002
+Epoch:2  iteration:260/665, total loss:1.248047, lr:0.000002
+Epoch:2  iteration:270/665, total loss:1.666992, lr:0.000002
+Epoch:2  iteration:280/665, total loss:1.394531, lr:0.000002
+Epoch:2  iteration:290/665, total loss:1.808594, lr:0.000002
+Epoch:2  iteration:300/665, total loss:1.467773, lr:0.000002
+Epoch:2  iteration:310/665, total loss:1.150391, lr:0.000002
+Epoch:2  iteration:320/665, total loss:1.757812, lr:0.000002
+Epoch:2  iteration:330/665, total loss:1.578125, lr:0.000002
+Epoch:2  iteration:340/665, total loss:1.519531, lr:0.000003
+Epoch:2  iteration:350/665, total loss:1.567383, lr:0.000003
+Epoch:2  iteration:360/665, total loss:1.369141, lr:0.000003
+Epoch:2  iteration:370/665, total loss:2.248047, lr:0.000003
+Epoch:2  iteration:380/665, total loss:1.412109, lr:0.000003
+Epoch:2  iteration:390/665, total loss:1.255859, lr:0.000003
+Epoch:2  iteration:400/665, total loss:1.202148, lr:0.000003
+Epoch:2  iteration:410/665, total loss:1.100586, lr:0.000003
+Epoch:2  iteration:420/665, total loss:2.066406, lr:0.000003
+Epoch:2  iteration:430/665, total loss:1.710938, lr:0.000003
+Epoch:2  iteration:440/665, total loss:1.426758, lr:0.000003
+Epoch:2  iteration:450/665, total loss:1.474609, lr:0.000003
+Epoch:2  iteration:460/665, total loss:1.698242, lr:0.000003
+Epoch:2  iteration:470/665, total loss:1.406250, lr:0.000003
+Epoch:2  iteration:480/665, total loss:1.603516, lr:0.000003
+Epoch:2  iteration:490/665, total loss:1.578125, lr:0.000003
+Epoch:2  iteration:500/665, total loss:1.472656, lr:0.000003
+Epoch:2  iteration:510/665, total loss:1.820312, lr:0.000003
+Epoch:2  iteration:520/665, total loss:1.319336, lr:0.000003
+Epoch:2  iteration:530/665, total loss:1.414062, lr:0.000003
+Epoch:2  iteration:540/665, total loss:1.229492, lr:0.000003
+Epoch:2  iteration:550/665, total loss:1.626953, lr:0.000003
+Epoch:2  iteration:560/665, total loss:1.627930, lr:0.000003
+Epoch:2  iteration:570/665, total loss:1.716797, lr:0.000003
+Epoch:2  iteration:580/665, total loss:1.414062, lr:0.000003
+Epoch:2  iteration:590/665, total loss:1.744141, lr:0.000003
+Epoch:2  iteration:600/665, total loss:1.798828, lr:0.000003
+Epoch:2  iteration:610/665, total loss:1.689453, lr:0.000003
+Epoch:2  iteration:620/665, total loss:1.745117, lr:0.000003
+Epoch:2  iteration:630/665, total loss:1.780273, lr:0.000003
+Epoch:2  iteration:640/665, total loss:1.469727, lr:0.000003
+Epoch:2  iteration:650/665, total loss:1.340820, lr:0.000003
+Epoch:2  iteration:660/665, total loss:1.567383, lr:0.000003
+Testing: 48.15526518063029/48.15526518063029
+Saving:
+Epoch 2 end ..
+Time taken by epoch 2: 0:14:58
+------------------------------------------------------------------------
+Epoch:3  iteration:0/665, total loss:1.708984, lr:0.000003
+Epoch:3  iteration:10/665, total loss:1.334961, lr:0.000003
+Backend TkAgg is interactive backend. Turning interactive mode on.

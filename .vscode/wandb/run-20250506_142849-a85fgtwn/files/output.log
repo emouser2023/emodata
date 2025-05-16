@@ -1,0 +1,2759 @@
+--------------------------------------------------------------------------------
+                     working dir: /media/sdb_access/Emotion_multi_model_CLIP/EXP/clip_hmdb_32_frame/ViT-B/16/emotion_recog/Emotion_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/clip_json_test/',
+                'base_video_path': '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/test_videos_clips/',
+                'batch_size': 10,
+                'dataset': 'emotion_recog',
+                'gpus': 2,
+                'index_bias': 1,
+                'input_size': 224,
+                'modality': 'RGB',
+                'num_segments': 8,
+                'randaug': {'M': 0, 'N': 0},
+                'root_path': '/media/sdb_access/HMDB_51/all_video',
+                'seg_length': 1,
+                'split': 1,
+                'train_list': '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/clip_json_test_list.txt',
+                'workers': 8},
+    'eval_data': {   'base_json_path_dev': '/media/sdb_access/1_emotionCLIP/MELD_dataset/json/dev',
+                     'base_json_path_test': '/media/sdb_access/1_emotionCLIP/MELD_dataset/json/test',
+                     'base_json_path_train': '/media/sdb_access/1_emotionCLIP/MELD_dataset/json/train',
+                     'base_video_path': '/media/sdb_access/1_emotionCLIP/MELD_dataset/Dataset',
+                     'batch_size': 10,
+                     'dev_list': '/media/sdb_access/1_emotionCLIP/MELD_dataset/txt/dev_list.txt',
+                     'test_list': '/media/sdb_access/1_emotionCLIP/MELD_dataset/txt/test_list.txt',
+                     'train_list': '/media/sdb_access/1_emotionCLIP/MELD_dataset/txt/train_list.txt'},
+    'logging': {'eval_freq': 10, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_hmdb_32_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'Emotion_training',
+    'weight_save_dir': '/media/sdb_access/Emotion_multi_model_CLIP/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7fd54bbf6a30>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7fd54bbf6e80>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7fd54bbf6fd0>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7fd54bbf6f10>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7fd54bbf6d30>
+    <datasets.transforms_ss.GroupSolarization object at 0x7fd54bbf6e50>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7fd54bbf6a90>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7fd54bbf6d00>
+    <datasets.transforms_ss.GroupNormalize object at 0x7fd54bbf6be0>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7fd54bbf6c70>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7fd54bbf6ac0>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7fd54bbf6a60>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7fd54bbf6880>
+    <datasets.transforms_ss.GroupNormalize object at 0x7fd54bbf6820>
+)]
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torchaudio/functional/functional.py:571: UserWarning: At least one mel filterbank has all zero values. The value for `n_mels` (64) may be set too high. Or, the value for `n_freqs` (513) may be set too low.
+  warnings.warn(
+CLIP_model Trainable Parameters: 8.681M
+Audio model Trainable Parameters: 0.656M
+5e-06
+5e-06
+5e-06
+AdamW
+visual.transformer.resblocks.0.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.0.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.0.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.0.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.0.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.0.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.0.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.0.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.1.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.1.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.1.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.1.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.1.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.1.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.1.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.1.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.2.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.2.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.2.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.2.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.2.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.2.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.2.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.2.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.3.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.3.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.3.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.3.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.3.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.3.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.3.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.3.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.4.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.4.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.4.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.4.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.4.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.4.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.4.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.4.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.5.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.5.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.5.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.5.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.5.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.5.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.5.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.5.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.6.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.6.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.6.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.6.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.6.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.6.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.6.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.6.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.7.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.7.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.7.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.7.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.7.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.7.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.7.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.7.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.8.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.8.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.8.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.8.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.8.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.8.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.8.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.8.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.9.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.9.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.9.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.9.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.9.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.9.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.9.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.9.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.10.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.10.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.10.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.10.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.10.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.10.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.10.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.10.Adapter.D_fc2.bias: True
+visual.transformer.resblocks.11.T_Adapter.D_fc1.weight: True
+visual.transformer.resblocks.11.T_Adapter.D_fc1.bias: True
+visual.transformer.resblocks.11.T_Adapter.D_fc2.weight: True
+visual.transformer.resblocks.11.T_Adapter.D_fc2.bias: True
+visual.transformer.resblocks.11.Adapter.D_fc1.weight: True
+visual.transformer.resblocks.11.Adapter.D_fc1.bias: True
+visual.transformer.resblocks.11.Adapter.D_fc2.weight: True
+visual.transformer.resblocks.11.Adapter.D_fc2.bias: True
+transformer.resblocks.0.Adapter.D_fc1.weight: True
+transformer.resblocks.0.Adapter.D_fc1.bias: True
+transformer.resblocks.0.Adapter.D_fc2.weight: True
+transformer.resblocks.0.Adapter.D_fc2.bias: True
+transformer.resblocks.1.Adapter.D_fc1.weight: True
+transformer.resblocks.1.Adapter.D_fc1.bias: True
+transformer.resblocks.1.Adapter.D_fc2.weight: True
+transformer.resblocks.1.Adapter.D_fc2.bias: True
+transformer.resblocks.2.Adapter.D_fc1.weight: True
+transformer.resblocks.2.Adapter.D_fc1.bias: True
+transformer.resblocks.2.Adapter.D_fc2.weight: True
+transformer.resblocks.2.Adapter.D_fc2.bias: True
+transformer.resblocks.3.Adapter.D_fc1.weight: True
+transformer.resblocks.3.Adapter.D_fc1.bias: True
+transformer.resblocks.3.Adapter.D_fc2.weight: True
+transformer.resblocks.3.Adapter.D_fc2.bias: True
+transformer.resblocks.4.Adapter.D_fc1.weight: True
+transformer.resblocks.4.Adapter.D_fc1.bias: True
+transformer.resblocks.4.Adapter.D_fc2.weight: True
+transformer.resblocks.4.Adapter.D_fc2.bias: True
+transformer.resblocks.5.Adapter.D_fc1.weight: True
+transformer.resblocks.5.Adapter.D_fc1.bias: True
+transformer.resblocks.5.Adapter.D_fc2.weight: True
+transformer.resblocks.5.Adapter.D_fc2.bias: True
+transformer.resblocks.6.Adapter.D_fc1.weight: True
+transformer.resblocks.6.Adapter.D_fc1.bias: True
+transformer.resblocks.6.Adapter.D_fc2.weight: True
+transformer.resblocks.6.Adapter.D_fc2.bias: True
+transformer.resblocks.7.Adapter.D_fc1.weight: True
+transformer.resblocks.7.Adapter.D_fc1.bias: True
+transformer.resblocks.7.Adapter.D_fc2.weight: True
+transformer.resblocks.7.Adapter.D_fc2.bias: True
+transformer.resblocks.8.Adapter.D_fc1.weight: True
+transformer.resblocks.8.Adapter.D_fc1.bias: True
+transformer.resblocks.8.Adapter.D_fc2.weight: True
+transformer.resblocks.8.Adapter.D_fc2.bias: True
+transformer.resblocks.9.Adapter.D_fc1.weight: True
+transformer.resblocks.9.Adapter.D_fc1.bias: True
+transformer.resblocks.9.Adapter.D_fc2.weight: True
+transformer.resblocks.9.Adapter.D_fc2.bias: True
+transformer.resblocks.10.Adapter.D_fc1.weight: True
+transformer.resblocks.10.Adapter.D_fc1.bias: True
+transformer.resblocks.10.Adapter.D_fc2.weight: True
+transformer.resblocks.10.Adapter.D_fc2.bias: True
+transformer.resblocks.11.Adapter.D_fc1.weight: True
+transformer.resblocks.11.Adapter.D_fc1.bias: True
+transformer.resblocks.11.Adapter.D_fc2.weight: True
+transformer.resblocks.11.Adapter.D_fc2.bias: True
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:138: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:0  iteration:0/39, total loss:2.559346, lr:0.000000
+Epoch:0  iteration:10/39, total loss:2.615766, lr:0.000000
+Epoch:0  iteration:20/39, total loss:2.629210, lr:0.000000
+Epoch:0  iteration:30/39, total loss:2.559074, lr:0.000001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 997/997 [17:33<00:00,  1.06s/it]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 261/261 [04:18<00:00,  1.01it/s]
+Epoch [200/2000], Loss: 1.5752
+Epoch [400/2000], Loss: 1.5439
+Epoch [600/2000], Loss: 1.5381
+Epoch [800/2000], Loss: 1.5361
+Epoch [1000/2000], Loss: 1.5352
+Epoch [1200/2000], Loss: 1.5352
+Epoch [1400/2000], Loss: 1.5352
+Epoch [1600/2000], Loss: 1.5342
+Epoch [1800/2000], Loss: 1.5342
+Epoch [2000/2000], Loss: 1.5342
+Multimodal Metrics: {'accuracy': 0.48155265180630286, 'f1_score': 0.31304045276954473, 'mAP': 0.15417872529249457, 'AUC': 0.5538375317697903}
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:1  iteration:0/39, total loss:2.571656, lr:0.000001
+Epoch:1  iteration:10/39, total loss:2.482618, lr:0.000001
+Epoch:1  iteration:20/39, total loss:2.603124, lr:0.000001
+Epoch:1  iteration:30/39, total loss:2.489255, lr:0.000002
+Epoch:2  iteration:0/39, total loss:2.507912, lr:0.000002
+Epoch:2  iteration:10/39, total loss:2.549515, lr:0.000002
+Epoch:2  iteration:20/39, total loss:2.552711, lr:0.000002
+Epoch:2  iteration:30/39, total loss:2.490464, lr:0.000003
+Epoch:3  iteration:0/39, total loss:2.497698, lr:0.000003
+Epoch:3  iteration:10/39, total loss:2.466014, lr:0.000003
+Epoch:3  iteration:20/39, total loss:2.513877, lr:0.000003
+Epoch:3  iteration:30/39, total loss:2.534593, lr:0.000004
+Epoch:4  iteration:0/39, total loss:2.562824, lr:0.000004
+Epoch:4  iteration:10/39, total loss:2.447854, lr:0.000004
+Epoch:4  iteration:20/39, total loss:2.491465, lr:0.000004
+Epoch:4  iteration:30/39, total loss:2.447961, lr:0.000005
+Epoch:5  iteration:0/39, total loss:2.442321, lr:0.000005
+Epoch:5  iteration:10/39, total loss:2.429249, lr:0.000005
+Epoch:5  iteration:20/39, total loss:2.413690, lr:0.000005
+Epoch:5  iteration:30/39, total loss:2.398599, lr:0.000005
+Epoch:6  iteration:0/39, total loss:2.423890, lr:0.000005
+Epoch:6  iteration:10/39, total loss:2.463627, lr:0.000005
+Epoch:6  iteration:20/39, total loss:2.468628, lr:0.000005
+Epoch:6  iteration:30/39, total loss:2.419623, lr:0.000005
+Epoch:7  iteration:0/39, total loss:2.365498, lr:0.000005
+Epoch:7  iteration:10/39, total loss:2.421213, lr:0.000005
+Epoch:7  iteration:20/39, total loss:2.377338, lr:0.000005
+Epoch:7  iteration:30/39, total loss:2.350689, lr:0.000005
+Epoch:8  iteration:0/39, total loss:2.431740, lr:0.000005
+Epoch:8  iteration:10/39, total loss:2.380448, lr:0.000005
+Epoch:8  iteration:20/39, total loss:2.357371, lr:0.000005
+Epoch:8  iteration:30/39, total loss:2.369679, lr:0.000005
+Epoch:9  iteration:0/39, total loss:2.289324, lr:0.000005
+Epoch:9  iteration:10/39, total loss:2.397326, lr:0.000005
+Epoch:9  iteration:20/39, total loss:2.346754, lr:0.000005
+Epoch:9  iteration:30/39, total loss:2.324683, lr:0.000005
+Epoch:10  iteration:0/39, total loss:2.321099, lr:0.000005
+Epoch:10  iteration:10/39, total loss:2.291461, lr:0.000005
+Epoch:10  iteration:20/39, total loss:2.325471, lr:0.000005
+Epoch:10  iteration:30/39, total loss:2.321537, lr:0.000005
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 997/997 [14:27<00:00,  1.15it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 261/261 [03:47<00:00,  1.89it/s]
+Epoch [200/2000], Loss: 1.5684
+Epoch [400/2000], Loss: 1.5420
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 261/261 [03:47<00:00,  1.15it/s]
+Epoch [800/2000], Loss: 1.5352
+Epoch [1000/2000], Loss: 1.5352
+Epoch [1200/2000], Loss: 1.5352
+Epoch [1400/2000], Loss: 1.5342
+Epoch [1600/2000], Loss: 1.5342
+Epoch [1800/2000], Loss: 1.5342
+Epoch [2000/2000], Loss: 1.5342
+Multimodal Metrics: {'accuracy': 0.48155265180630286, 'f1_score': 0.31304045276954473, 'mAP': 0.1548613231164076, 'AUC': 0.5556418379691471}
+Epoch:11  iteration:0/39, total loss:2.319715, lr:0.000005
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:11  iteration:10/39, total loss:2.338533, lr:0.000005
+Epoch:11  iteration:20/39, total loss:2.352289, lr:0.000005
+Epoch:11  iteration:30/39, total loss:2.353905, lr:0.000005
+Epoch:12  iteration:0/39, total loss:2.313370, lr:0.000005
+Epoch:12  iteration:10/39, total loss:2.352267, lr:0.000005
+Epoch:12  iteration:20/39, total loss:2.342602, lr:0.000005
+Epoch:12  iteration:30/39, total loss:2.351547, lr:0.000005
+Epoch:13  iteration:0/39, total loss:2.345488, lr:0.000005
+Epoch:13  iteration:10/39, total loss:2.306802, lr:0.000005
+Epoch:13  iteration:20/39, total loss:2.373371, lr:0.000005
+Epoch:13  iteration:30/39, total loss:2.374857, lr:0.000005
+Epoch:14  iteration:0/39, total loss:2.394195, lr:0.000005
+Epoch:14  iteration:10/39, total loss:2.298306, lr:0.000004
+Epoch:14  iteration:20/39, total loss:2.211933, lr:0.000004
+Epoch:14  iteration:30/39, total loss:2.256394, lr:0.000004
+Epoch:15  iteration:0/39, total loss:2.346293, lr:0.000004
+Epoch:15  iteration:10/39, total loss:2.294076, lr:0.000004
+Epoch:15  iteration:20/39, total loss:2.277858, lr:0.000004
+Epoch:15  iteration:30/39, total loss:2.251236, lr:0.000004
+Epoch:16  iteration:0/39, total loss:2.325942, lr:0.000004
+Epoch:16  iteration:10/39, total loss:2.303413, lr:0.000004
+Epoch:16  iteration:20/39, total loss:2.254192, lr:0.000004
+Epoch:16  iteration:30/39, total loss:2.315566, lr:0.000004
+Epoch:17  iteration:0/39, total loss:2.293101, lr:0.000004
+Epoch:17  iteration:10/39, total loss:2.245361, lr:0.000004
+Epoch:17  iteration:20/39, total loss:2.359822, lr:0.000004
+Epoch:17  iteration:30/39, total loss:2.268077, lr:0.000004
+Epoch:18  iteration:0/39, total loss:2.336647, lr:0.000004
+Epoch:18  iteration:10/39, total loss:2.299371, lr:0.000004
+Epoch:18  iteration:20/39, total loss:2.256571, lr:0.000004
+Epoch:18  iteration:30/39, total loss:2.267168, lr:0.000004
+Epoch:19  iteration:0/39, total loss:2.310009, lr:0.000004
+Epoch:19  iteration:10/39, total loss:2.296697, lr:0.000004
+Epoch:19  iteration:20/39, total loss:2.300402, lr:0.000004
+Epoch:19  iteration:30/39, total loss:2.313693, lr:0.000004
+Epoch:20  iteration:0/39, total loss:2.294286, lr:0.000004
+Epoch:20  iteration:10/39, total loss:2.280735, lr:0.000004
+Epoch:20  iteration:20/39, total loss:2.324480, lr:0.000004
+Epoch:20  iteration:30/39, total loss:2.322972, lr:0.000004
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 997/997 [14:14<00:00,  1.17it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 261/261 [03:48<00:00,  1.14it/s]
+Epoch [200/2000], Loss: 1.5723
+Epoch [400/2000], Loss: 1.5430
+Epoch [600/2000], Loss: 1.5371
+Epoch [800/2000], Loss: 1.5361
+Epoch [1000/2000], Loss: 1.5352
+Epoch [1200/2000], Loss: 1.5352
+Epoch [1400/2000], Loss: 1.5352
+Epoch [1600/2000], Loss: 1.5342
+Epoch [1800/2000], Loss: 1.5342
+Epoch [2000/2000], Loss: 1.5342
+Multimodal Metrics: {'accuracy': 0.48155265180630286, 'f1_score': 0.31304045276954473, 'mAP': 0.15503090090162863, 'AUC': 0.5529330017532387}
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:21  iteration:0/39, total loss:2.326097, lr:0.000004
+Epoch:21  iteration:10/39, total loss:2.223631, lr:0.000004
+Epoch:21  iteration:20/39, total loss:2.268798, lr:0.000004
+Epoch:21  iteration:30/39, total loss:2.291418, lr:0.000003
+Epoch:22  iteration:0/39, total loss:2.215976, lr:0.000003
+Epoch:22  iteration:10/39, total loss:2.336731, lr:0.000003
+Epoch:22  iteration:20/39, total loss:2.280638, lr:0.000003
+Epoch:22  iteration:30/39, total loss:2.311669, lr:0.000003
+Epoch:23  iteration:0/39, total loss:2.342034, lr:0.000003
+Epoch:23  iteration:10/39, total loss:2.316322, lr:0.000003
+Epoch:23  iteration:20/39, total loss:2.204595, lr:0.000003
+Epoch:23  iteration:30/39, total loss:2.307106, lr:0.000003
+Epoch:24  iteration:0/39, total loss:2.232279, lr:0.000003
+Epoch:24  iteration:10/39, total loss:2.286935, lr:0.000003
+Epoch:24  iteration:20/39, total loss:2.329915, lr:0.000003
+Epoch:24  iteration:30/39, total loss:2.355297, lr:0.000003
+Epoch:25  iteration:0/39, total loss:2.279260, lr:0.000003
+Epoch:25  iteration:10/39, total loss:2.288996, lr:0.000003
+Epoch:25  iteration:20/39, total loss:2.314702, lr:0.000003
+Epoch:25  iteration:30/39, total loss:2.180796, lr:0.000003
+Epoch:26  iteration:0/39, total loss:2.308478, lr:0.000003
+Epoch:26  iteration:10/39, total loss:2.321715, lr:0.000003
+Epoch:26  iteration:20/39, total loss:2.317646, lr:0.000003
+Epoch:26  iteration:30/39, total loss:2.264008, lr:0.000003
+Epoch:27  iteration:0/39, total loss:2.365963, lr:0.000003
+Epoch:27  iteration:10/39, total loss:2.288719, lr:0.000003
+Epoch:27  iteration:20/39, total loss:2.249701, lr:0.000003
+Epoch:27  iteration:30/39, total loss:2.148267, lr:0.000002
+Epoch:28  iteration:0/39, total loss:2.278879, lr:0.000002
+Epoch:28  iteration:10/39, total loss:2.272846, lr:0.000002
+Epoch:28  iteration:20/39, total loss:2.309310, lr:0.000002
+Epoch:28  iteration:30/39, total loss:2.316369, lr:0.000002
+Epoch:29  iteration:0/39, total loss:2.229524, lr:0.000002
+Epoch:29  iteration:10/39, total loss:2.221732, lr:0.000002
+Epoch:29  iteration:20/39, total loss:2.269412, lr:0.000002
+Epoch:29  iteration:30/39, total loss:2.258404, lr:0.000002
+Epoch:30  iteration:0/39, total loss:2.185138, lr:0.000002
+Epoch:30  iteration:10/39, total loss:2.310421, lr:0.000002
+Epoch:30  iteration:20/39, total loss:2.189122, lr:0.000002
+Epoch:30  iteration:30/39, total loss:2.249470, lr:0.000002
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 997/997 [13:56<00:00,  1.19it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 261/261 [03:48<00:00,  2.16it/s]
+Epoch [200/2000], Loss: 1.5664
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 261/261 [03:49<00:00,  1.14it/s]
+Epoch [600/2000], Loss: 1.5371
+Epoch [800/2000], Loss: 1.5352
+Epoch [1000/2000], Loss: 1.5352
+Epoch [1200/2000], Loss: 1.5342
+Epoch [1400/2000], Loss: 1.5342
+Epoch [1600/2000], Loss: 1.5342
+Epoch [1800/2000], Loss: 1.5342
+Epoch [2000/2000], Loss: 1.5342
+Multimodal Metrics: {'accuracy': 0.48155265180630286, 'f1_score': 0.31304045276954473, 'mAP': 0.15583879708900766, 'AUC': 0.5564958965887438}
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:31  iteration:0/39, total loss:2.290878, lr:0.000002
+Epoch:31  iteration:10/39, total loss:2.307403, lr:0.000002
+Epoch:31  iteration:20/39, total loss:2.295602, lr:0.000002
+Epoch:31  iteration:30/39, total loss:2.227213, lr:0.000002
+Epoch:32  iteration:0/39, total loss:2.267994, lr:0.000002
+Epoch:32  iteration:10/39, total loss:2.280789, lr:0.000002
+Epoch:32  iteration:20/39, total loss:2.307623, lr:0.000002
+Epoch:32  iteration:30/39, total loss:2.177739, lr:0.000002
+Epoch:33  iteration:0/39, total loss:2.247278, lr:0.000002
+Epoch:33  iteration:10/39, total loss:2.302362, lr:0.000002
+Epoch:33  iteration:20/39, total loss:2.296952, lr:0.000001
+Epoch:33  iteration:30/39, total loss:2.303259, lr:0.000001
+Epoch:34  iteration:0/39, total loss:2.200024, lr:0.000001
+Epoch:34  iteration:10/39, total loss:2.315205, lr:0.000001
+Epoch:34  iteration:20/39, total loss:2.271433, lr:0.000001
+Epoch:34  iteration:30/39, total loss:2.249716, lr:0.000001
+Epoch:35  iteration:0/39, total loss:2.274195, lr:0.000001
+Epoch:35  iteration:10/39, total loss:2.261541, lr:0.000001
+Epoch:35  iteration:20/39, total loss:2.226323, lr:0.000001
+Epoch:35  iteration:30/39, total loss:2.220820, lr:0.000001
+Epoch:36  iteration:0/39, total loss:2.232817, lr:0.000001
+Epoch:36  iteration:10/39, total loss:2.274844, lr:0.000001
+Epoch:36  iteration:20/39, total loss:2.226459, lr:0.000001
+Epoch:36  iteration:30/39, total loss:2.282692, lr:0.000001
+Epoch:37  iteration:0/39, total loss:2.194211, lr:0.000001
+Epoch:37  iteration:10/39, total loss:2.228879, lr:0.000001
+Epoch:37  iteration:20/39, total loss:2.183248, lr:0.000001
+Epoch:37  iteration:30/39, total loss:2.314453, lr:0.000001
+Epoch:38  iteration:0/39, total loss:2.284799, lr:0.000001
+Epoch:38  iteration:10/39, total loss:2.317787, lr:0.000001
+Epoch:38  iteration:20/39, total loss:2.276291, lr:0.000001
+Epoch:38  iteration:30/39, total loss:2.276254, lr:0.000001
+Epoch:39  iteration:0/39, total loss:2.295841, lr:0.000001
+Epoch:39  iteration:10/39, total loss:2.266001, lr:0.000001
+Epoch:39  iteration:20/39, total loss:2.319661, lr:0.000001
+Epoch:39  iteration:30/39, total loss:2.319325, lr:0.000001
+Epoch:40  iteration:0/39, total loss:2.267422, lr:0.000001
+Epoch:40  iteration:10/39, total loss:2.232964, lr:0.000001
+Epoch:40  iteration:20/39, total loss:2.221096, lr:0.000001
+Epoch:40  iteration:30/39, total loss:2.256427, lr:0.000001
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 997/997 [13:40<00:00,  1.21it/s]
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+
+100%|███████████████████████████████████████████████████████████████████████████████████████████████████| 261/261 [03:46<00:00,  1.15it/s]
+Epoch [200/2000], Loss: 1.5791
+Epoch [400/2000], Loss: 1.5449
+Epoch [600/2000], Loss: 1.5381
+Epoch [800/2000], Loss: 1.5361
+Epoch [1000/2000], Loss: 1.5352
+Epoch [1200/2000], Loss: 1.5352
+Epoch [1400/2000], Loss: 1.5342
+Epoch [1600/2000], Loss: 1.5342
+Epoch [1800/2000], Loss: 1.5342
+Epoch [2000/2000], Loss: 1.5342
+Multimodal Metrics: {'accuracy': 0.48155265180630286, 'f1_score': 0.31304045276954473, 'mAP': 0.15456994635336993, 'AUC': 0.5522671679655031}
+/home/shahzaa/anaconda3/envs/Eva_clip_1/lib/python3.9/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:41  iteration:0/39, total loss:2.287452, lr:0.000000
+Epoch:41  iteration:10/39, total loss:2.293790, lr:0.000000
+Epoch:41  iteration:20/39, total loss:2.207839, lr:0.000000
+Epoch:41  iteration:30/39, total loss:2.248735, lr:0.000000
+Epoch:42  iteration:0/39, total loss:2.292543, lr:0.000000
+Epoch:42  iteration:10/39, total loss:2.238396, lr:0.000000
+Epoch:42  iteration:20/39, total loss:2.346812, lr:0.000000
+Epoch:42  iteration:30/39, total loss:2.317930, lr:0.000000
+Epoch:43  iteration:0/39, total loss:2.269252, lr:0.000000
+Epoch:43  iteration:10/39, total loss:2.277414, lr:0.000000
+Epoch:43  iteration:20/39, total loss:2.273335, lr:0.000000
+Epoch:43  iteration:30/39, total loss:2.303275, lr:0.000000
+Epoch:44  iteration:0/39, total loss:2.250673, lr:0.000000
+Epoch:44  iteration:10/39, total loss:2.254638, lr:0.000000
+Epoch:44  iteration:20/39, total loss:2.259428, lr:0.000000
+Epoch:44  iteration:30/39, total loss:2.259607, lr:0.000000
+Epoch:45  iteration:0/39, total loss:2.278559, lr:0.000000
+Epoch:45  iteration:10/39, total loss:2.222179, lr:0.000000
+Epoch:45  iteration:20/39, total loss:2.266475, lr:0.000000
+Epoch:45  iteration:30/39, total loss:2.265102, lr:0.000000
+Epoch:46  iteration:0/39, total loss:2.276066, lr:0.000000
+Epoch:46  iteration:10/39, total loss:2.219574, lr:0.000000
+Epoch:46  iteration:20/39, total loss:2.226737, lr:0.000000
+Epoch:46  iteration:30/39, total loss:2.294267, lr:0.000000
+Epoch:47  iteration:0/39, total loss:2.274306, lr:0.000000
+Epoch:47  iteration:10/39, total loss:2.276348, lr:0.000000
+Epoch:47  iteration:20/39, total loss:2.267287, lr:0.000000
+Epoch:47  iteration:30/39, total loss:2.358302, lr:0.000000
+Epoch:48  iteration:0/39, total loss:2.259674, lr:0.000000
+Epoch:48  iteration:10/39, total loss:2.238607, lr:0.000000
+Epoch:48  iteration:20/39, total loss:2.211650, lr:0.000000
+Epoch:48  iteration:30/39, total loss:2.292970, lr:0.000000
+Epoch:49  iteration:0/39, total loss:2.245882, lr:0.000000
+Epoch:49  iteration:10/39, total loss:2.194638, lr:0.000000
+Epoch:49  iteration:20/39, total loss:2.234006, lr:0.000000
+Epoch:49  iteration:30/39, total loss:2.264034, lr:0.000000

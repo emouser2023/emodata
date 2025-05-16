@@ -1,0 +1,71 @@
+pretrain: '/home/cvpr_phd_1/1_Emotion_multi_model_CLIP-main/last_model.pt'
+resume: 
+weight_save_dir: '/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP'
+seed: 1024
+training_name: 'Emotion_training'
+eval_data:
+    batch_size: 20
+    base_json_path_train: '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/train'
+    base_json_path_test: '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/test'
+    base_json_path_dev: '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/dev'
+    base_video_path: '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/'
+    train_list: '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/train_list.txt'
+    test_list: '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/test_list.txt'
+    dev_list: '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/dev_list.txt'
+data:
+    dataset: emotion_recog
+    modality: RGB
+    num_segments: 8
+    # base_json_path: '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/clip_json_test/'
+    # base_video_path: '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/test_videos_clips/'
+    base_json_path: '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/train_json/'
+    base_video_path: '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/train_set_filered/'
+
+    test_base_json_path: '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/test_json/'
+    test_base_video_path: '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/test_set_filter/'
+    
+    seg_length: 1
+    split: 1
+    batch_size: 20
+    number_of_class: 7
+    workers: 8
+    gpus: 2
+    # root_path: '/media/sdb_access/HMDB_51/all_video'
+    # train_list: '/media/sdb_access/Sania_ACM_Neurips/dataset_samples_code/clip_json_test_list.txt' #
+    train_list: '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/train_final_list.txt'
+    test_list: '/home/cvpr_phd_1/1_new_dataset/movie_parts_20/Final_dataset_list/filter_dataset/test_final_list.txt'
+    index_bias: 1
+    input_size: 224
+    randaug:
+        N: 0 #2
+        M: 0  #9
+network:
+    arch: ViT-B/16  #ViT-B/32 ViT-B/16
+    init: True 
+    drop_out: 0.0 
+    emb_dropout: 0.0 
+    type: clip_8_frame
+    sim_header: "Transf"  #Transf   meanP   LSTM   Transf_cls Conv_1D
+    fix_text: False
+    fix_img: False
+    describe:
+solver:
+    type: cosine
+    epochs: 50
+    start_epoch: 0
+    epoch_offset: 0
+    optim: adamw
+    lr: 5.e-6
+    lr_warmup_step: 5
+    momentum: 0.9
+    weight_decay: 0.2
+    lr_decay_step: 15
+    lr_decay_factor: 0.1
+    clip_gradient: 20
+    loss_type: nll
+    evaluate: False
+    ratio: 1
+    f_ratio: 10
+logging:
+    print_freq: 10
+    eval_freq: 1

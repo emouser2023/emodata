@@ -1,0 +1,10 @@
+{"time":"2025-05-16T01:46:17.143709242+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/home/cvpr_phd_1/1_a_Neurip_dataset_submission/1_model_code/wandb/run-20250516_014617-wcbve399/logs/debug-core.log"}
+{"time":"2025-05-16T01:46:17.248468072+05:30","level":"INFO","msg":"created new stream","id":"wcbve399"}
+{"time":"2025-05-16T01:46:17.248501261+05:30","level":"INFO","msg":"stream: started","id":"wcbve399"}
+{"time":"2025-05-16T01:46:17.248519339+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"wcbve399"}
+{"time":"2025-05-16T01:46:17.248665131+05:30","level":"INFO","msg":"sender: started","stream_id":"wcbve399"}
+{"time":"2025-05-16T01:46:17.248726075+05:30","level":"INFO","msg":"handler: started","stream_id":"wcbve399"}
+{"time":"2025-05-16T01:46:22.769483926+05:30","level":"INFO","msg":"Starting system monitor"}
+{"time":"2025-05-16T01:46:56.178074339+05:30","level":"INFO","msg":"stream: closing","id":"wcbve399"}
+{"time":"2025-05-16T01:46:56.178096976+05:30","level":"INFO","msg":"Stopping system monitor"}
+{"time":"2025-05-16T01:46:56.178755+05:30","level":"INFO","msg":"Stopped system monitor"}

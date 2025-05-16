@@ -1,0 +1,7 @@
+{"time":"2025-05-15T21:16:59.46742005+05:30","level":"INFO","msg":"stream: starting","core version":"0.19.7","symlink path":"/home/cvpr_phd_1/1_a_Neurip_dataset_submission/1_split_Emotion_multi_model_CLIP-main/wandb/run-20250515_211659-q204xtqq/logs/debug-core.log"}
+{"time":"2025-05-15T21:16:59.589058371+05:30","level":"INFO","msg":"created new stream","id":"q204xtqq"}
+{"time":"2025-05-15T21:16:59.589082693+05:30","level":"INFO","msg":"stream: started","id":"q204xtqq"}
+{"time":"2025-05-15T21:16:59.589093778+05:30","level":"INFO","msg":"writer: Do: started","stream_id":"q204xtqq"}
+{"time":"2025-05-15T21:16:59.589101872+05:30","level":"INFO","msg":"sender: started","stream_id":"q204xtqq"}
+{"time":"2025-05-15T21:16:59.589134982+05:30","level":"INFO","msg":"handler: started","stream_id":"q204xtqq"}
+{"time":"2025-05-15T21:17:05.168488474+05:30","level":"INFO","msg":"Starting system monitor"}

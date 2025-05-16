@@ -1,0 +1,56 @@
+2025-04-07 12:50:01,039 INFO    MainThread:2750646 [internal.py:wandb_internal():86] W&B internal server running at pid: 2750646, started at: 2025-04-07 12:50:01.038625
+2025-04-07 12:50:01,048 DEBUG   HandlerThread:2750646 [handler.py:handle_request():128] handle_request: check_version
+2025-04-07 12:50:01,048 INFO    WriterThread:2750646 [datastore.py:open_for_write():77] open: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/run-368lfvvn.wandb
+2025-04-07 12:50:01,052 DEBUG   SenderThread:2750646 [sender.py:send():182] send: header
+2025-04-07 12:50:01,052 DEBUG   SenderThread:2750646 [sender.py:send_request():196] send_request: check_version
+2025-04-07 12:50:01,159 DEBUG   SenderThread:2750646 [sender.py:send():182] send: run
+2025-04-07 12:50:01,608 DEBUG   HandlerThread:2750646 [handler.py:handle_request():128] handle_request: run_start
+2025-04-07 12:50:01,611 INFO    SenderThread:2750646 [dir_watcher.py:__init__():168] watching files in: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files
+2025-04-07 12:50:01,612 INFO    SenderThread:2750646 [sender.py:_start_run_threads():740] run started: 368lfvvn with start time 1744022998
+2025-04-07 12:50:01,612 DEBUG   SenderThread:2750646 [sender.py:send():182] send: summary
+2025-04-07 12:50:01,612 INFO    SenderThread:2750646 [sender.py:_save_file():873] saving file wandb-summary.json with policy end
+2025-04-07 12:50:01,619 DEBUG   HandlerThread:2750646 [meta.py:__init__():39] meta init
+2025-04-07 12:50:01,619 DEBUG   HandlerThread:2750646 [meta.py:__init__():53] meta init done
+2025-04-07 12:50:01,619 DEBUG   HandlerThread:2750646 [meta.py:probe():210] probe
+2025-04-07 12:50:01,627 DEBUG   HandlerThread:2750646 [meta.py:_setup_git():200] setup git
+2025-04-07 12:50:01,646 DEBUG   HandlerThread:2750646 [meta.py:_setup_git():207] setup git done
+2025-04-07 12:50:01,647 DEBUG   HandlerThread:2750646 [meta.py:_save_pip():57] save pip
+2025-04-07 12:50:01,649 DEBUG   HandlerThread:2750646 [meta.py:_save_pip():71] save pip done
+2025-04-07 12:50:01,649 DEBUG   HandlerThread:2750646 [meta.py:_save_conda():78] save conda
+2025-04-07 12:50:02,621 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/wandb-summary.json
+2025-04-07 12:50:02,622 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/conda-environment.yaml
+2025-04-07 12:50:02,623 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/requirements.txt
+2025-04-07 12:50:07,616 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:09,617 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:12,497 DEBUG   HandlerThread:2750646 [meta.py:_save_conda():86] save conda done
+2025-04-07 12:50:12,497 DEBUG   HandlerThread:2750646 [meta.py:probe():252] probe done
+2025-04-07 12:50:12,631 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/conda-environment.yaml
+2025-04-07 12:50:12,632 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_created():216] file/dir created: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/wandb-metadata.json
+2025-04-07 12:50:12,656 DEBUG   HandlerThread:2750646 [handler.py:handle_request():128] handle_request: stop_status
+2025-04-07 12:50:12,657 DEBUG   SenderThread:2750646 [sender.py:send_request():196] send_request: stop_status
+2025-04-07 12:50:13,011 DEBUG   SenderThread:2750646 [sender.py:send():182] send: files
+2025-04-07 12:50:13,020 INFO    SenderThread:2750646 [sender.py:_save_file():873] saving file wandb-metadata.json with policy now
+2025-04-07 12:50:13,650 INFO    Thread-16 :2750646 [upload_job.py:push():137] Uploaded file /tmp/tmpy3kp051qwandb/h7e7vcwk-wandb-metadata.json
+2025-04-07 12:50:15,633 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:17,635 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:19,637 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:21,639 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:25,641 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:27,643 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:28,015 DEBUG   HandlerThread:2750646 [handler.py:handle_request():128] handle_request: stop_status
+2025-04-07 12:50:28,016 DEBUG   SenderThread:2750646 [sender.py:send_request():196] send_request: stop_status
+2025-04-07 12:50:29,645 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:30,230 DEBUG   SenderThread:2750646 [sender.py:send():182] send: stats
+2025-04-07 12:50:31,646 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:33,648 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:35,649 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:37,655 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:39,654 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:41,656 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:43,317 DEBUG   HandlerThread:2750646 [handler.py:handle_request():128] handle_request: stop_status
+2025-04-07 12:50:43,318 DEBUG   SenderThread:2750646 [sender.py:send_request():196] send_request: stop_status
+2025-04-07 12:50:43,657 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:45,659 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:47,660 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:49,662 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log
+2025-04-07 12:50:51,663 INFO    Thread-13 :2750646 [dir_watcher.py:_on_file_modified():229] file/dir modified: /media/sdb_access/Emotion_multi_model_CLIP/clip/wandb/run-20250407_124958-368lfvvn/files/output.log

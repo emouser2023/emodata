@@ -1,0 +1,218 @@
+--------------------------------------------------------------------------------
+                     working dir: /home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP/clip_8_frame/ViT-B/16/emotion_recog/Emotion_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_json/',
+                'base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_set_filered/',
+                'batch_size': 20,
+                'dataset': 'emotion_recog',
+                'gpus': 2,
+                'index_bias': 1,
+                'input_size': 224,
+                'modality': 'RGB',
+                'num_segments': 8,
+                'number_of_class': 7,
+                'randaug': {'M': 0, 'N': 0},
+                'seg_length': 1,
+                'split': 1,
+                'test_base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_json/',
+                'test_base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_set_filter/',
+                'test_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_final_list.txt',
+                'train_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_final_list.txt',
+                'workers': 8},
+    'eval_data': {   'base_json_path_dev': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/dev',
+                     'base_json_path_test': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/test',
+                     'base_json_path_train': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/train',
+                     'base_video_path': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/',
+                     'batch_size': 20,
+                     'dev_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/dev_list.txt',
+                     'test_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/test_list.txt',
+                     'train_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/train_list.txt'},
+    'logging': {'eval_freq': 10, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_8_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'Emotion_training',
+    'weight_save_dir': '/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7f12e6b1aa90>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7f141bcc6790>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7f141bcc6f10>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7f141bcc6fa0>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7f141bcc6eb0>
+    <datasets.transforms_ss.GroupSolarization object at 0x7f141bcc6e20>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f141bcc6d30>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f141bcc6cd0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f141bcc6c70>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7f141bcc6b20>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7f141bcc6ac0>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f141bcc67f0>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f141bcc68e0>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f141bcc6880>
+)]
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchaudio/functional/functional.py:571: UserWarning: At least one mel filterbank has all zero values. The value for `n_mels` (64) may be set too high. Or, the value for `n_freqs` (513) may be set too low.
+  warnings.warn(
+CLIP_model Trainable Parameters: 8.681M
+Audio model Trainable Parameters: 0.258M
+5e-06
+5e-06
+5e-06
+5e-05
+AdamW
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:138: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:0  iteration:0/498, total loss:1.968750, lr:0.000000
+Epoch:0  iteration:10/498, total loss:1.973633, lr:0.000000
+Epoch:0  iteration:20/498, total loss:1.965820, lr:0.000000
+Epoch:0  iteration:30/498, total loss:1.982422, lr:0.000000
+Epoch:0  iteration:40/498, total loss:1.940430, lr:0.000000
+Epoch:0  iteration:50/498, total loss:1.943359, lr:0.000000
+Epoch:0  iteration:60/498, total loss:1.953125, lr:0.000000
+Epoch:0  iteration:70/498, total loss:1.958008, lr:0.000000
+Epoch:0  iteration:80/498, total loss:1.958008, lr:0.000000
+Epoch:0  iteration:90/498, total loss:1.936523, lr:0.000000
+Epoch:0  iteration:100/498, total loss:1.945312, lr:0.000000
+Epoch:0  iteration:110/498, total loss:1.906250, lr:0.000000
+Epoch:0  iteration:120/498, total loss:1.902344, lr:0.000000
+Epoch:0  iteration:130/498, total loss:1.892578, lr:0.000000
+Epoch:0  iteration:140/498, total loss:1.890625, lr:0.000000
+Epoch:0  iteration:150/498, total loss:1.880859, lr:0.000000
+Epoch:0  iteration:160/498, total loss:1.916992, lr:0.000000
+Epoch:0  iteration:170/498, total loss:1.842773, lr:0.000000
+Epoch:0  iteration:180/498, total loss:1.882812, lr:0.000000
+Epoch:0  iteration:190/498, total loss:1.820312, lr:0.000000
+Epoch:0  iteration:200/498, total loss:1.765625, lr:0.000000
+Epoch:0  iteration:210/498, total loss:1.747070, lr:0.000000
+Epoch:0  iteration:220/498, total loss:1.927734, lr:0.000000
+Epoch:0  iteration:230/498, total loss:1.781250, lr:0.000000
+Epoch:0  iteration:240/498, total loss:1.767578, lr:0.000000
+Epoch:0  iteration:250/498, total loss:1.772461, lr:0.000001
+Epoch:0  iteration:260/498, total loss:1.775391, lr:0.000001
+Epoch:0  iteration:270/498, total loss:1.648438, lr:0.000001
+Epoch:0  iteration:280/498, total loss:1.667969, lr:0.000001
+Epoch:0  iteration:290/498, total loss:1.642578, lr:0.000001
+Epoch:0  iteration:300/498, total loss:1.508789, lr:0.000001
+Epoch:0  iteration:310/498, total loss:1.541992, lr:0.000001
+Epoch:0  iteration:320/498, total loss:1.744141, lr:0.000001
+Epoch:0  iteration:330/498, total loss:1.538086, lr:0.000001
+Epoch:0  iteration:340/498, total loss:1.528320, lr:0.000001
+Epoch:0  iteration:350/498, total loss:1.530273, lr:0.000001
+Epoch:0  iteration:360/498, total loss:1.708008, lr:0.000001
+Epoch:0  iteration:370/498, total loss:1.713867, lr:0.000001
+Epoch:0  iteration:380/498, total loss:1.584961, lr:0.000001
+Epoch:0  iteration:390/498, total loss:1.738281, lr:0.000001
+Epoch:0  iteration:400/498, total loss:1.654297, lr:0.000001
+Epoch:0  iteration:410/498, total loss:1.312500, lr:0.000001
+Epoch:0  iteration:420/498, total loss:1.826172, lr:0.000001
+Epoch:0  iteration:430/498, total loss:1.792969, lr:0.000001
+Epoch:0  iteration:440/498, total loss:1.479492, lr:0.000001
+Epoch:0  iteration:450/498, total loss:1.533203, lr:0.000001
+Epoch:0  iteration:460/498, total loss:1.424805, lr:0.000001
+Epoch:0  iteration:470/498, total loss:1.428711, lr:0.000001
+Epoch:0  iteration:480/498, total loss:1.224609, lr:0.000001
+Epoch:0  iteration:490/498, total loss:1.577148, lr:0.000001
+Test accuracy
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 130/130 [02:59<00:00,  1.38s/it]
+Validation accuracy: 48.15%
+Testing: 48.148148148148145/48.148148148148145
+Saving:
+Saving best weight based on K-400 accuracy at epoch 0
+Epoch 0 end ..
+Time taken by epoch 0: 0:12:46
+------------------------------------------------------------------------
+Epoch:1  iteration:0/498, total loss:1.689453, lr:0.000001
+Epoch:1  iteration:10/498, total loss:1.529297, lr:0.000001
+Epoch:1  iteration:20/498, total loss:1.642578, lr:0.000001
+Epoch:1  iteration:30/498, total loss:1.578125, lr:0.000001
+Epoch:1  iteration:40/498, total loss:1.851562, lr:0.000001
+Epoch:1  iteration:50/498, total loss:1.433594, lr:0.000001
+Epoch:1  iteration:60/498, total loss:1.762695, lr:0.000001
+Epoch:1  iteration:70/498, total loss:1.369141, lr:0.000001
+Epoch:1  iteration:80/498, total loss:1.852539, lr:0.000001
+Epoch:1  iteration:90/498, total loss:1.500000, lr:0.000001
+Epoch:1  iteration:100/498, total loss:1.640625, lr:0.000001
+Epoch:1  iteration:110/498, total loss:2.046875, lr:0.000001
+Epoch:1  iteration:120/498, total loss:1.908203, lr:0.000001
+Epoch:1  iteration:130/498, total loss:1.529297, lr:0.000001
+Epoch:1  iteration:140/498, total loss:1.699219, lr:0.000001
+Epoch:1  iteration:150/498, total loss:1.515625, lr:0.000001
+Epoch:1  iteration:160/498, total loss:1.646484, lr:0.000001
+Epoch:1  iteration:170/498, total loss:1.387695, lr:0.000001
+Epoch:1  iteration:180/498, total loss:1.938477, lr:0.000001
+Epoch:1  iteration:190/498, total loss:1.607422, lr:0.000001
+Epoch:1  iteration:200/498, total loss:1.504883, lr:0.000001
+Epoch:1  iteration:210/498, total loss:1.925781, lr:0.000001
+Epoch:1  iteration:220/498, total loss:1.427734, lr:0.000001
+Traceback (most recent call last):
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/runpy.py", line 194, in _run_module_as_main
+    return _run_code(code, main_globals, None,
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/runpy.py", line 87, in _run_code
+    exec(code, run_globals)
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/__main__.py", line 71, in <module>
+    cli.main()
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 501, in main
+    run()
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/adapter/../../debugpy/launcher/../../debugpy/../debugpy/server/cli.py", line 351, in run_file
+    runpy.run_path(target, run_name="__main__")
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 310, in run_path
+    return _run_module_code(code, init_globals, run_name, pkg_name=pkg_name, script_name=fname)
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 127, in _run_module_code
+    _run_code(code, mod_globals, init_globals, mod_name, mod_spec, pkg_name, script_name)
+  File "/home/cvpr_phd_1/.vscode/extensions/ms-python.debugpy-2025.8.0-linux-x64/bundled/libs/debugpy/_vendored/pydevd/_pydevd_bundle/pydevd_runpy.py", line 118, in _run_code
+    exec(code, run_globals)
+  File "/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/train_MELD.py", line 359, in <module>
+    main()
+  File "/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/train_MELD.py", line 305, in main
+    clip.model.convert_weights(model)
+  File "/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/clip/model.py", line 385, in convert_weights
+    model.apply(_convert_weights_to_fp16)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/nn/modules/module.py", line 726, in apply
+    module.apply(fn)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/nn/modules/module.py", line 726, in apply
+    module.apply(fn)
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/nn/modules/module.py", line 726, in apply
+    module.apply(fn)
+  [Previous line repeated 2 more times]
+  File "/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/nn/modules/module.py", line 727, in apply
+    fn(self)
+  File "/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/clip/model.py", line 369, in _convert_weights_to_fp16
+    l.weight.data = l.weight.data.half()
+KeyboardInterrupt

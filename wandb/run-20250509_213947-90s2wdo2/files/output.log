@@ -1,0 +1,163 @@
+--------------------------------------------------------------------------------
+                     working dir: /home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP/clip_8_frame/ViT-B/16/emotion_recog/Emotion_training
+--------------------------------------------------------------------------------
+--------------------------------------------------------------------------------
+                               Config
+{   'data': {   'base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_json/',
+                'base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_set_filered/',
+                'batch_size': 20,
+                'dataset': 'emotion_recog',
+                'gpus': 2,
+                'index_bias': 1,
+                'input_size': 224,
+                'modality': 'RGB',
+                'num_segments': 8,
+                'number_of_class': 7,
+                'randaug': {'M': 0, 'N': 0},
+                'seg_length': 1,
+                'split': 1,
+                'test_base_json_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_json/',
+                'test_base_video_path': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_set_filter/',
+                'test_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/test_final_list.txt',
+                'train_list': '/media/sdb_access/CLIP_with_audio/filter_dataset/filter_dataset/train_final_list.txt',
+                'workers': 8},
+    'eval_data': {   'base_json_path_dev': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/dev',
+                     'base_json_path_test': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/test',
+                     'base_json_path_train': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/json/train',
+                     'base_video_path': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/',
+                     'batch_size': 20,
+                     'dev_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/dev_list.txt',
+                     'test_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/test_list.txt',
+                     'train_list': '/home/cvpr_phd_1/MELD.Raw/MELD_dataset/txt/train_list.txt'},
+    'logging': {'eval_freq': 10, 'print_freq': 10},
+    'network': {   'arch': 'ViT-B/16',
+                   'describe': None,
+                   'drop_out': 0.0,
+                   'emb_dropout': 0.0,
+                   'fix_img': False,
+                   'fix_text': False,
+                   'init': True,
+                   'sim_header': 'Transf',
+                   'type': 'clip_8_frame'},
+    'pretrain': None,
+    'resume': None,
+    'seed': 1024,
+    'solver': {   'clip_gradient': 20,
+                  'epoch_offset': 0,
+                  'epochs': 50,
+                  'evaluate': False,
+                  'f_ratio': 10,
+                  'loss_type': 'nll',
+                  'lr': 5e-06,
+                  'lr_decay_factor': 0.1,
+                  'lr_decay_step': 15,
+                  'lr_warmup_step': 5,
+                  'momentum': 0.9,
+                  'optim': 'adamw',
+                  'ratio': 1,
+                  'start_epoch': 0,
+                  'type': 'cosine',
+                  'weight_decay': 0.2},
+    'training_name': 'Emotion_training',
+    'weight_save_dir': '/home/cvpr_phd_1/2_Emotion_multi_model_CLIP-main/Emotion_multi_model_CLIP-main/EXP'}
+--------------------------------------------------------------------------------
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+dropout used:[0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0, 0.0]
+loading clip pretrained model!
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchvision/transforms/transforms.py:329: UserWarning: Argument 'interpolation' of type int is deprecated since 0.13 and will be removed in 0.15. Please use InterpolationMode enum.
+  warnings.warn(
+train transforms: [Compose(
+    <datasets.transforms_ss.GroupMultiScaleCrop object at 0x7f2278b58f70>
+    <datasets.transforms_ss.GroupRandomHorizontalFlip object at 0x7f2278b58fa0>
+    <datasets.transforms_ss.GroupRandomColorJitter object at 0x7f2278b58a30>
+    <datasets.transforms_ss.GroupRandomGrayscale object at 0x7f2278b58f10>
+    <datasets.transforms_ss.GroupGaussianBlur object at 0x7f2278b58dc0>
+    <datasets.transforms_ss.GroupSolarization object at 0x7f2278b58d60>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f2278b58c70>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f2278b58c10>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f2278b58a90>
+)]
+val transforms: [Compose(
+    <datasets.transforms_ss.GroupScale object at 0x7f2278b58af0>
+    <datasets.transforms_ss.GroupCenterCrop object at 0x7f2278b58ee0>
+), Compose(
+    <datasets.transforms_ss.Stack object at 0x7f2278b58e80>
+    <datasets.transforms_ss.ToTorchFormatTensor object at 0x7f2278b58910>
+    <datasets.transforms_ss.GroupNormalize object at 0x7f2278b58640>
+)]
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torchaudio/functional/functional.py:571: UserWarning: At least one mel filterbank has all zero values. The value for `n_mels` (64) may be set too high. Or, the value for `n_freqs` (513) may be set too low.
+  warnings.warn(
+CLIP_model Trainable Parameters: 8.681M
+Audio model Trainable Parameters: 0.656M
+5e-06
+5e-06
+5e-06
+5e-05
+AdamW
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:138: UserWarning: Detected call of `lr_scheduler.step()` before `optimizer.step()`. In PyTorch 1.1.0 and later, you should call them in the opposite order: `optimizer.step()` before `lr_scheduler.step()`.  Failure to do this will result in PyTorch skipping the first value of the learning rate schedule. See more details at https://pytorch.org/docs/stable/optim.html#how-to-adjust-learning-rate
+  warnings.warn("Detected call of `lr_scheduler.step()` before `optimizer.step()`. "
+/home/cvpr_phd_1/.conda/envs/action_clip/lib/python3.8/site-packages/torch/optim/lr_scheduler.py:163: UserWarning: The epoch parameter in `scheduler.step()` was not necessary and is being deprecated where possible. Please use `scheduler.step()` to step the scheduler. During the deprecation, if epoch is different from None, the closed form is used instead of the new chainable form, where available. Please open an issue if you are unable to replicate your use case: https://github.com/pytorch/pytorch/issues/new/choose.
+  warnings.warn(EPOCH_DEPRECATION_WARNING, UserWarning)
+Epoch:0  iteration:0/498, total loss:1.918945, lr:0.000000
+Epoch:0  iteration:10/498, total loss:1.918945, lr:0.000000
+Epoch:0  iteration:20/498, total loss:1.924805, lr:0.000000
+Epoch:0  iteration:30/498, total loss:1.909180, lr:0.000000
+Epoch:0  iteration:40/498, total loss:1.916992, lr:0.000000
+Epoch:0  iteration:50/498, total loss:1.907227, lr:0.000000
+Epoch:0  iteration:60/498, total loss:1.905273, lr:0.000000
+Epoch:0  iteration:70/498, total loss:1.909180, lr:0.000000
+Epoch:0  iteration:80/498, total loss:1.879883, lr:0.000000
+Epoch:0  iteration:90/498, total loss:1.886719, lr:0.000000
+Epoch:0  iteration:100/498, total loss:1.869141, lr:0.000000
+Epoch:0  iteration:110/498, total loss:1.874023, lr:0.000000
+Epoch:0  iteration:120/498, total loss:1.885742, lr:0.000000
+Epoch:0  iteration:130/498, total loss:1.871094, lr:0.000000
+Epoch:0  iteration:140/498, total loss:1.875000, lr:0.000000
+Epoch:0  iteration:150/498, total loss:1.833008, lr:0.000000
+Epoch:0  iteration:160/498, total loss:1.873047, lr:0.000000
+Epoch:0  iteration:170/498, total loss:1.796875, lr:0.000000
+Epoch:0  iteration:180/498, total loss:1.881836, lr:0.000000
+Epoch:0  iteration:190/498, total loss:1.736328, lr:0.000000
+Epoch:0  iteration:200/498, total loss:1.722656, lr:0.000000
+Epoch:0  iteration:210/498, total loss:1.736328, lr:0.000000
+Epoch:0  iteration:220/498, total loss:1.708984, lr:0.000000
+Epoch:0  iteration:230/498, total loss:1.795898, lr:0.000000
+Epoch:0  iteration:240/498, total loss:1.733398, lr:0.000000
+Epoch:0  iteration:250/498, total loss:1.544922, lr:0.000001
+Epoch:0  iteration:260/498, total loss:1.873047, lr:0.000001
+Epoch:0  iteration:270/498, total loss:1.674805, lr:0.000001
+Epoch:0  iteration:280/498, total loss:1.667969, lr:0.000001
+Epoch:0  iteration:290/498, total loss:1.588867, lr:0.000001
+Epoch:0  iteration:300/498, total loss:1.587891, lr:0.000001
+Epoch:0  iteration:310/498, total loss:1.673828, lr:0.000001
+Epoch:0  iteration:320/498, total loss:1.726562, lr:0.000001
+Epoch:0  iteration:330/498, total loss:1.557617, lr:0.000001
+Epoch:0  iteration:340/498, total loss:1.656250, lr:0.000001
+Epoch:0  iteration:350/498, total loss:1.683594, lr:0.000001
+Epoch:0  iteration:360/498, total loss:1.798828, lr:0.000001
+Epoch:0  iteration:370/498, total loss:1.530273, lr:0.000001
+Epoch:0  iteration:380/498, total loss:1.246094, lr:0.000001
+Epoch:0  iteration:390/498, total loss:1.485352, lr:0.000001
+Epoch:0  iteration:400/498, total loss:1.495117, lr:0.000001
+Epoch:0  iteration:410/498, total loss:1.468750, lr:0.000001
+Epoch:0  iteration:420/498, total loss:1.649414, lr:0.000001
+Epoch:0  iteration:430/498, total loss:1.377930, lr:0.000001
+Epoch:0  iteration:440/498, total loss:1.450195, lr:0.000001
+Epoch:0  iteration:450/498, total loss:1.625000, lr:0.000001
+Epoch:0  iteration:460/498, total loss:1.341797, lr:0.000001
+Epoch:0  iteration:470/498, total loss:1.776367, lr:0.000001
+Epoch:0  iteration:480/498, total loss:1.612305, lr:0.000001
+Epoch:0  iteration:490/498, total loss:1.783203, lr:0.000001
+Test accuracy
+100%|████████████████████████████████████████████████████████████████████████████████████████████████████| 130/130 [02:29<00:00,  1.15s/it]
+Validation accuracy: 48.15%
+Testing: 48.148148148148145/48.148148148148145
+Saving:
+Saving best weight based on K-400 accuracy at epoch 0
+Epoch 0 end ..
+Time taken by epoch 0: 0:17:30
+------------------------------------------------------------------------
+Epoch:1  iteration:0/498, total loss:1.429688, lr:0.000001
+Epoch:1  iteration:10/498, total loss:1.572266, lr:0.000001
+Backend TkAgg is interactive backend. Turning interactive mode on.
