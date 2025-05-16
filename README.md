@@ -7,8 +7,6 @@ This repository contains two main components:
 
 
 ---
-
-
 ### Contents:
 - `train.py`: Script for training the model.
 - `test.py`: Script for evaluating the model on the test set.
@@ -43,15 +41,9 @@ python test.py
 - test.zip - contains test_set_videos ,test_json
 - val.zip - contains val_set_videos ,val_json
 - train.zip - contains train_set_videos ,train_json
-
+- dataset link : https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BQPDFQ
 - 
-  - `train_set_videos/` – Contains training data.
-  - `test_set_videos/` – Contains test data.
-  - `val_set_videos/` – Contains validation data .
-  - `train_json/` – Contains train data annotations.
-  - `test_json/` – Contains test data annotations.
-  - `val_videos/` – Contains val data annotations.
-  - `txt_files/` – Contains train , test, val .txt file .
+—The train.txt, test.txt, and val.txt files are in the main folder. Create a folder named 'txt_files' and put all three files inside it.
 
 ---
 
