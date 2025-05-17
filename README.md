@@ -34,7 +34,7 @@ python test.py
 ```
 
 
-**📁 Dataset Structure and Setup Instructions**
+**📁 Dataset Structure and Setup Instructions** \\
 The dataset for SpEmoC is organized inside the SpEmoC_dataset_submission folder. Follow the steps below to correctly set up the dataset:
 
 📦 **Contents of** SpEmoC_dataset_submission
