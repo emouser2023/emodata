@@ -109,6 +109,7 @@ After completing the extraction and organization steps, your directory should lo
 
 Once the above steps are completed, the dataset is ready to be used for training and testing in the **SpEmoC** project.
 
+Dataset : https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BQPDFQ
 
 
 ## ✅ Notes:
