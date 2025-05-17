@@ -34,18 +34,65 @@ python test.py
 ```
 
 
-## 📂 Dataset Structure
+The dataset for SpEmoC is organized inside the SpEmoC_dataset_submission folder. Follow the steps below to correctly set up the dataset:
 
-- 
-- Inside SpEmoC_dataset_submission folder, there are seven subfolders for dataset:
-- test.zip - contains test_set_videos ,test_json
-- val.zip - contains val_set_videos ,val_json
-- train.zip - contains train_set_videos ,train_json
-- dataset link : https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BQPDFQ
-- 
-—The train.txt, test.txt, and val.txt files are in the main folder. Create a folder named 'txt_files' and put all three files inside it.
+📦 Contents of SpEmoC_dataset_submission
+test.zip – contains:
 
----
+test_set_videos/ – video clips for the test set
+
+test_json/ – annotations for the test set
+
+val.zip – contains:
+
+val_set_videos/ – video clips for the validation set
+
+val_json/ – annotations for the validation set
+
+train.zip, train.zip.002, train.zip.003 – multi-part archive containing:
+
+train_set_videos/ – video clips for the training set
+
+train_json/ – annotations for the training set
+
+train.txt, val.txt, test.txt – text files listing the video IDs for each split
+
+🛠️ Setup Instructions
+Unzip the archives:
+
+Extract test.zip – this will create test_set_videos/ and test_json/.
+
+Extract val.zip – this will create val_set_videos/ and val_json/.
+
+Ensure all parts of the train archive are present (train.zip, train.zip.002, train.zip.003) and extract train.zip. It will automatically combine the parts and create train_set_videos/ and train_json/.
+
+Organize text files:
+
+Create a new folder named txt_files/ in the main directory.
+
+Move the three text files train.txt, val.txt, and test.txt into this folder.
+
+Final Folder Structure:
+
+After extraction and organization, your directory structure should look like this:
+
+kotlin
+Copy
+Edit
+SpEmoC_dataset_submission/
+├── 1_model_code/
+├── train_set_videos/
+├── train_json/
+├── val_set_videos/
+├── val_json/
+├── test_set_videos/
+├── test_json/
+├── txt_files/
+│   ├── train.txt
+│   ├── val.txt
+│   └── test.txt
+📝 Note:
+The *_json/ folders contain annotation files for the respective dataset splits.
 
 ## ✅ Notes:
 - Ensure you are in the correct directory before running any script.
