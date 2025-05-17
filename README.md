@@ -34,53 +34,82 @@ python test.py
 ```
 
 
-**📁 Dataset Structure and Setup Instructions :** 
-The dataset for SpEmoC is organized inside the SpEmoC_dataset_submission folder. Follow the steps below to correctly set up the dataset:
+# SpEmoC Dataset Submission
 
-📦 **Contents of** SpEmoC_dataset_submission
+This repository contains the dataset and resources for the **SpEmoC** project. Follow the instructions below to extract and organize the dataset files properly.
 
-train.zip, train.zip.002, train.zip.003 – multi-part archive containing:train_set_videos/ – video clips for the training set
-                                                                        train_json/ – annotations for the training set
-test.zip – contains:test_set_videos/ – video clips for the test set
-                    test_json/ – annotations for the test set
+---
 
-val.zip – contains:val_set_videos/ – video clips for the validation set
-                  val_json/ – annotations for the validation set
+## 📦 Dataset Archives
 
-train.txt, val.txt, test.txt – text files listing the video IDs for each split
+Inside the `SpEmoC_dataset_submission` folder, you will find the following archive files:
 
-🛠️ **Setup Instructions**
-**1.Unzip the archives:**
+- `test.zip` – Contains:
+  - `test_set_videos/` – Test set videos
+  - `test_json/` – Annotations for the test set
 
-   Extract test.zip – this will create test_set_videos/ and test_json/.
-   Extract val.zip – this will create val_set_videos/ and val_json/.
-   Ensure all parts of the train archive are present (train.zip, train.zip.002, train.zip.003) and extract train.zip. It will automatically combine the parts and create train_set_videos/ and 
-   train_json/.
+- `val.zip` – Contains:
+  - `val_set_videos/` – Validation set videos
+  - `val_json/` – Annotations for the validation set
 
-**2.Organize text files:**
+- `train.zip`, `train.zip.002`, `train.zip.003` – Multi-part archive. When `train.zip` is extracted, it automatically combines the parts to create:
+  - `train_set_videos/` – Training set videos
+  - `train_json/` – Annotations for the training set
 
-   Create a new folder named txt_files/ in the main directory.
-   Move the three text files train.txt, val.txt, and test.txt into this folder.
+- `train.txt`, `val.txt`, `test.txt` – Text files listing the IDs for each split.
 
-**3.Final Folder Structure:**
+---
 
-After extraction and organization, your directory structure should look like this:
+## 🛠️ Setup Instructions
 
-SpEmoC_dataset_submission/
-├── 1_model_code/
-├── train_set_videos/
-├── train_json/
-├── val_set_videos/
-├── val_json/
-├── test_set_videos/
-├── test_json/
-├── txt_files/
-│   ├── train.txt
-│   ├── val.txt
-│   └── test.txt
+### 1. Extract Archives
 
-📝 Note:
-The *_json/ folders contain annotation files for the respective dataset splits.
+- Extract `test.zip` → creates `test_set_videos/` and `test_json/`
+- Extract `val.zip` → creates `val_set_videos/` and `val_json/`
+- Ensure all parts of the training archive are present:
+  - `train.zip`, `train.zip.002`, `train.zip.003`
+- Extract `train.zip` → automatically reads the parts and creates `train_set_videos/` and `train_json/`
+
+### 2. Organize Split Files
+
+- Create a folder named `txt_files/` in the root directory.
+- Move the files `train.txt`, `val.txt`, and `test.txt` into the `txt_files/` folder.
+
+---
+
+## 📁 Final Directory Structure
+
+After completing the extraction and organization steps, your directory should look like this:
+
+---
+
+## 📘 Notes
+
+- The `*_json/` folders contain annotation files corresponding to each dataset split.
+- The `txt_files/` folder holds the text files that define the training, validation, and test splits.
+
+---
+
+## 📂 Folder Descriptions
+
+| Folder           | Description                             |
+|------------------|-----------------------------------------|
+| `train_set_videos/` | Training set video files             |
+| `train_json/`        | Training set annotations            |
+| `val_set_videos/`   | Validation set video files           |
+| `val_json/`         | Validation set annotations           |
+| `test_set_videos/`  | Test set video files                 |
+| `test_json/`        | Test set annotations                 |
+| `txt_files/`        | Split list files (train/val/test)    |
+| `1_model_code/`     | Model code directory (if provided)   |
+
+---
+
+## ✅ Setup Complete
+
+Once the above steps are completed, the dataset is ready to be used for training and testing in the **SpEmoC** project.
+
+
 
 ## ✅ Notes:
 - Ensure you are in the correct directory before running any script.
