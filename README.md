@@ -3,7 +3,7 @@
 
 This repository contains two main components:
 
-1. **Model Training and Evaluation** (`1_model_code/`)
+1. **Model Training and Evaluation** (`emodata/`)
 
 
 ---
@@ -34,6 +34,7 @@ python test.py
 ```
 **Model weight** ```model_best.pt``` download from the given link below
 - **link** : https://drive.google.com/file/d/1QjYidu2SFmCRjFiTvYGOfiSM2lOkfFGq/view?usp=sharing
+- put the ```model_best.pt``` weight inside the `emodata` folder
 
 
 # SpEmoC Dataset Submission
@@ -41,7 +42,8 @@ python test.py
 This repository contains the dataset and resources for the **SpEmoC** project. Follow the instructions below to extract and organize the dataset files properly.
 
 ---
-
+- Dataset: https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BQPDFQ
+  
 ## 📦 Dataset Archives
 
 Inside the `SpEmoC_dataset_submission` folder, you will find the following archive files:
@@ -81,14 +83,7 @@ Inside the `SpEmoC_dataset_submission` folder, you will find the following archi
 
 ## 📁 Final Directory Structure
 
-After completing the extraction and organization steps, your directory should look like this:
-
----
-
-## 📘 Notes
-
-- The `*_json/` folders contain annotation files corresponding to each dataset split.
-- The `txt_files/` folder holds the text files that define the training, validation, and test splits.
+After completing the extraction and organization steps, make a main directory **SpEmoC** and your directory should look like this:
 
 ---
 
@@ -103,16 +98,18 @@ After completing the extraction and organization steps, your directory should lo
 | `test_set_videos/`  | Test set video files                 |
 | `test_json/`        | Test set annotations                 |
 | `txt_files/`        | Split list files (train/val/test)    |
-| `1_model_code/`     | Model code directory (if provided)   |
+| `emodata/`     | Model code directory    |
 
 ---
+## 📘 Notes
 
+- The `*_json/` folders contain annotation files corresponding to each dataset split.
+- The `txt_files/` folder holds the text files that define the training, validation, and test splits.
+
+---
 ## ✅ Setup Complete
 
 Once the above steps are completed, the dataset is ready to be used for training and testing in the **SpEmoC** project.
-
-Dataset : https://dataverse.harvard.edu/dataset.xhtml?persistentId=doi:10.7910/DVN/BQPDFQ
-
 
 ## ✅ Notes:
 - Ensure you are in the correct directory before running any script.
