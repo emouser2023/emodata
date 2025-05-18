@@ -12,7 +12,7 @@ This repository contains two main components:
 - `test.py`: Script for evaluating the model on the test set.
 
 ### Configuration:
-- Paths to dataset and pretrained weights are already set within the respective Python files.
+- Paths to the dataset and pretrained weights are already set within the respective Python files.
 
 ### Setup:
 Install required dependencies using the provided `requirements.txt`:
@@ -32,8 +32,8 @@ To **evaluate** the model on the test set:
 ```bash
 python test.py
 ```
-Model weight ```bash model_best.pt``` download from the given link below
-link : https://drive.google.com/file/d/1QjYidu2SFmCRjFiTvYGOfiSM2lOkfFGq/view?usp=sharing
+**Model weight** ```model_best.pt``` download from the given link below
+**link** : https://drive.google.com/file/d/1QjYidu2SFmCRjFiTvYGOfiSM2lOkfFGq/view?usp=sharing
 
 
 # SpEmoC Dataset Submission
