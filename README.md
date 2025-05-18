@@ -33,7 +33,7 @@ To **evaluate** the model on the test set:
 python test.py
 ```
 **Model weight** ```model_best.pt``` download from the given link below
-**link** : https://drive.google.com/file/d/1QjYidu2SFmCRjFiTvYGOfiSM2lOkfFGq/view?usp=sharing
+- **link** : https://drive.google.com/file/d/1QjYidu2SFmCRjFiTvYGOfiSM2lOkfFGq/view?usp=sharing
 
 
 # SpEmoC Dataset Submission
